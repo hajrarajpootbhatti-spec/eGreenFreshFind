@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About FreshFind — Discover local markets, seasonal produce and fresh community finds in Karachi.">
+<title>About Us | FreshFind Karachi</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root{
+  --green-50:#f0fdf4; --green-100:#dcfce7; --green-200:#bbf7d0;
+  --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
+  --green-700:#15803d; --green-800:#166534; --green-900:#14532d;
+  --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-200:#fde68a;
+  --amber-300:#fcd34d; --amber-400:#fbbf24; --amber-500:#f59e0b;
+  --amber-600:#d97706; --amber-700:#b45309;
+  --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd;
+  --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1;
+  --rose-500:#f43f5e;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+  --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --slate-900:#0f172a;
+
+  --bg:#fbfdf9; --text:#0f172a; --text-muted:#64748b;
+  --border:#e6ecdf; --border-strong:#d3ddc9;
+
+  --radius:14px; --radius-lg:20px; --radius-xl:28px;
+  --shadow-xs:0 1px 2px rgba(15,23,42,0.04);
+  --shadow-sm:0 2px 8px rgba(15,23,42,0.06);
+  --shadow:0 4px 20px rgba(15,23,42,0.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,23,42,0.18);
+
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.15;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;}
+button{cursor:pointer;border:none;background:none;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+::selection{background:var(--amber-200);color:var(--green-900);}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--slate-100);}
+::-webkit-scrollbar-thumb{background:var(--slate-300);border-radius:10px;border:2px solid var(--slate-100);}
+::-webkit-scrollbar-thumb:hover{background:var(--amber-400);}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-xs);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.logo-img{height:52px;width:auto;transition:transform 0.4s var(--ease-spring);}
+.logo:hover .logo-img{transform:scale(1.05) rotate(-3deg);}
+
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{
+  padding:9px 18px;border-radius:10px;font-size:0.88rem;font-weight:500;
+  color:var(--slate-600);transition:all 0.2s var(--ease);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-links a:hover{color:var(--green-800);background:var(--green-50);}
+.nav-links a.active{color:var(--green-900);background:var(--amber-100);font-weight:600;}
+.nav-badge{
+  background:var(--amber-500);color:white;font-size:0.65rem;padding:2px 8px;
+  border-radius:10px;font-weight:700;min-width:20px;text-align:center;
+}
+.nav-actions{display:flex;gap:8px;align-items:center;}
+.btn-ghost{
+  padding:9px 18px;border-radius:10px;font-size:0.85rem;font-weight:600;
+  color:var(--green-800);border:1.5px solid var(--border-strong);background:white;
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+}
+.btn-ghost:hover{border-color:var(--green-600);background:var(--green-50);}
+.btn-solid{
+  padding:9px 20px;border-radius:10px;font-size:0.85rem;font-weight:700;
+  color:var(--green-900);background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 4px 12px rgba(245,158,11,0.3);
+}
+.btn-solid:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,0.45);}
+
+/* ✅ CART ICON — SAME AS index.html */
+.cart-icon-btn{
+  position:relative;
+  width:44px;height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:1rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.25);
+  flex-shrink:0;
+  border:none;cursor:pointer;
+}
+.cart-icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+.cart-icon-btn .cart-count{
+  position:absolute;top:-5px;right:-5px;
+  background:var(--amber-500);color:white;
+  font-size:0.65rem;font-weight:800;
+  min-width:20px;height:20px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 5px;
+  border:2px solid white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:transform 0.3s var(--ease-spring);
+}
+.cart-icon-btn .cart-count.bump{transform:scale(1.3);}
+
+/* User pill */
+.user-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:999px;
+  background:linear-gradient(135deg,var(--green-50),var(--amber-50));
+  border:1.5px solid var(--green-200);
+  color:var(--green-800);font-size:0.85rem;font-weight:600;
+  cursor:pointer;position:relative;
+  transition:all 0.2s var(--ease);
+}
+.user-pill:hover{border-color:var(--green-400);box-shadow:0 4px 12px rgba(22,163,74,0.15);}
+.user-pill .avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:800;text-transform:uppercase;
+}
+.user-menu{
+  position:absolute;top:calc(100% + 10px);right:0;
+  min-width:220px;background:white;border-radius:14px;
+  box-shadow:0 20px 50px -12px rgba(15,23,42,0.25),0 0 0 1px var(--border);
+  padding:8px;display:none;z-index:100;
+}
+.user-menu.open{display:block;}
+.user-menu-header{padding:12px 14px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+.user-menu-header strong{display:block;color:var(--green-900);font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+.user-menu-header span{color:var(--slate-500);font-size:0.75rem;word-break:break-all;}
+.user-menu a{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9px;
+  color:var(--slate-700);font-size:0.85rem;font-weight:500;cursor:pointer;
+}
+.user-menu a:hover{background:var(--green-50);color:var(--green-800);}
+.user-menu a i{width:16px;color:var(--slate-400);font-size:0.9rem;}
+.user-menu a.danger{color:var(--rose-500);}
+.user-menu a.danger:hover{background:#fef2f2;color:#dc2626;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;border-radius:8px;}
+.hamburger span{width:22px;height:2px;background:var(--slate-700);border-radius:2px;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ============================================================
+   CART MODAL — SAME AS index.html
+   ============================================================ */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(6px);z-index:2000;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-bg.open{display:flex;animation:fadeBg 0.2s ease-out;}
+@keyframes fadeBg{from{opacity:0}to{opacity:1}}
+
+.cart-modal{
+  background:white;border-radius:var(--radius-lg);
+  width:100%;max-width:520px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.cart-head{
+  padding:20px 24px;
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;display:flex;align-items:center;gap:14px;
+}
+.cart-head-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.cart-head-text{flex:1;}
+.cart-head-text h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;margin-bottom:2px;}
+.cart-head-text span{font-size:0.75rem;opacity:0.9;}
+.cart-close{
+  width:34px;height:34px;border-radius:10px;
+  background:rgba(255,255,255,0.15);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.cart-close:hover{background:rgba(255,255,255,0.25);}
+
+.cart-body{flex:1;overflow-y:auto;padding:20px;}
+.cart-empty{
+  text-align:center;padding:50px 20px;color:var(--slate-400);
+}
+.cart-empty i{font-size:3rem;color:var(--amber-300);margin-bottom:14px;display:block;}
+.cart-empty h4{color:var(--slate-700);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;margin-bottom:6px;}
+.cart-empty p{font-size:0.85rem;}
+
+.cart-item{
+  display:flex;gap:12px;padding:14px;
+  background:var(--slate-50);border-radius:12px;
+  border:1px solid var(--border);margin-bottom:10px;
+  align-items:center;
+}
+.cart-item-img{
+  width:56px;height:56px;border-radius:10px;
+  background:white;padding:6px;flex-shrink:0;
+  border:1px solid var(--border);
+  object-fit:contain;
+}
+.cart-item-info{flex:1;min-width:0;}
+.cart-item-info h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.88rem;font-weight:700;color:var(--green-900);
+  margin-bottom:2px;
+}
+.cart-item-info .cart-item-price{font-size:0.78rem;color:var(--slate-500);}
+.cart-item-info .cart-item-price strong{
+  color:var(--amber-700);font-weight:700;
+  font-family:'Fraunces',serif;font-size:0.9rem;
+}
+.cart-qty{
+  display:flex;align-items:center;gap:6px;
+  background:white;border-radius:8px;padding:3px;
+  border:1px solid var(--border);
+}
+.cart-qty button{
+  width:26px;height:26px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--green-700);font-size:0.75rem;
+  transition:background 0.15s;
+}
+.cart-qty button:hover{background:var(--green-50);}
+.cart-qty span{
+  min-width:20px;text-align:center;
+  font-weight:700;font-size:0.85rem;color:var(--green-900);
+}
+.cart-item-remove{
+  width:30px;height:30px;border-radius:8px;
+  background:white;border:1px solid var(--border);
+  color:var(--rose-500);font-size:0.75rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.cart-item-remove:hover{background:#fef2f2;border-color:var(--rose-500);}
+
+.cart-foot{
+  padding:18px 24px;background:white;
+  border-top:1px solid var(--border);
+}
+.cart-total{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:14px;padding:12px 16px;border-radius:12px;
+  background:var(--amber-50);border:1px solid var(--amber-200);
+}
+.cart-total .label{
+  font-size:0.82rem;color:var(--amber-700);font-weight:700;
+  text-transform:uppercase;letter-spacing:0.05em;
+}
+.cart-total .amount{
+  font-family:'Fraunces',serif;
+  font-size:1.6rem;font-weight:800;color:var(--green-900);
+  letter-spacing:-0.02em;
+}
+.checkout-btn{
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;
+  font-size:0.92rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 16px rgba(22,163,74,0.3);
+}
+.checkout-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.about-hero{
+  padding:80px 0 90px;position:relative;
+  background:
+    radial-gradient(800px 400px at 10% 20%,#e8f5e9,transparent 60%),
+    radial-gradient(700px 400px at 90% 80%,#fff8e1,transparent 60%),
+    linear-gradient(180deg,#fbfdf9,#f4f9f0);
+}
+.about-hero .row{align-items:center;}
+
+.hero-small-title{
+  display:inline-block;
+  color:var(--amber-600);
+  font-size:0.72rem;
+  font-weight:800;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.about-hero h1{
+  color:var(--green-900);
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  line-height:1.1;
+  margin-bottom:16px;
+}
+.about-hero h1 span{color:var(--green-600);font-style:italic;position:relative;}
+.about-hero h1 span::after{
+  content:'';position:absolute;left:0;right:0;bottom:4px;height:14px;
+  background:var(--amber-300);opacity:0.55;border-radius:4px;z-index:-1;
+}
+
+.about-hero p{
+  color:var(--slate-600);
+  font-size:1.02rem;
+  line-height:1.8;
+  max-width:560px;
+  margin-bottom:28px;
+}
+
+.hero-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.9rem;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 18px rgba(22,163,74,0.3);
+  margin-right:10px;
+}
+.hero-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(22,163,74,0.4);color:white;}
+
+.hero-outline-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:12px;
+  background:white;color:var(--green-800);
+  font-weight:700;font-size:0.9rem;
+  border:1.5px solid var(--border-strong);
+  transition:all 0.2s var(--ease);
+}
+.hero-outline-btn:hover{border-color:var(--green-600);background:var(--green-50);transform:translateY(-2px);}
+
+/* HERO IMAGE */
+.hero-image{
+  position:relative;
+  padding-left:30px;
+}
+.hero-image img{
+  width:100%;height:430px;object-fit:cover;
+  border-radius:var(--radius-xl);
+  box-shadow:0 20px 45px rgba(22,101,52,0.16);
+}
+.floating-card{
+  position:absolute;bottom:25px;left:0;
+  background:white;padding:15px 20px;
+  border-radius:16px;
+  box-shadow:0 10px 35px rgba(0,0,0,0.12);
+  border:1px solid var(--border);
+}
+.floating-icon{
+  width:48px;height:48px;
+  background:var(--green-100);color:var(--green-700);
+  display:flex;align-items:center;justify-content:center;
+  border-radius:12px;font-size:1.2rem;
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats-section{padding:0 0 70px;}
+.stats-wrapper{
+  background:white;border-radius:var(--radius-xl);
+  padding:38px 20px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.stat-box{
+  text-align:center;
+  border-right:1px solid var(--border);
+  padding:10px 0;
+}
+.stat-box:last-child{border-right:none;}
+.stat-box h2{
+  color:var(--green-800);
+  font-size:2.2rem;font-weight:800;
+  margin-bottom:6px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.stat-box p{color:var(--text-muted);font-size:0.82rem;margin:0;}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section-label{
+  display:inline-block;
+  color:var(--amber-600);
+  font-size:0.72rem;font-weight:800;
+  letter-spacing:0.15em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.section-title{
+  color:var(--green-900);
+  font-weight:800;
+  font-size:clamp(1.8rem,3.5vw,2.4rem);
+  margin-top:0;
+  line-height:1.15;
+}
+.heading-center{text-align:center;margin-bottom:45px;}
+.heading-center p{
+  color:var(--slate-600);max-width:620px;
+  margin:14px auto 0;line-height:1.7;
+}
+
+/* ============================================================
+   STORY
+   ============================================================ */
+.story-section{padding:85px 0;background:white;}
+.story-image{position:relative;}
+.story-image img{
+  width:100%;height:390px;object-fit:cover;
+  border-radius:var(--radius-xl);
+  position:relative;z-index:1;
+}
+.story-image::after{
+  content:'';position:absolute;
+  width:90px;height:90px;
+  background:var(--amber-300);
+  border-radius:20px;
+  left:-18px;bottom:-18px;
+  z-index:0;opacity:0.85;
+}
+.story-text{
+  color:var(--slate-600);line-height:1.9;
+  font-size:0.92rem;margin-top:18px;
+}
+.story-list{list-style:none;padding:0;margin-top:25px;}
+.story-list li{
+  margin-bottom:13px;font-size:0.9rem;
+  font-weight:500;color:var(--slate-700);
+  display:flex;align-items:center;gap:10px;
+}
+.story-list i{color:var(--green-600);font-size:0.95rem;}
+
+/* ============================================================
+   MISSION
+   ============================================================ */
+.mission-section{padding:70px 0;background:var(--bg);}
+.mission-box{
+  background:linear-gradient(135deg,var(--green-800),var(--green-700));
+  color:white;text-align:center;
+  padding:60px 30px;
+  border-radius:var(--radius-xl);
+  position:relative;overflow:hidden;
+}
+.mission-box::before,
+.mission-box::after{
+  content:'';position:absolute;
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%;
+}
+.mission-box::before{width:250px;height:250px;top:-120px;left:-100px;}
+.mission-box::after{width:300px;height:300px;bottom:-160px;right:-100px;}
+.mission-icon{
+  width:65px;height:65px;
+  background:rgba(255,255,255,0.13);
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;margin:0 auto 20px;
+  font-size:1.5rem;color:var(--amber-400);
+  position:relative;
+}
+.mission-box h2{
+  font-size:2.2rem;font-weight:800;
+  color:white;position:relative;
+  margin-bottom:16px;
+}
+.mission-box p{
+  max-width:700px;margin:0 auto;
+  color:#d1fae5;line-height:1.9;
+  font-size:0.95rem;position:relative;
+}
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.how-section{padding:85px 0;background:white;}
+.step-card{
+  background:var(--slate-50);
+  padding:35px 25px;
+  border-radius:var(--radius-lg);
+  height:100%;position:relative;
+  border:1px solid var(--border);
+  transition:all 0.3s var(--ease);
+}
+.step-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--green-200);
+  box-shadow:0 15px 35px rgba(22,101,52,0.09);
+}
+.step-number{
+  position:absolute;right:20px;top:18px;
+  color:var(--green-800);opacity:0.15;
+  font-size:2.5rem;font-weight:800;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.step-icon{
+  width:55px;height:55px;
+  background:var(--green-100);color:var(--green-700);
+  border-radius:15px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:22px;
+}
+.step-card h5{
+  color:var(--green-900);font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.05rem;margin-bottom:10px;
+}
+.step-card p{
+  color:var(--slate-600);font-size:0.85rem;
+  line-height:1.7;margin:0;
+}
+
+/* ============================================================
+   FRESH CATEGORIES
+   ============================================================ */
+.fresh-categories{padding:85px 0;background:white;}
+.category-card{
+  display:block;height:100%;
+  background:var(--slate-50);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:all 0.3s var(--ease);
+}
+.category-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--green-200);
+  box-shadow:0 15px 35px rgba(22,101,52,0.10);
+}
+.category-image{
+  height:180px;position:relative;overflow:hidden;
+}
+.category-image img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.4s var(--ease);
+}
+.category-card:hover .category-image img{transform:scale(1.06);}
+.category-tag{
+  position:absolute;top:14px;left:14px;
+  background:white;color:var(--green-800);
+  padding:5px 12px;border-radius:20px;
+  font-size:0.68rem;font-weight:700;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+.category-content{padding:22px;}
+.category-icon{
+  width:42px;height:42px;
+  background:var(--green-100);color:var(--green-700);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;font-size:1rem;
+}
+.category-content h4{
+  color:var(--green-900);
+  font-size:1.1rem;font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  margin-bottom:7px;
+}
+.category-content p{
+  color:var(--slate-600);font-size:0.82rem;
+  line-height:1.7;margin-bottom:15px;
+}
+.explore-link{
+  color:var(--green-700);font-size:0.8rem;
+  font-weight:700;display:inline-flex;
+  align-items:center;gap:6px;
+}
+.explore-link i{transition:transform 0.2s var(--ease);}
+.category-card:hover .explore-link i{transform:translateX(4px);}
+
+/* ============================================================
+   VALUES
+   ============================================================ */
+.values-section{padding:85px 0;background:var(--bg);}
+.value-card{
+  background:white;
+  padding:35px 24px;text-align:center;
+  border-radius:var(--radius-lg);
+  height:100%;
+  box-shadow:var(--shadow-sm);
+  border:1px solid var(--border);
+  transition:all 0.3s var(--ease);
+}
+.value-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 15px 35px rgba(22,101,52,0.1);
+  border-color:var(--amber-300);
+}
+.value-icon{
+  width:62px;height:62px;
+  background:linear-gradient(135deg,var(--green-100),var(--amber-100));
+  color:var(--green-700);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;font-size:1.3rem;
+}
+.value-card h5{
+  color:var(--green-900);font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.05rem;margin-bottom:10px;
+}
+.value-card p{
+  color:var(--slate-600);font-size:0.85rem;
+  line-height:1.7;margin:0;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section{
+  padding:75px 20px;text-align:center;
+  background:linear-gradient(135deg,var(--green-800),var(--green-700));
+  color:white;position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;top:-50%;right:-10%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(251,191,36,0.15),transparent 70%);
+  border-radius:50%;
+}
+.cta-section h2{
+  font-size:clamp(1.8rem,3.5vw,2.4rem);
+  font-weight:800;color:white;
+  position:relative;margin-bottom:14px;
+}
+.cta-section p{
+  color:#d1fae5;max-width:600px;
+  margin:0 auto 28px;line-height:1.7;
+  position:relative;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  font-weight:700;font-size:0.9rem;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  position:relative;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--slate-900);color:var(--slate-300);
+  padding:60px 0 24px;position:relative;
+}
+.footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-500),var(--amber-400),var(--green-500));
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-img{height:52px;margin-bottom:16px;filter:brightness(0) invert(1);}
+.footer-brand p{font-size:0.88rem;color:var(--slate-400);margin:0 0 20px;max-width:320px;}
+.footer-col h4{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;color:white;margin-bottom:18px;
+}
+.footer-col a{display:block;padding:6px 0;font-size:0.88rem;color:var(--slate-400);cursor:pointer;}
+.footer-col a:hover{color:var(--amber-400);}
+.social-row{display:flex;gap:10px;}
+.social-row a{
+  width:40px;height:40px;background:rgba(255,255,255,0.06);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--slate-300);transition:all 0.25s var(--ease);
+}
+.social-row a:hover{background:var(--amber-500);color:var(--green-900);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;
+  text-align:center;font-size:0.82rem;color:var(--slate-500);
+}
+
+/* ============================================================
+   AUTH MODALS
+   ============================================================ */
+.auth-modal{
+  background:white;border-radius:var(--radius-lg);
+  padding:32px;width:100%;max-width:440px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;overflow-y:auto;
+}
+.auth-modal .modal-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--green-100),var(--amber-100));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--green-700);
+  margin-bottom:18px;
+}
+.auth-modal h2{font-size:1.5rem;color:var(--green-900);margin-bottom:6px;}
+.auth-modal .hint{font-size:0.82rem;color:var(--text-muted);margin-bottom:22px;}
+.auth-modal form{display:flex;flex-direction:column;gap:14px;}
+.auth-modal .field{display:flex;flex-direction:column;gap:6px;}
+.auth-modal label{font-size:0.78rem;font-weight:700;color:var(--slate-600);}
+.auth-modal .field-input-wrap{position:relative;display:flex;align-items:center;}
+.auth-modal .field-input-wrap i{position:absolute;left:14px;color:var(--slate-400);pointer-events:none;}
+.auth-modal input{
+  width:100%;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.9rem;outline:none;background:var(--slate-50);
+  transition:all 0.2s;
+}
+.auth-modal input:focus{border-color:var(--amber-400);background:white;box-shadow:0 0 0 4px rgba(251,191,36,0.12);}
+.auth-modal .submit-btn{
+  padding:14px;background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;font-weight:700;font-size:0.92rem;
+  margin-top:6px;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.auth-modal .submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,163,74,0.3);}
+.auth-modal .footer-text{
+  text-align:center;margin-top:18px;font-size:0.82rem;color:var(--text-muted);
+}
+.auth-modal .footer-text a{color:var(--green-700);font-weight:700;cursor:pointer;}
+.auth-modal .footer-text a:hover{text-decoration:underline;}
+
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:36px;height:36px;border-radius:10px;
+  background:var(--slate-100);color:var(--slate-700);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover{background:var(--rose-500);color:white;}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast-stack{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:3000;display:flex;flex-direction:column;gap:10px;align-items:center;
+}
+.toast{
+  background:var(--slate-900);color:white;padding:13px 22px;
+  border-radius:12px;font-size:0.87rem;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:var(--shadow-lg);animation:toastIn 0.4s var(--ease-spring);
+  max-width:90vw;
+}
+.toast.success{background:linear-gradient(135deg,var(--green-700),var(--green-800));}
+.toast.error{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+@keyframes toastIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
+   CHATBOT — SAME AS index.html
+   ============================================================ */
+.chat-fab{
+  position:fixed;bottom:28px;right:28px;
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-900));
+  color:white;font-size:1.5rem;
+  box-shadow:0 10px 30px rgba(22,101,52,0.45);
+  z-index:1500;
+  transition:all 0.3s var(--ease-spring);
+  animation:fabPulse 2.5s infinite;
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--amber-400);
+}
+@keyframes fabPulse{
+  0%,100%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 0 rgba(251,191,36,0.5);}
+  50%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 14px rgba(251,191,36,0);}
+}
+.chat-fab:hover{transform:scale(1.08);}
+.chat-fab .fab-close{display:none;}
+.chat-fab.open .fab-icon{display:none;}
+.chat-fab.open .fab-close{display:inline;}
+.chat-fab .notif-dot{
+  position:absolute;top:4px;right:4px;
+  width:14px;height:14px;background:var(--amber-400);
+  border-radius:50%;border:2px solid white;
+}
+
+.chat-panel{
+  position:fixed;bottom:100px;right:28px;
+  width:380px;max-width:calc(100vw - 40px);
+  height:560px;max-height:calc(100vh - 130px);
+  background:white;border-radius:var(--radius-lg);
+  box-shadow:0 30px 60px -12px rgba(15,23,42,0.35);
+  display:flex;flex-direction:column;z-index:1500;
+  overflow:hidden;border:1px solid var(--border);
+  transform:translateY(20px) scale(0.95);
+  opacity:0;pointer-events:none;
+  transition:all 0.3s var(--ease-spring);
+}
+.chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
+
+.chat-head{
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:42px;height:42px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.chat-head-text{flex:1;}
+.chat-head-text h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.92rem;font-weight:700;
+}
+.chat-head-text span{
+  font-size:0.72rem;opacity:0.9;
+  display:flex;align-items:center;gap:5px;
+}
+.chat-head-text span::before{
+  content:'';width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(251,191,36,0.3);
+}
+.chat-head-close{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,0.12);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.chat-head-close:hover{background:rgba(255,255,255,0.25);}
+
+.chat-body{
+  flex:1;overflow-y:auto;padding:20px;
+  background:linear-gradient(180deg,#fbfdf9,#fffbeb);
+  display:flex;flex-direction:column;gap:12px;
+}
+.chat-msg{
+  max-width:82%;padding:11px 15px;border-radius:16px;
+  font-size:0.86rem;line-height:1.5;
+  animation:msgIn 0.3s var(--ease-out);
+  word-wrap:break-word;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{
+  background:white;color:var(--slate-700);
+  border:1px solid var(--border);
+  border-bottom-left-radius:4px;align-self:flex-start;
+  box-shadow:var(--shadow-xs);
+}
+.chat-msg.user{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-bottom-right-radius:4px;align-self:flex-end;
+}
+
+.chat-input-wrap{
+  padding:12px 16px 16px;background:white;
+  border-top:1px solid var(--border);
+  display:flex;gap:8px;
+}
+.chat-input-wrap input{
+  flex:1;padding:11px 15px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.85rem;outline:none;
+}
+.chat-input-wrap input:focus{
+  border-color:var(--amber-400);
+  box-shadow:0 0 0 3px rgba(251,191,36,0.15);
+}
+.chat-send{
+  width:44px;height:44px;border-radius:11px;
+  background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);flex-shrink:0;
+}
+.chat-send:hover{transform:translateY(-1px);}
+
+.chat-typing{
+  display:flex;gap:4px;padding:12px 16px;
+  background:white;border-radius:16px 16px 16px 4px;
+  align-self:flex-start;border:1px solid var(--border);
+}
+.chat-typing span{
+  width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;animation:typing 1.2s infinite;
+}
+.chat-typing span:nth-child(2){animation-delay:0.15s;}
+.chat-typing span:nth-child(3){animation-delay:0.3s;}
+@keyframes typing{
+  0%,60%,100%{transform:translateY(0);opacity:0.4}
+  30%{transform:translateY(-4px);opacity:1}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:white;padding:16px;
+    box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
+    align-items:stretch;gap:4px;
+  }
+  .hamburger{display:flex;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .about-hero{padding:60px 0 70px;}
+  .about-hero h1{font-size:2.6rem;}
+  .hero-image{padding-left:0;margin-top:40px;}
+}
+@media (max-width:640px){
+  .container{padding:0 18px;}
+  .about-hero{padding:50px 0 60px;}
+  .about-hero h1{font-size:2rem;}
+  .section-title{font-size:1.7rem;}
+  .hero-image img{height:300px;}
+  .floating-card{left:15px;}
+  .stat-box{border-right:none;border-bottom:1px solid var(--border);margin-bottom:14px;padding-bottom:14px;}
+  .stat-box:last-child{border-bottom:none;}
+  .mission-box h2, .cta-section h2{font-size:1.7rem;}
+  .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .nav-actions .btn-ghost,
+  .nav-actions .btn-solid{display:none;}
+  .auth-modal{padding:24px;}
+  .category-image{height:145px;}
+  .category-content{padding:18px;}
+  .chat-panel{right:12px;left:12px;width:auto;bottom:90px;}
+  .chat-fab{bottom:20px;right:20px;width:56px;height:56px;font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ HEADER ============================================================ -->
+<header class="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="market.html">Markets</a></li>
+      <li><a href="produce.html">Produce</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="saved.html">Saved <span class="nav-badge" id="navBadge">0</span></a></li>
+    </ul>
+    <div class="nav-actions" id="navActions"></div>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ HERO ============================================================ -->
+<section class="about-hero">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="hero-small-title">About FreshFind</span>
+        <h1>Fresh Food.<br><span>Local Connections.</span></h1>
+        <p>FreshFind helps people discover farmers markets, fresh produce, and seasonal food in their local communities — all in one simple place.</p>
+
+        <a href="market.html" class="hero-btn">
+          Explore Markets <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#mission" class="hero-outline-btn">Our Mission</a>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hero-image">
+          <img src="images/about-hero.png" alt="Fresh local farmers market"
+               onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'430\'><rect width=\'600\' height=\'430\' fill=\'%23dcfce7\'/><text x=\'50%\' y=\'50%\' font-size=\'80\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🌿</text></svg>')">
+
+          <div class="floating-card">
+            <div class="d-flex align-items-center gap-3">
+              <div class="floating-icon"><i class="fas fa-seedling"></i></div>
+              <div>
+                <small class="text-muted" style="font-size:0.72rem;">Our focus</small>
+                <div class="fw-bold" style="color:var(--green-900);">Fresh & Local</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ STATS ============================================================ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-wrapper">
+      <div class="row">
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2><span class="counter" data-target="30">0</span>+</h2>
+            <p>Local Markets</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2><span class="counter" data-target="100">0</span>+</h2>
+            <p>Fresh Products</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2><span class="counter" data-target="12">0</span>+</h2>
+            <p>Karachi Areas</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-box">
+            <h2><span class="counter" data-target="1000">0</span>+</h2>
+            <p>Happy Visitors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ OUR STORY ============================================================ -->
+<section class="story-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="story-image">
+          <img src="images/about-story.png" alt="Fresh local produce"
+               onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'390\'><rect width=\'600\' height=\'390\' fill=\'%23dcfce7\'/><text x=\'50%\' y=\'50%\' font-size=\'80\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🥕</text></svg>')">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">Making Local Food<br>Easier to Find</h2>
+
+        <p class="story-text">
+          Finding fresh food should not be complicated. FreshFind was created to bring local farmers markets, seasonal produce, and useful market information together in one convenient place.
+        </p>
+        <p class="story-text">
+          Whether you're searching for fresh vegetables, seasonal fruits, or a nearby market, FreshFind helps you discover what's available around you.
+        </p>
+
+        <ul class="story-list">
+          <li><i class="fas fa-circle-check"></i> Discover local farmers markets</li>
+          <li><i class="fas fa-circle-check"></i> Explore seasonal produce</li>
+          <li><i class="fas fa-circle-check"></i> Find useful market information</li>
+          <li><i class="fas fa-circle-check"></i> Plan your next fresh-food trip</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MISSION ============================================================ -->
+<section class="mission-section" id="mission">
+  <div class="container">
+    <div class="mission-box">
+      <div class="mission-icon"><i class="fas fa-heart"></i></div>
+      <h2>Our Mission</h2>
+      <p>Our mission is to connect people with fresh, local food while making it easier to discover the markets and producers in their communities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ HOW IT WORKS ============================================================ -->
+<section class="how-section">
+  <div class="container">
+    <div class="heading-center">
+      <span class="section-label">Simple & Easy</span>
+      <h2 class="section-title">How FreshFind Works</h2>
+      <p>Finding your next local market is simple. Just follow these four steps.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-icon"><i class="fas fa-magnifying-glass"></i></div>
+          <h5>Search</h5>
+          <p>Search for a market, location, or fresh product you're looking for.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-icon"><i class="fas fa-store"></i></div>
+          <h5>Explore</h5>
+          <p>Browse local markets and discover what each location has to offer.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-icon"><i class="fas fa-carrot"></i></div>
+          <h5>Discover</h5>
+          <p>Explore fresh and seasonal produce available at local markets.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <div class="step-icon"><i class="fas fa-location-dot"></i></div>
+          <h5>Visit</h5>
+          <p>Check the location and plan your visit to your chosen market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FRESH CATEGORIES ============================================================ -->
+<section class="fresh-categories">
+  <div class="container">
+    <div class="heading-center">
+      <span class="section-label">Fresh Finds</span>
+      <h2 class="section-title">Explore Our Fresh Categories</h2>
+      <p>Discover fresh, seasonal and local products all in one place.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-lg-3">
+        <a href="produce.html" class="category-card">
+          <div class="category-image">
+            <img src="images/fruits.png" alt="Fresh fruits"
+                 onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'180\'><rect width=\'400\' height=\'180\' fill=\'%23fed7aa\'/><text x=\'50%\' y=\'50%\' font-size=\'60\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🍎</text></svg>')">
+            <span class="category-tag">Seasonal</span>
+          </div>
+          <div class="category-content">
+            <div class="category-icon"><i class="fas fa-apple-whole"></i></div>
+            <h4>Fruits</h4>
+            <p>Fresh and seasonal fruits from local markets.</p>
+            <span class="explore-link">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <a href="produce.html" class="category-card">
+          <div class="category-image">
+            <img src="images/vegetables.png" alt="Fresh vegetables"
+                 onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'180\'><rect width=\'400\' height=\'180\' fill=\'%23bbf7d0\'/><text x=\'50%\' y=\'50%\' font-size=\'60\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🥕</text></svg>')">
+            <span class="category-tag">Farm Fresh</span>
+          </div>
+          <div class="category-content">
+            <div class="category-icon"><i class="fas fa-carrot"></i></div>
+            <h4>Vegetables</h4>
+            <p>Fresh vegetables for everyday meals and healthy choices.</p>
+            <span class="explore-link">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <a href="produce.html" class="category-card">
+          <div class="category-image">
+            <img src="images/herbs.png" alt="Fresh herbs"
+                 onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'180\'><rect width=\'400\' height=\'180\' fill=\'%23a7f3d0\'/><text x=\'50%\' y=\'50%\' font-size=\'60\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🌿</text></svg>')">
+            <span class="category-tag">Naturally Fresh</span>
+          </div>
+          <div class="category-content">
+            <div class="category-icon"><i class="fas fa-seedling"></i></div>
+            <h4>Herbs</h4>
+            <p>Fresh aromatic herbs to bring flavor to every meal.</p>
+            <span class="explore-link">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <a href="produce.html" class="category-card">
+          <div class="category-image">
+            <img src="images/dairy.png" alt="Fresh dairy products"
+                 onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'180\'><rect width=\'400\' height=\'180\' fill=\'%23bae6fd\'/><text x=\'50%\' y=\'50%\' font-size=\'60\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🥛</text></svg>')">
+            <span class="category-tag">Everyday Fresh</span>
+          </div>
+          <div class="category-content">
+            <div class="category-icon"><i class="fas fa-cow"></i></div>
+            <h4>Dairy</h4>
+            <p>Everyday dairy essentials from local food markets.</p>
+            <span class="explore-link">Explore <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ VALUES ============================================================ -->
+<section class="values-section">
+  <div class="container">
+    <div class="heading-center">
+      <span class="section-label">Why FreshFind</span>
+      <h2 class="section-title">What We Care About</h2>
+      <p>FreshFind is built around making local food discovery simple, useful, and enjoyable.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-leaf"></i></div>
+          <h5>Freshness</h5>
+          <p>Discover fresh produce and seasonal products from local markets.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-location-dot"></i></div>
+          <h5>Local</h5>
+          <p>Connect with markets and food destinations within your community.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-calendar-days"></i></div>
+          <h5>Seasonal</h5>
+          <p>Learn what fresh produce is available throughout different seasons.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon"><i class="fas fa-heart"></i></div>
+          <h5>Community</h5>
+          <p>Help people discover and support local food communities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CTA ============================================================ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Find Something Fresh?</h2>
+    <p>Explore local markets, discover seasonal produce, and start your next fresh-food journey.</p>
+    <a href="market.html" class="cta-btn">
+      Explore Markets <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+        <p>Find the nearest fruits, vegetables, herbs & dairy shops and markets in Karachi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="market.html">All Markets</a>
+        <a href="produce.html">Produce Guide</a>
+        <a href="saved.html">Saved Markets</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a onclick="openAuthModal('login')">Login</a>
+        <a onclick="openAuthModal('signup')">Create Account</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Along</h4>
+        <div class="social-row">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="yr"></span> FreshFind. All rights reserved. · © Aptech Limited
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ CART MODAL ============================================================ -->
+<div class="modal-bg" id="cartModal" onclick="if(event.target===this)closeCartModal()">
+  <div class="cart-modal">
+    <div class="cart-head">
+      <div class="cart-head-icon"><i class="fas fa-shopping-cart"></i></div>
+      <div class="cart-head-text">
+        <h3>Your Basket</h3>
+        <span id="cartItemsCount">0 items</span>
+      </div>
+      <button class="cart-close" onclick="closeCartModal()"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot" id="cartFoot" style="display:none;">
+      <div class="cart-total">
+        <span class="label">Total</span>
+        <span class="amount" id="cartTotalAmount">Rs 0</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">
+        <i class="fas fa-check-circle"></i> Proceed to Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ AUTH MODALS ============================================================ -->
+<div class="modal-bg" id="loginModal" onclick="if(event.target===this)closeAuthModal('login')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('login')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-leaf"></i></div>
+    <h2>Welcome back</h2>
+    <p class="hint">Sign in to save your favourite markets.</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <div class="footer-text">Don't have an account? <a onclick="closeAuthModal('login');openAuthModal('signup')">Sign up free</a></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="signupModal" onclick="if(event.target===this)closeAuthModal('signup')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('signup')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-seedling"></i></div>
+    <h2>Create your account</h2>
+    <p class="hint">Join FreshFind to save markets near you.</p>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label>Full Name</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" required placeholder="Your name" minlength="2">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" required placeholder="Create a password" minlength="4">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+    </form>
+    <div class="footer-text">Already have an account? <a onclick="closeAuthModal('signup');openAuthModal('login')">Sign in</a></div>
+  </div>
+</div>
+
+<!-- ============================================================ CHATBOT — SAME AS index.html ============================================================ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat">
+  <i class="fas fa-comment-dots fab-icon"></i>
+  <i class="fas fa-xmark fab-close"></i>
+  <span class="notif-dot" id="chatDot"></span>
+</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+    <div class="chat-head-text">
+      <h4>FreshFind Assistant</h4>
+      <span>Online now</span>
+    </div>
+    <button class="chat-head-close" onclick="toggleChat()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi! 👋 I know all about our <b>markets, fruits, vegetables, herbs, dairy</b>, prices, and areas in Karachi. Ask me anything!</div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button class="chat-send" id="chatSend" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- ============================================================ TOASTS ============================================================ -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ============================================================
+   PRODUCT DATA — same as index.html (for cart + chatbot data)
+   ============================================================ */
+const FRUITS = [
+  { id:"fruit-apple", name:"Apple",       urdu:"Saib",       price:300, unit:"kg",    trend:"stable", image:"images/fruit-apple.png", category:"fruits" },
+  { id:"fruit-banana", name:"Banana",     urdu:"Kela",       price:300, unit:"dozen", trend:"up",     image:"images/fruit-banana.png", category:"fruits" },
+  { id:"fruit-mango", name:"Mango",       urdu:"Aam",        price:275, unit:"kg",    trend:"down",   image:"images/fruit-mango.png", category:"fruits" },
+  { id:"fruit-orange", name:"Orange",     urdu:"Santra",     price:250, unit:"kg",    trend:"stable", image:"images/fruit-orange.png", category:"fruits" },
+  { id:"fruit-strawberry", name:"Strawberry", urdu:"Strawberry", price:350, unit:"kg", trend:"up",   image:"images/fruit-strawberry.png", category:"fruits" },
+  { id:"fruit-watermelon", name:"Watermelon", urdu:"Tarbooz", price:80,  unit:"kg",    trend:"down",   image:"images/fruit-watermelon.png", category:"fruits" },
+  { id:"fruit-grapes", name:"Grapes",     urdu:"Angoor",     price:280, unit:"kg",    trend:"stable", image:"images/fruit-grapes.png", category:"fruits" },
+  { id:"fruit-guava", name:"Guava",       urdu:"Amrood",     price:200, unit:"kg",    trend:"stable", image:"images/fruit-guava.png", category:"fruits" },
+  { id:"fruit-pomegranate", name:"Pomegranate", urdu:"Anar", price:400, unit:"kg",    trend:"up",     image:"images/fruit-pomegranate.png", category:"fruits" }
+];
+
+const VEGETABLES = [
+  { id:"veg-tomato", name:"Tomato",      urdu:"Tamatar",    price:150, unit:"kg",    trend:"down",   image:"images/veg-tomato.png", category:"vegetables" },
+  { id:"veg-onion", name:"Onion",       urdu:"Piyaz",      price:200, unit:"kg",    trend:"up",     image:"images/veg-onion.png", category:"vegetables" },
+  { id:"veg-potato", name:"Potato",      urdu:"Aloo",       price:110, unit:"kg",    trend:"stable", image:"images/veg-potato.png", category:"vegetables" },
+  { id:"veg-carrot", name:"Carrot",      urdu:"Gajar",      price:100, unit:"kg",    trend:"stable", image:"images/veg-carrot.png", category:"vegetables" },
+  { id:"veg-lemon", name:"Lemon",       urdu:"Nimbu",      price:200, unit:"kg",    trend:"up",     image:"images/veg-lemon.png", category:"vegetables" },
+  { id:"veg-cucumber", name:"Cucumber",    urdu:"Kheera",     price:80,  unit:"kg",    trend:"down",   image:"images/veg-cucumber.png", category:"vegetables" },
+  { id:"veg-spinach", name:"Spinach",     urdu:"Palak",      price:60,  unit:"bunch", trend:"stable", image:"images/veg-spinach.png", category:"vegetables" },
+  { id:"veg-cauliflower", name:"Cauliflower", urdu:"Gobi",   price:120, unit:"kg",    trend:"stable", image:"images/veg-cauliflower.png", category:"vegetables" },
+  { id:"veg-chili", name:"Green Chili", urdu:"Hari Mirch", price:180, unit:"kg",    trend:"up",     image:"images/veg-chili.png", category:"vegetables" },
+  { id:"veg-eggplant", name:"Eggplant",    urdu:"Baingan",    price:90,  unit:"kg",    trend:"down",   image:"images/veg-eggplant.png", category:"vegetables" }
+];
+
+const HERBS = [
+  { id:"herb-mint", name:"Mint",         urdu:"Podina",       price:40,  unit:"bunch", trend:"stable", image:"images/herb-mint.png", category:"herbs" },
+  { id:"herb-coriander", name:"Coriander",    urdu:"Dhania",       price:40,  unit:"bunch", trend:"up",     image:"images/herb-coriander.png", category:"herbs" },
+  { id:"herb-basil", name:"Basil",        urdu:"Tulsi",        price:60,  unit:"bunch", trend:"stable", image:"images/herb-basil.png", category:"herbs" },
+  { id:"herb-curry", name:"Curry Leaves", urdu:"Curry Patta",  price:30,  unit:"bunch", trend:"down",   image:"images/herb-curry.png", category:"herbs" },
+  { id:"herb-green-onion", name:"Green Onion",  urdu:"Hara Pyaz",    price:50,  unit:"bunch", trend:"stable", image:"images/herb-green-onion.png", category:"herbs" },
+  { id:"herb-dill", name:"Dill",         urdu:"Soya",         price:45,  unit:"bunch", trend:"up",     image:"images/herb-dill.png", category:"herbs" },
+  { id:"herb-fenugreek", name:"Fenugreek",    urdu:"Methi",        price:50,  unit:"bunch", trend:"stable", image:"images/herb-fenugreek.png", category:"herbs" },
+  { id:"herb-parsley", name:"Parsley",      urdu:"Parsley",      price:80,  unit:"bunch", trend:"stable", image:"images/herb-parsley.png", category:"herbs" }
+];
+
+const DAIRY = [
+  { id:"dairy-milk", name:"Fresh Milk",    urdu:"Taaza Doodh",  price:220, unit:"litre", trend:"up",     image:"images/dairy-milk.png", category:"dairy" },
+  { id:"dairy-yogurt", name:"Yogurt",        urdu:"Dahi",         price:200, unit:"kg",    trend:"stable", image:"images/dairy-yogurt.png", category:"dairy" },
+  { id:"dairy-butter", name:"Butter",        urdu:"Makkhan",      price:1400,unit:"kg",    trend:"up",     image:"images/dairy-butter.png", category:"dairy" },
+  { id:"dairy-cream", name:"Cream",         urdu:"Malai",        price:900, unit:"kg",    trend:"stable", image:"images/dairy-cream.png", category:"dairy" },
+  { id:"dairy-paneer", name:"Cottage Cheese",urdu:"Paneer",       price:1600,unit:"kg",    trend:"stable", image:"images/dairy-paneer.png", category:"dairy" },
+  { id:"dairy-cheese", name:"Cheese",        urdu:"Cheese",       price:1800,unit:"kg",    trend:"up",     image:"images/dairy-cheese.png", category:"dairy" },
+  { id:"dairy-lassi", name:"Lassi",         urdu:"Lassi",        price:150, unit:"glass", trend:"stable", image:"images/dairy-lassi.png", category:"dairy" },
+  { id:"dairy-khoya", name:"Khoya",         urdu:"Khoya",        price:1400,unit:"kg",    trend:"up",     image:"images/dairy-khoya.png", category:"dairy" }
+];
+
+const ALL_PRODUCTS = [...FRUITS, ...VEGETABLES, ...HERBS, ...DAIRY];
+
+/* ============================================================
+   STATE & HELPERS
+   ============================================================ */
+const store = {
+  get(k,d){ try { return JSON.parse(localStorage.getItem('ff_'+k)) ?? d; } catch { return d; } },
+  set(k,v){ localStorage.setItem('ff_'+k, JSON.stringify(v)); }
+};
+
+let appState = {
+  bookmarks: store.get('bookmarks', { markets:[] }),
+  user: store.get('user', null),
+  cart: store.get('cart', [])   // ✅ SHARED WITH ALL PAGES
+};
+
+const $ = (s,r=document) => r.querySelector(s);
+const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+
+function escape(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function getInitials(name){
+  if(!name) return '?';
+  const parts = name.trim().split(' ');
+  if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  return name.slice(0,2).toUpperCase();
+}
+function getFirstName(name){ return name ? name.trim().split(' ')[0] : 'Friend'; }
+function formatPrice(n){ return 'Rs ' + Number(n).toLocaleString('en-PK'); }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function toast(msg, type='success', icon='fa-circle-check'){
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.innerHTML = `<i class="fas ${icon}"></i><span>${escape(msg)}</span>`;
+  $('#toastStack').appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(20px)'; }, 2200);
+  setTimeout(() => el.remove(), 2600);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+function toggleNav(){
+  $('#navLinks').classList.toggle('open');
+  $('#hamburger').classList.toggle('open');
+}
+
+/* ============================================================
+   ✅ CART SYSTEM — SHARED ff_cart (SAME AS index.html)
+   ============================================================ */
+function getCartCount(){
+  return appState.cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+}
+function getCartTotal(){
+  return appState.cart.reduce((sum, item) => {
+    const product = ALL_PRODUCTS.find(p => String(p.id) === String(item.id));
+    if(product) return sum + product.price * (item.qty || 1);
+    return sum + (item.price * (item.qty || 1));
+  }, 0);
+}
+function refreshCartFromStorage(){
+  try {
+    const raw = localStorage.getItem('ff_cart');
+    const parsed = raw ? JSON.parse(raw) : [];
+    appState.cart = Array.isArray(parsed) ? parsed : [];
+    updateCartCount();
+    const cartModal = document.getElementById('cartModal');
+    if(cartModal && cartModal.classList.contains('open')){
+      renderCartModal();
+    }
+  } catch (e) {
+    console.warn('Could not refresh cart:', e);
+  }
+}
+function updateCartCount(){
+  const el = document.getElementById('cartCount');
+  if(!el) return;
+  const count = getCartCount();
+  el.textContent = count;
+  el.classList.add('bump');
+  setTimeout(() => el.classList.remove('bump'), 350);
+}
+function removeFromCartById(id){
+  appState.cart = appState.cart.filter(item => String(item.id) !== String(id));
+  store.set('cart', appState.cart);
+  updateCartCount();
+  renderCartModal();
+}
+function changeQtyById(id, delta){
+  const item = appState.cart.find(i => String(i.id) === String(id));
+  if(!item) return;
+  item.qty = (item.qty || 1) + delta;
+  if(item.qty <= 0){
+    removeFromCartById(id);
+    return;
+  }
+  store.set('cart', appState.cart);
+  updateCartCount();
+  renderCartModal();
+}
+function openCartModal(){
+  refreshCartFromStorage();
+  renderCartModal();
+  $('#cartModal').classList.add('open');
+}
+function closeCartModal(){
+  $('#cartModal').classList.remove('open');
+}
+function renderCartModal(){
+  const body = document.getElementById('cartBody');
+  const foot = document.getElementById('cartFoot');
+  const countLabel = document.getElementById('cartItemsCount');
+  if(!body) return;
+
+  const items = appState.cart.map(item => {
+    const p = ALL_PRODUCTS.find(x => String(x.id) === String(item.id));
+    if(p) return { ...p, qty: item.qty || 1 };
+    return { ...item, qty: item.qty || 1 };
+  }).filter(Boolean);
+
+  countLabel.textContent = items.length === 0
+    ? 'No items yet'
+    : `${getCartCount()} item${getCartCount() > 1 ? 's' : ''}`;
+
+  if(items.length === 0){
+    body.innerHTML = `
+      <div class="cart-empty">
+        <i class="fas fa-shopping-cart"></i>
+        <h4>Your basket is empty</h4>
+        <p>Add fresh products to get started!</p>
+      </div>
+    `;
+    foot.style.display = 'none';
+    return;
+  }
+
+  body.innerHTML = items.map(item => `
+    <div class="cart-item">
+      <img class="cart-item-img" src="${item.image}" alt="${escape(item.name)}" onerror="this.style.display='none'">
+      <div class="cart-item-info">
+        <h5>${escape(item.name)}</h5>
+        <div class="cart-item-price">
+          <strong>${formatPrice(item.price)}</strong> · per ${escape(item.unit || 'unit')}
+        </div>
+      </div>
+      <div class="cart-qty">
+        <button onclick="changeQtyById('${item.id}', -1)"><i class="fas fa-minus"></i></button>
+        <span>${item.qty}</span>
+        <button onclick="changeQtyById('${item.id}', 1)"><i class="fas fa-plus"></i></button>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCartById('${item.id}')" title="Remove">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  `).join('');
+
+  document.getElementById('cartTotalAmount').textContent = formatPrice(getCartTotal());
+  foot.style.display = 'block';
+}
+function checkout(){
+  if(appState.cart.length === 0){
+    toast('Your cart is empty', 'error', 'fa-circle-exclamation');
+    return;
+  }
+  if(!appState.user){
+    toast('Please login to place an order', 'error', 'fa-lock');
+    closeCartModal();
+    setTimeout(() => openAuthModal('login'), 500);
+    return;
+  }
+  toast(`Order placed! Total: ${formatPrice(getCartTotal())} 🎉`, 'success', 'fa-check-circle');
+  appState.cart = [];
+  store.set('cart', []);
+  updateCartCount();
+  closeCartModal();
+}
+
+/* ============================================================
+   ✅ CART SYNC LISTENERS
+   ============================================================ */
+window.addEventListener('storage', (e) => {
+  if(e.key === 'ff_cart') refreshCartFromStorage();
+});
+document.addEventListener('visibilitychange', () => {
+  if(!document.hidden) refreshCartFromStorage();
+});
+window.addEventListener('focus', () => refreshCartFromStorage());
+window.addEventListener('pageshow', () => refreshCartFromStorage());
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function renderNavActions(){
+  const container = document.getElementById('navActions');
+  if(!container) return;
+
+  const cartHTML = `
+    <button class="cart-icon-btn" onclick="openCartModal()" title="My Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">${getCartCount()}</span>
+    </button>
+  `;
+
+  if(appState.user){
+    const initials = getInitials(appState.user.name);
+    const firstName = getFirstName(appState.user.name);
+    container.innerHTML = cartHTML + `
+      <div class="user-pill" onclick="toggleUserMenu(event)">
+        <div class="avatar">${initials}</div>
+        <span>Hi, ${escape(firstName)}</span>
+        <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.6;"></i>
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-header">
+            <strong>${escape(appState.user.name)}</strong>
+            <span>${escape(appState.user.email)}</span>
+          </div>
+          <a href="saved.html"><i class="fas fa-bookmark"></i> My Saved Markets</a>
+          <a onclick="openCartModal()"><i class="fas fa-shopping-cart"></i> My Cart</a>
+          <a href="index.html"><i class="fas fa-home"></i> Go Home</a>
+          <a class="danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = cartHTML + `
+      <button class="btn-ghost" onclick="openAuthModal('login')">Login</button>
+      <button class="btn-solid" onclick="openAuthModal('signup')">Sign Up</button>
+    `;
+  }
+  updateCartCount();
+}
+function toggleUserMenu(e){
+  if(e) e.stopPropagation();
+  const menu = document.getElementById('userMenu');
+  if(menu) menu.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('userMenu');
+  const pill = document.querySelector('.user-pill');
+  if(menu && pill && !pill.contains(e.target)) menu.classList.remove('open');
+});
+
+function openAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.add('open');
+}
+function closeAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.remove('open');
+}
+function handleSignup(e){
+  e.preventDefault();
+  const name = $('#signupName').value.trim();
+  const email = $('#signupEmail').value.trim().toLowerCase();
+  const password = $('#signupPassword').value;
+
+  if(!name || name.length < 2){ toast('Enter valid name','error','fa-circle-exclamation'); return; }
+  if(!email || !email.includes('@')){ toast('Enter valid email','error','fa-circle-exclamation'); return; }
+  if(password.length < 4){ toast('Password min 4 chars','error','fa-circle-exclamation'); return; }
+
+  const users = store.get('users', {});
+  if(users[email]){ toast('Email already registered','error','fa-circle-exclamation'); return; }
+
+  users[email] = { name, email, joinedAt:new Date().toISOString(), passwordHash:btoa(password) };
+  store.set('users', users);
+  appState.user = { name, email, joinedAt: users[email].joinedAt };
+  store.set('user', appState.user);
+
+  closeAuthModal('signup');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome, ${getFirstName(name)}! 🌿`, 'success', 'fa-seedling');
+}
+function handleLogin(e){
+  e.preventDefault();
+  const email = $('#loginEmail').value.trim().toLowerCase();
+  const password = $('#loginPassword').value;
+  const users = store.get('users', {});
+  const user = users[email];
+  if(!user){ toast('No account found','error','fa-circle-exclamation'); return; }
+  if(user.passwordHash !== btoa(password)){ toast('Incorrect password','error','fa-circle-exclamation'); return; }
+
+  appState.user = { name:user.name, email:user.email, joinedAt:user.joinedAt };
+  store.set('user', appState.user);
+  closeAuthModal('login');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome back, ${getFirstName(user.name)}! 🌿`, 'success', 'fa-leaf');
+}
+function logout(){
+  if(!confirm('Logout now?')) return;
+  appState.user = null;
+  store.set('user', null);
+  renderNavActions();
+  updateBadge();
+  toast('Logged out', 'success', 'fa-check-circle');
+}
+function updateBadge(){
+  const el = $('#navBadge');
+  if(el) el.textContent = appState.bookmarks.markets.length;
+}
+
+/* ============================================================
+   COUNTERS
+   ============================================================ */
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const counter = entry.target;
+      const target = Number(counter.dataset.target);
+      const duration = 1200;
+      const startTime = performance.now();
+
+      function update(now){
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * target);
+        counter.textContent = value.toLocaleString();
+        if(progress < 1) requestAnimationFrame(update);
+        else counter.textContent = target.toLocaleString();
+      }
+      requestAnimationFrame(update);
+      counterObserver.unobserve(counter);
+    }
+  });
+}, { threshold:0.5 });
+
+counters.forEach(c => counterObserver.observe(c));
+
+/* ============================================================
+   ✅ CHATBOT — SAME AS index.html (data-driven, professional)
+   ============================================================ */
+function buildProductPriceList(){
+  return ALL_PRODUCTS.map(p => `${p.name} (${p.urdu}) – Rs ${p.price}/${p.unit}`).join(', ');
+}
+function buildCategoryItems(cat){
+  const items = ALL_PRODUCTS.filter(p => p.category === cat);
+  return items.map(p => `${p.name} – Rs ${p.price}/${p.unit}`).join(', ');
+}
+
+const CHAT_RULES = [
+  { keys:["hello","hi","hey","salam","assalam"], reply:"Hi! 👋 I know everything about FreshFind – fruits, veggies, herbs, dairy, prices, and Karachi markets. Ask me anything!" },
+  { keys:["cart","basket","order","checkout"], reply:"Your basket is saved across all pages. Tap the <b>cart icon</b> (top right) to view items, change quantity, or checkout. 🛒" },
+  { keys:["fruit","fruits","apple","mango","banana","orange","strawberry","watermelon","grapes","guava","pomegranate"], reply:`Fresh fruits: <b>${buildCategoryItems('fruits')}</b>` },
+  { keys:["vegetable","vegetables","tomato","onion","potato","carrot","lemon","cucumber","spinach","cauliflower","chili","eggplant"], reply:`Fresh vegetables: <b>${buildCategoryItems('vegetables')}</b>` },
+  { keys:["herb","herbs","mint","coriander","basil","curry","dill","fenugreek","parsley"], reply:`Fresh herbs: <b>${buildCategoryItems('herbs')}</b>` },
+  { keys:["dairy","milk","yogurt","dahi","butter","cream","paneer","cheese","lassi","khoya"], reply:`Fresh dairy: <b>${buildCategoryItems('dairy')}</b>` },
+  { keys:["price","rate","cost","how much"], reply:`Prices: ${buildProductPriceList()}` },
+  { keys:["area","nearest","near","location","market","shop","store"], reply:"We cover these areas in Karachi: <b>Saddar, Clifton, DHA, Korangi, Landhi, Gulshan, PECHS, Bahadurabad, Malir, North Nazimabad, Super Highway, M.A. Jinnah Road</b>. Check the Markets page!" },
+  { keys:["korangi","landhi","clifton","dha","saddar","gulshan","pechs","bahadurabad","malir","north nazimabad","super highway","jinnah road"], reply:`Yes! We have markets in that area. Check the <b>Markets</b> page to see them all sorted!` },
+  { keys:["empress","boat basin","sunday market","sabzi mandi","hyderi","jodia"], reply:`Featured markets: <b>Empress Market (Saddar), Boat Basin Sunday Market (Clifton), Korangi No. 2 Fruit Market, Sabzi Mandi (Super Highway)</b>.` },
+  { keys:["season","seasonal","winter","spring","summer","autumn"], reply:`Winter picks: <b>Strawberry, Orange, Guava, Pomegranate, Carrot, Spinach, Cauliflower, Mint</b>. 🍓🥕` },
+  { keys:["login","signup","account","register"], reply:"Sign up or login to save your favourite markets, sync your cart, and get personalized alerts. It's free! 🌿" },
+  { keys:["about","freshfind","what is","who are you"], reply:"FreshFind helps you find the nearest fruit, vegetable, herb & dairy shops in Karachi with live prices and timings. We cover 30 markets across 12 areas. 🥬" },
+  { keys:["contact","help","support","email"], reply:"You can reach us at hello@freshfind.com ✉️ or use the contact page." }
+];
+const CHAT_FALLBACK = "I can tell you about <b>fruits, vegetables, herbs, dairy</b>, prices, areas, or markets. Try: 'What fruits are available?', 'Where is Empress Market?', or 'Show me Korangi markets'.";
+
+let chatOpen = false;
+function toggleChat(){
+  chatOpen = !chatOpen;
+  $('#chatPanel').classList.toggle('open', chatOpen);
+  $('#chatFab').classList.toggle('open', chatOpen);
+  if(chatOpen){
+    const dot = $('#chatDot');
+    if(dot) dot.style.display = 'none';
+    setTimeout(() => $('#chatInput')?.focus(), 300);
+  }
+}
+function sendChat(){
+  const input = $('#chatInput');
+  const txt = input.value.trim();
+  if(!txt) return;
+  appendChat(txt, 'user');
+  input.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  $('#chatBody').appendChild(typing);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    appendChat(getBotReply(txt), 'bot');
+  }, 600 + Math.random()*400);
+}
+function appendChat(text, who){
+  const el = document.createElement('div');
+  el.className = 'chat-msg ' + who;
+  el.innerHTML = text;
+  $('#chatBody').appendChild(el);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+}
+function getBotReply(msg){
+  const lower = ' ' + msg.toLowerCase() + ' ';
+  for(const rule of CHAT_RULES){
+    if(rule.keys.some(k => lower.includes(k))) return rule.reply;
+  }
+  return CHAT_FALLBACK;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold:0.12 });
+
+document.querySelectorAll('.step-card,.category-card,.value-card,.mission-box').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .6s ease, transform .6s ease';
+  revealObserver.observe(el);
+});
+
+/* ============================================================
+   ESC TO CLOSE
+   ============================================================ */
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeAuthModal('login');
+    closeAuthModal('signup');
+    closeCartModal();
+    if(chatOpen) toggleChat();
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ✅ FIRST sync cart from storage (in case user added items on other pages)
+  refreshCartFromStorage();
+
+  renderNavActions();
+  updateBadge();
+  updateCartCount();
+
+  // ✅ Chat input Enter key listener (same as index.html)
+  const chatInput = document.getElementById('chatInput');
+  if(chatInput){
+    chatInput.addEventListener('keypress', e => {
+      if(e.key === 'Enter') sendChat();
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded', init);
+
+/* ============================================================
+   EXPOSE GLOBALLY
+   ============================================================ */
+window.toggleNav = toggleNav;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
+window.logout = logout;
+window.toggleUserMenu = toggleUserMenu;
+window.toggleChat = toggleChat;
+window.sendChat = sendChat;
+window.openCartModal = openCartModal;
+window.closeCartModal = closeCartModal;
+window.changeQtyById = changeQtyById;
+window.removeFromCartById = removeFromCartById;
+window.checkout = checkout;
+window.refreshCartFromStorage = refreshCartFromStorage;
+</script>
+
+</body>
+</html>

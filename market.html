@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FreshFind Market Directory — Find nearest fruits, vegetables, herbs & dairy shops across all Karachi areas.">
+<title>Markets Directory | FreshFind Karachi</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — Same as index.html
+   ============================================================ */
+:root{
+  --green-50:#f0fdf4; --green-100:#dcfce7; --green-200:#bbf7d0;
+  --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
+  --green-700:#15803d; --green-800:#166534; --green-900:#14532d;
+  --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-200:#fde68a;
+  --amber-300:#fcd34d; --amber-400:#fbbf24; --amber-500:#f59e0b;
+  --amber-600:#d97706; --amber-700:#b45309;
+  --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd;
+  --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1;
+  --rose-500:#f43f5e;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+  --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --slate-900:#0f172a;
+
+  --bg:#fbfdf9; --text:#0f172a; --text-muted:#64748b;
+  --border:#e6ecdf; --border-strong:#d3ddc9;
+
+  --radius:14px; --radius-lg:20px; --radius-xl:28px;
+  --shadow-xs:0 1px 2px rgba(15,23,42,0.04);
+  --shadow-sm:0 2px 8px rgba(15,23,42,0.06);
+  --shadow:0 4px 20px rgba(15,23,42,0.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,23,42,0.18);
+
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.15;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;}
+button{cursor:pointer;border:none;background:none;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+::selection{background:var(--amber-200);color:var(--green-900);}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--slate-100);}
+::-webkit-scrollbar-thumb{background:var(--slate-300);border-radius:10px;border:2px solid var(--slate-100);}
+::-webkit-scrollbar-thumb:hover{background:var(--amber-400);}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-xs);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.logo-img{height:52px;width:auto;transition:transform 0.4s var(--ease-spring);}
+.logo:hover .logo-img{transform:scale(1.05) rotate(-3deg);}
+
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{
+  padding:9px 18px;border-radius:10px;font-size:0.88rem;font-weight:500;
+  color:var(--slate-600);transition:all 0.2s var(--ease);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-links a:hover{color:var(--green-800);background:var(--green-50);}
+.nav-links a.active{color:var(--green-900);background:var(--amber-100);font-weight:600;}
+.nav-badge{
+  background:var(--amber-500);color:white;font-size:0.65rem;padding:2px 8px;
+  border-radius:10px;font-weight:700;min-width:20px;text-align:center;
+}
+.nav-actions{display:flex;gap:8px;align-items:center;}
+.btn-ghost{
+  padding:9px 18px;border-radius:10px;font-size:0.85rem;font-weight:600;
+  color:var(--green-800);border:1.5px solid var(--border-strong);background:white;
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+}
+.btn-ghost:hover{border-color:var(--green-600);background:var(--green-50);}
+.btn-solid{
+  padding:9px 20px;border-radius:10px;font-size:0.85rem;font-weight:700;
+  color:var(--green-900);background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 4px 12px rgba(245,158,11,0.3);
+}
+.btn-solid:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,0.45);}
+
+/* Cart icon button */
+.cart-icon-btn{
+  position:relative;
+  width:44px;height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:1rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.25);
+  flex-shrink:0;
+  border:none;cursor:pointer;
+}
+.cart-icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+.cart-icon-btn .cart-count{
+  position:absolute;top:-5px;right:-5px;
+  background:var(--amber-500);color:white;
+  font-size:0.65rem;font-weight:800;
+  min-width:20px;height:20px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 5px;
+  border:2px solid white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:transform 0.3s var(--ease-spring);
+}
+.cart-icon-btn .cart-count.bump{transform:scale(1.3);}
+
+/* User pill */
+.user-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:999px;
+  background:linear-gradient(135deg,var(--green-50),var(--amber-50));
+  border:1.5px solid var(--green-200);
+  color:var(--green-800);font-size:0.85rem;font-weight:600;
+  cursor:pointer;position:relative;
+  transition:all 0.2s var(--ease);
+}
+.user-pill:hover{border-color:var(--green-400);box-shadow:0 4px 12px rgba(22,163,74,0.15);}
+.user-pill .avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:800;text-transform:uppercase;
+}
+.user-menu{
+  position:absolute;top:calc(100% + 10px);right:0;
+  min-width:220px;background:white;border-radius:14px;
+  box-shadow:0 20px 50px -12px rgba(15,23,42,0.25),0 0 0 1px var(--border);
+  padding:8px;display:none;z-index:100;
+}
+.user-menu.open{display:block;}
+.user-menu-header{padding:12px 14px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+.user-menu-header strong{display:block;color:var(--green-900);font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+.user-menu-header span{color:var(--slate-500);font-size:0.75rem;word-break:break-all;}
+.user-menu a{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9px;
+  color:var(--slate-700);font-size:0.85rem;font-weight:500;cursor:pointer;
+}
+.user-menu a:hover{background:var(--green-50);color:var(--green-800);}
+.user-menu a i{width:16px;color:var(--slate-400);font-size:0.9rem;}
+.user-menu a.danger{color:var(--rose-500);}
+.user-menu a.danger:hover{background:#fef2f2;color:#dc2626;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;border-radius:8px;}
+.hamburger span{width:22px;height:2px;background:var(--slate-700);border-radius:2px;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.market-hero{
+  padding:90px 0 120px;text-align:center;position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(20,83,45,0.88), rgba(22,101,52,0.75)),
+    url('images/market-hero.png') center/cover no-repeat;
+  color:white;
+}
+.market-hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(800px 400px at 10% 0%, rgba(251,191,36,0.18), transparent 60%),
+    radial-gradient(700px 400px at 90% 20%, rgba(34,197,94,0.20), transparent 60%);
+  pointer-events:none;
+}
+.market-hero .container{position:relative;z-index:2;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  color:white;font-size:0.78rem;font-weight:700;
+  letter-spacing:0.05em;text-transform:uppercase;
+  margin-bottom:20px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.hero-badge i{color:var(--amber-400);}
+.market-hero h1{
+  color:white;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  margin-bottom:16px;
+  text-shadow:0 2px 16px rgba(0,0,0,0.25);
+}
+.market-hero h1 span{
+  color:var(--amber-300);
+  font-style:italic;position:relative;
+}
+.market-hero h1 span::after{
+  content:'';position:absolute;left:0;right:0;bottom:4px;height:14px;
+  background:rgba(251,191,36,0.35);border-radius:4px;z-index:-1;
+}
+.market-hero p{
+  max-width:660px;margin:auto;
+  color:rgba(255,255,255,0.92);
+  font-size:1.05rem;
+  text-shadow:0 1px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   SEARCH WIDGET
+   ============================================================ */
+.search-wrapper{margin-top:-60px;position:relative;z-index:5;}
+.search-box{
+  background:white;border-radius:var(--radius-xl);
+  padding:25px;box-shadow:0 30px 60px -20px rgba(15,23,42,0.22),0 0 0 1px var(--border);
+  border-top:5px solid var(--amber-400);
+}
+.search-title{
+  color:var(--green-900);font-weight:800;margin-bottom:18px;
+  display:flex;align-items:center;gap:8px;
+  font-size:1.05rem;
+}
+.search-title i{color:var(--amber-500);}
+.search-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr auto;gap:10px;}
+.search-field{position:relative;}
+.search-field i{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  color:var(--slate-400);font-size:0.9rem;pointer-events:none;
+}
+.search-field input,
+.search-field select{
+  width:100%;padding:13px 14px 13px 40px;
+  border:1.5px solid var(--border);border-radius:11px;
+  background:var(--slate-50);font-size:0.88rem;outline:none;
+  appearance:none;cursor:pointer;
+  transition:all 0.2s var(--ease);
+}
+.search-field input:focus,
+.search-field select:focus{
+  border-color:var(--amber-400);background:white;
+  box-shadow:0 0 0 4px rgba(251,191,36,0.15);
+}
+.search-btn{
+  padding:13px 24px;border-radius:11px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.3);
+  white-space:nowrap;
+}
+.search-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   CATEGORY TABS
+   ============================================================ */
+.category-nav{padding:40px 0 20px;}
+.category-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;
+  justify-content:center;
+  background:white;padding:10px;
+  border-radius:999px;
+  box-shadow:var(--shadow-sm);
+  border:1px solid var(--border);
+  max-width:820px;margin:0 auto;
+}
+.category-tab{
+  padding:11px 22px;border-radius:999px;
+  font-size:0.85rem;font-weight:700;
+  background:transparent;color:var(--slate-600);border:none;
+  transition:all 0.25s var(--ease);
+  display:inline-flex;align-items:center;gap:8px;
+  cursor:pointer;white-space:nowrap;
+}
+.category-tab:hover{background:var(--slate-50);color:var(--green-800);}
+.category-tab.active{color:white;}
+.category-tab[data-cat="all"].active{background:linear-gradient(135deg,var(--green-700),var(--green-800));box-shadow:0 6px 18px rgba(22,163,74,0.25);}
+.category-tab[data-cat="fruits"].active{background:linear-gradient(135deg,#ea580c,#f97316);box-shadow:0 6px 18px rgba(234,88,12,0.3);}
+.category-tab[data-cat="vegetables"].active{background:linear-gradient(135deg,#16a34a,#22c55e);box-shadow:0 6px 18px rgba(22,163,74,0.3);}
+.category-tab[data-cat="herbs"].active{background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 6px 18px rgba(16,185,129,0.3);}
+.category-tab[data-cat="dairy"].active{background:linear-gradient(135deg,var(--sky-500),var(--sky-600));box-shadow:0 6px 18px rgba(14,165,233,0.3);}
+.category-tab .count-badge{
+  background:rgba(255,255,255,0.25);padding:2px 7px;border-radius:999px;
+  font-size:0.68rem;font-weight:700;min-width:18px;text-align:center;
+}
+.category-tab:not(.active) .count-badge{
+  background:var(--slate-100);color:var(--slate-500);
+}
+
+/* ============================================================
+   DIRECTORY
+   ============================================================ */
+.directory-section{padding:50px 0 80px;}
+.section-header{
+  display:flex;justify-content:space-between;align-items:end;
+  gap:20px;margin-bottom:35px;flex-wrap:wrap;
+}
+.section-header h2{
+  color:var(--green-900);font-size:clamp(1.6rem,3vw,2.2rem);
+  margin-bottom:6px;
+}
+.section-header p{color:var(--slate-500);margin:0;}
+.market-count{
+  background:var(--amber-50);color:var(--amber-700);
+  border:1px solid var(--amber-200);
+  padding:8px 16px;border-radius:999px;
+  font-size:0.82rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.market-count i{color:var(--amber-500);}
+
+/* ============================================================
+   MARKET CARDS — Grid
+   ============================================================ */
+.market-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:24px;
+}
+.market-card{
+  background:white;border-radius:var(--radius-lg);
+  overflow:hidden;border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);transition:all 0.35s var(--ease);
+  display:flex;flex-direction:column;position:relative;
+}
+.market-card:hover{
+  transform:translateY(-6px);box-shadow:var(--shadow-lg);
+  border-color:var(--amber-300);
+}
+.market-card-head{
+  height:200px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-100),var(--green-200));
+}
+.market-card-head img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s var(--ease);
+}
+.market-card:hover .market-card-head img{transform:scale(1.06);}
+
+.badge-open{
+  position:absolute;top:12px;left:12px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:white;font-size:0.68rem;font-weight:700;
+  padding:5px 11px;border-radius:999px;
+  display:flex;align-items:center;gap:5px;
+  box-shadow:0 4px 12px rgba(34,197,94,0.4);z-index:2;
+}
+.badge-open .dot{
+  width:6px;height:6px;background:white;border-radius:50%;
+  animation:livePulse 1.5s infinite;
+}
+.badge-closed{
+  position:absolute;top:12px;left:12px;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  color:white;font-size:0.68rem;font-weight:700;
+  padding:5px 11px;border-radius:999px;
+  display:flex;align-items:center;gap:5px;
+  box-shadow:0 4px 12px rgba(220,38,38,0.4);z-index:2;
+}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+.badge-cat{
+  position:absolute;top:12px;right:12px;
+  background:var(--amber-400);color:var(--green-900);
+  font-size:0.68rem;font-weight:700;
+  padding:5px 11px;border-radius:999px;z-index:2;
+  text-transform:uppercase;letter-spacing:0.04em;
+}
+.badge-cat[data-cat="fruits"]{background:linear-gradient(135deg,#ea580c,#f97316);color:white;}
+.badge-cat[data-cat="vegetables"]{background:linear-gradient(135deg,#16a34a,#22c55e);color:white;}
+.badge-cat[data-cat="herbs"]{background:linear-gradient(135deg,#059669,#10b981);color:white;}
+.badge-cat[data-cat="dairy"]{background:linear-gradient(135deg,var(--sky-500),var(--sky-600));color:white;}
+
+.market-card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+.market-card-body h3{
+  font-size:1.12rem;color:var(--green-900);
+  margin-bottom:8px;font-weight:700;
+}
+.market-meta{
+  display:flex;flex-direction:column;gap:6px;
+  margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);
+}
+.market-meta div{display:flex;align-items:center;gap:7px;}
+.market-meta i{color:var(--green-600);width:14px;font-size:0.78rem;}
+
+.market-card-desc{
+  font-size:0.85rem;color:var(--text-muted);
+  margin-bottom:16px;flex:1;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.market-card-foot{
+  display:flex;gap:8px;padding-top:14px;
+  border-top:1px solid var(--border);align-items:center;
+  margin-top:auto;
+}
+.icon-btn{
+  width:36px;height:36px;border-radius:10px;
+  border:1px solid var(--border);background:white;
+  color:var(--slate-500);
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);font-size:0.85rem;flex-shrink:0;
+}
+.icon-btn:hover{background:var(--amber-50);color:var(--amber-700);border-color:var(--amber-300);}
+.icon-btn.active{background:var(--amber-500);color:white;border-color:var(--amber-500);}
+.btn-view{
+  margin-left:auto;padding:9px 16px;border-radius:9px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:0.78rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 3px 10px rgba(22,163,74,0.25);
+}
+.btn-view:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(22,163,74,0.4);}
+
+/* No results */
+.no-results{
+  display:none;text-align:center;padding:70px 20px;
+  background:white;border:2px dashed var(--border);
+  border-radius:var(--radius-lg);
+}
+.no-results i{font-size:3rem;color:var(--amber-400);margin-bottom:15px;}
+.no-results h3{color:var(--green-900);margin-bottom:6px;}
+.no-results p{color:var(--text-muted);margin-bottom:20px;}
+.no-results button{
+  padding:12px 24px;border-radius:10px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.88rem;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta{
+  padding:60px 20px;margin-top:20px;
+  background:linear-gradient(135deg,var(--green-800),var(--green-700));
+  color:white;text-align:center;position:relative;overflow:hidden;
+}
+.cta::before{
+  content:'';position:absolute;top:-50%;right:-10%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(251,191,36,0.15),transparent 70%);
+  border-radius:50%;
+}
+.cta h2{font-size:2.2rem;margin-bottom:12px;position:relative;}
+.cta p{opacity:0.9;max-width:600px;margin:0 auto 24px;position:relative;}
+.cta a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:10px;
+  background:var(--amber-400);color:var(--green-900);
+  font-weight:700;position:relative;
+  transition:all 0.2s var(--ease);
+}
+.cta a:hover{transform:translateY(-2px);}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--slate-900);color:var(--slate-300);
+  padding:60px 0 24px;position:relative;
+}
+.footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-500),var(--amber-400),var(--green-500));
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-img{height:52px;margin-bottom:16px;filter:brightness(0) invert(1);}
+.footer-brand p{font-size:0.88rem;color:var(--slate-400);margin:0 0 20px;max-width:320px;}
+.footer-col h4{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;color:white;margin-bottom:18px;
+}
+.footer-col a{display:block;padding:6px 0;font-size:0.88rem;color:var(--slate-400);cursor:pointer;}
+.footer-col a:hover{color:var(--amber-400);}
+.social-row{display:flex;gap:10px;}
+.social-row a{
+  width:40px;height:40px;background:rgba(255,255,255,0.06);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--slate-300);transition:all 0.25s var(--ease);
+}
+.social-row a:hover{background:var(--amber-500);color:var(--green-900);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;
+  text-align:center;font-size:0.82rem;color:var(--slate-500);
+}
+
+/* ============================================================
+   MODAL — Market Details
+   ============================================================ */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(6px);z-index:2000;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-bg.open{display:flex;animation:fadeBg 0.2s ease-out;}
+@keyframes fadeBg{from{opacity:0}to{opacity:1}}
+
+.modal-box{
+  background:white;border-radius:var(--radius-lg);
+  width:100%;max-width:620px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(255,255,255,0.9);color:var(--slate-700);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover{background:var(--rose-500);color:white;}
+
+.modal-hero{
+  height:200px;position:relative;
+  background:linear-gradient(135deg,var(--green-100),var(--green-200));
+}
+.modal-hero img{width:100%;height:100%;object-fit:cover;}
+.modal-hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.6) 100%);
+}
+.modal-hero-content{
+  position:absolute;bottom:20px;left:24px;right:24px;
+  color:white;z-index:2;
+}
+.modal-hero-content h2{
+  font-size:1.5rem;color:white;margin-bottom:4px;
+  text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+.modal-hero-content .area-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.82rem;opacity:0.95;
+}
+
+.modal-body{
+  padding:24px;overflow-y:auto;
+}
+.detail-section{margin-bottom:22px;}
+.detail-section:last-child{margin-bottom:0;}
+.detail-section-title{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--amber-700);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.detail-section-title i{color:var(--amber-500);}
+
+.detail-row{
+  display:flex;gap:12px;padding:11px 0;
+  border-bottom:1px solid var(--border);
+  color:var(--slate-600);font-size:0.9rem;align-items:flex-start;
+}
+.detail-row:last-child{border-bottom:none;}
+.detail-row i{color:var(--green-600);width:18px;margin-top:3px;flex-shrink:0;}
+.detail-row strong{color:var(--slate-800);font-weight:700;min-width:90px;}
+
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.hours-item{
+  display:flex;justify-content:space-between;
+  padding:10px 14px;border-radius:10px;
+  background:var(--slate-50);font-size:0.82rem;
+  border:1px solid var(--border);gap:8px;
+}
+.hours-item.today{background:var(--amber-50);border-color:var(--amber-300);font-weight:700;}
+.hours-item .day{color:var(--slate-700);font-weight:600;}
+.hours-item .time{color:var(--green-800);font-weight:600;text-align:right;}
+.hours-item.closed .time{color:var(--rose-500);}
+
+.produce-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.produce-tag{
+  padding:5px 12px;border-radius:999px;
+  background:var(--green-50);color:var(--green-800);
+  font-size:0.72rem;font-weight:700;
+  border:1px solid var(--green-100);
+}
+.produce-tag[data-cat="fruits"]{background:#fff7ed;color:#c2410c;border-color:#fed7aa;}
+.produce-tag[data-cat="vegetables"]{background:#f0fdf4;color:#15803d;border-color:#bbf7d0;}
+.produce-tag[data-cat="herbs"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;}
+.produce-tag[data-cat="dairy"]{background:#f0f9ff;color:#0369a1;border-color:#bae6fd;}
+
+.contact-block{display:flex;flex-wrap:wrap;gap:10px;}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 18px;border-radius:10px;
+  background:var(--slate-50);color:var(--slate-700);
+  font-size:0.82rem;font-weight:600;
+  border:1px solid var(--border);
+  transition:all 0.2s var(--ease);
+  text-decoration:none;cursor:pointer;
+}
+.contact-btn:hover{background:var(--green-50);color:var(--green-800);border-color:var(--green-300);}
+.contact-btn.primary{background:var(--green-700);color:white;border-color:var(--green-700);}
+.contact-btn.primary:hover{background:var(--green-800);}
+
+/* ============================================================
+   MODAL — Login / Signup
+   ============================================================ */
+.auth-modal{
+  background:white;border-radius:var(--radius-lg);
+  padding:32px;width:100%;max-width:440px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+}
+.auth-modal .modal-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--green-100),var(--amber-100));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--green-700);
+  margin-bottom:18px;
+}
+.auth-modal h2{font-size:1.5rem;color:var(--green-900);margin-bottom:6px;}
+.auth-modal .hint{font-size:0.82rem;color:var(--text-muted);margin-bottom:22px;}
+.auth-modal form{display:flex;flex-direction:column;gap:14px;}
+.auth-modal .field{display:flex;flex-direction:column;gap:6px;}
+.auth-modal label{font-size:0.78rem;font-weight:700;color:var(--slate-600);}
+.auth-modal .field-input-wrap{position:relative;display:flex;align-items:center;}
+.auth-modal .field-input-wrap i{position:absolute;left:14px;color:var(--slate-400);pointer-events:none;}
+.auth-modal input{
+  width:100%;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.9rem;outline:none;background:var(--slate-50);
+  transition:all 0.2s;
+}
+.auth-modal input:focus{border-color:var(--amber-400);background:white;box-shadow:0 0 0 4px rgba(251,191,36,0.12);}
+.auth-modal .submit-btn{
+  padding:14px;background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;font-weight:700;font-size:0.92rem;
+  margin-top:6px;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.auth-modal .submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,163,74,0.3);}
+.auth-modal .footer-text{
+  text-align:center;margin-top:18px;font-size:0.82rem;color:var(--text-muted);
+}
+.auth-modal .footer-text a{color:var(--green-700);font-weight:700;cursor:pointer;}
+.auth-modal .footer-text a:hover{text-decoration:underline;}
+
+/* ============================================================
+   TOASTS
+   ============================================================ */
+.toast-stack{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:3000;display:flex;flex-direction:column;gap:10px;align-items:center;
+}
+.toast{
+  background:var(--slate-900);color:white;padding:13px 22px;
+  border-radius:12px;font-size:0.87rem;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:var(--shadow-lg);animation:toastIn 0.4s var(--ease-spring);
+  max-width:90vw;
+}
+.toast.success{background:linear-gradient(135deg,var(--green-700),var(--green-800));}
+.toast.error{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+@keyframes toastIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
+   CHATBOT — SAME AS index.html
+   ============================================================ */
+.chat-fab{
+  position:fixed;bottom:28px;right:28px;
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-900));
+  color:white;font-size:1.5rem;
+  box-shadow:0 10px 30px rgba(22,101,52,0.45);
+  z-index:1500;
+  transition:all 0.3s var(--ease-spring);
+  animation:fabPulse 2.5s infinite;
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--amber-400);
+}
+@keyframes fabPulse{
+  0%,100%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 0 rgba(251,191,36,0.5);}
+  50%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 14px rgba(251,191,36,0);}
+}
+.chat-fab:hover{transform:scale(1.08);}
+.chat-fab .fab-close{display:none;}
+.chat-fab.open .fab-icon{display:none;}
+.chat-fab.open .fab-close{display:inline;}
+.chat-fab .notif-dot{
+  position:absolute;top:4px;right:4px;
+  width:14px;height:14px;background:var(--amber-400);
+  border-radius:50%;border:2px solid white;
+}
+
+.chat-panel{
+  position:fixed;bottom:100px;right:28px;
+  width:380px;max-width:calc(100vw - 40px);
+  height:560px;max-height:calc(100vh - 130px);
+  background:white;border-radius:var(--radius-lg);
+  box-shadow:0 30px 60px -12px rgba(15,23,42,0.35);
+  display:flex;flex-direction:column;z-index:1500;
+  overflow:hidden;border:1px solid var(--border);
+  transform:translateY(20px) scale(0.95);
+  opacity:0;pointer-events:none;
+  transition:all 0.3s var(--ease-spring);
+}
+.chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
+
+.chat-head{
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:42px;height:42px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.chat-head-text{flex:1;}
+.chat-head-text h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.92rem;font-weight:700;
+}
+.chat-head-text span{
+  font-size:0.72rem;opacity:0.9;
+  display:flex;align-items:center;gap:5px;
+}
+.chat-head-text span::before{
+  content:'';width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(251,191,36,0.3);
+}
+.chat-head-close{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,0.12);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.chat-head-close:hover{background:rgba(255,255,255,0.25);}
+
+.chat-body{
+  flex:1;overflow-y:auto;padding:20px;
+  background:linear-gradient(180deg,#fbfdf9,#fffbeb);
+  display:flex;flex-direction:column;gap:12px;
+}
+.chat-msg{
+  max-width:82%;padding:11px 15px;border-radius:16px;
+  font-size:0.86rem;line-height:1.5;
+  animation:msgIn 0.3s var(--ease-out);
+  word-wrap:break-word;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{
+  background:white;color:var(--slate-700);
+  border:1px solid var(--border);
+  border-bottom-left-radius:4px;align-self:flex-start;
+  box-shadow:var(--shadow-xs);
+}
+.chat-msg.user{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-bottom-right-radius:4px;align-self:flex-end;
+}
+
+.chat-input-wrap{
+  padding:12px 16px 16px;background:white;
+  border-top:1px solid var(--border);
+  display:flex;gap:8px;
+}
+.chat-input-wrap input{
+  flex:1;padding:11px 15px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.85rem;outline:none;
+}
+.chat-input-wrap input:focus{
+  border-color:var(--amber-400);
+  box-shadow:0 0 0 3px rgba(251,191,36,0.15);
+}
+.chat-send{
+  width:44px;height:44px;border-radius:11px;
+  background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);flex-shrink:0;
+}
+.chat-send:hover{transform:translateY(-1px);}
+
+.chat-typing{
+  display:flex;gap:4px;padding:12px 16px;
+  background:white;border-radius:16px 16px 16px 4px;
+  align-self:flex-start;border:1px solid var(--border);
+}
+.chat-typing span{
+  width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;animation:typing 1.2s infinite;
+}
+.chat-typing span:nth-child(2){animation-delay:0.15s;}
+.chat-typing span:nth-child(3){animation-delay:0.3s;}
+@keyframes typing{
+  0%,60%,100%{transform:translateY(0);opacity:0.4}
+  30%{transform:translateY(-4px);opacity:1}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:white;padding:16px;
+    box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
+    align-items:stretch;gap:4px;
+  }
+  .hamburger{display:flex;}
+  .search-grid{grid-template-columns:1fr 1fr;}
+  .search-grid .search-btn{grid-column:span 2;justify-content:center;}
+  .market-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .hours-grid{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .container{padding:0 18px;}
+  .market-hero{padding:60px 0 100px;}
+  .market-hero h1{font-size:2rem;}
+  .search-grid{grid-template-columns:1fr;}
+  .search-grid .search-btn{grid-column:span 1;}
+  .market-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .nav-actions .btn-ghost,
+  .nav-actions .btn-solid{display:none;}
+  .section-header{flex-direction:column;align-items:flex-start;}
+  .category-tabs{border-radius:var(--radius-lg);gap:6px;padding:8px;}
+  .category-tab{padding:9px 14px;font-size:0.78rem;}
+  .auth-modal{padding:24px;}
+  .modal-body{padding:18px;}
+  .chat-panel{right:12px;left:12px;width:auto;bottom:90px;}
+  .chat-fab{bottom:20px;right:20px;width:56px;height:56px;font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="market.html" class="active">Markets</a></li>
+      <li><a href="produce.html">Produce</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="saved.html">Saved <span class="nav-badge" id="navBadge">0</span></a></li>
+    </ul>
+    <div class="nav-actions" id="navActions"></div>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="market-hero">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-store"></i> Karachi Market Directory
+    </div>
+    <h1>Find <span>Fresh Markets</span> Near You</h1>
+    <p>Explore fruits, vegetables, herbs & dairy shops across all Karachi areas — with live open/closed status, prices, and directions.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SEARCH WIDGET
+     ============================================================ -->
+<section class="search-wrapper">
+  <div class="container">
+    <div class="search-box">
+      <div class="search-title"><i class="fas fa-magnifying-glass-location"></i> Find Your Perfect Market</div>
+      <div class="search-grid">
+        <div class="search-field">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search market or area...">
+        </div>
+        <div class="search-field">
+          <i class="fas fa-map-pin"></i>
+          <select id="locationFilter">
+            <option value="">All Areas</option>
+            <option value="Saddar">Saddar</option>
+            <option value="Clifton">Clifton</option>
+            <option value="DHA">DHA</option>
+            <option value="Korangi">Korangi</option>
+            <option value="Landhi">Landhi</option>
+            <option value="Gulshan">Gulshan-e-Iqbal</option>
+            <option value="PECHS">PECHS</option>
+            <option value="Bahadurabad">Bahadurabad</option>
+            <option value="Malir">Malir</option>
+            <option value="North Nazimabad">North Nazimabad</option>
+            <option value="Super Highway">Super Highway</option>
+            <option value="M.A. Jinnah Road">M.A. Jinnah Road</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <i class="fas fa-calendar-day"></i>
+          <select id="dayFilter">
+            <option value="">Any Day</option>
+            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+            <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <i class="fas fa-tags"></i>
+          <select id="produceFilter">
+            <option value="">All Categories</option>
+            <option value="fruits">Fruits</option>
+            <option value="vegetables">Vegetables</option>
+            <option value="herbs">Herbs</option>
+            <option value="dairy">Dairy</option>
+          </select>
+        </div>
+        <button class="search-btn" onclick="filterMarkets()">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY TABS
+     ============================================================ -->
+<section class="category-nav">
+  <div class="container">
+    <div class="category-tabs">
+      <button class="category-tab active" data-cat="all" onclick="filterByCategory('all', this)">
+        <i class="fas fa-th-large"></i> All <span class="count-badge" id="count-all">0</span>
+      </button>
+      <button class="category-tab" data-cat="fruits" onclick="filterByCategory('fruits', this)">
+        <i class="fas fa-apple-whole"></i> Fruits <span class="count-badge" id="count-fruits">0</span>
+      </button>
+      <button class="category-tab" data-cat="vegetables" onclick="filterByCategory('vegetables', this)">
+        <i class="fas fa-carrot"></i> Vegetables <span class="count-badge" id="count-vegetables">0</span>
+      </button>
+      <button class="category-tab" data-cat="herbs" onclick="filterByCategory('herbs', this)">
+        <i class="fas fa-leaf"></i> Herbs <span class="count-badge" id="count-herbs">0</span>
+      </button>
+      <button class="category-tab" data-cat="dairy" onclick="filterByCategory('dairy', this)">
+        <i class="fas fa-cow"></i> Dairy <span class="count-badge" id="count-dairy">0</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIRECTORY
+     ============================================================ -->
+<section class="directory-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 id="directoryTitle">All Markets</h2>
+        <p id="directorySubtitle">Explore all markets across Karachi</p>
+      </div>
+      <span class="market-count">
+        <i class="fas fa-store"></i>
+        <span id="marketCount">0</span> Markets
+      </span>
+    </div>
+
+    <div class="market-grid" id="marketGrid"></div>
+
+    <div class="no-results" id="noResults">
+      <i class="fas fa-basket-shopping"></i>
+      <h3>No markets found</h3>
+      <p>Try changing your search or filters.</p>
+      <button onclick="clearFilters()">Clear All Filters</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta">
+  <div class="container">
+    <h2>Looking for something else?</h2>
+    <p>Browse our produce guide to check today's prices for fruits, vegetables, herbs & dairy in Karachi.</p>
+    <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+        <p>Find the nearest fruits, vegetables, herbs & dairy shops and markets in Karachi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="market.html">All Markets</a>
+        <a href="produce.html">Produce Guide</a>
+        <a href="saved.html">Saved Markets</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a onclick="openAuthModal('login')">Login</a>
+        <a onclick="openAuthModal('signup')">Create Account</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Along</h4>
+        <div class="social-row">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="yr"></span> FreshFind. All rights reserved. · © Aptech Limited
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MARKET DETAILS MODAL
+     ============================================================ -->
+<div class="modal-bg" id="detailModal" onclick="if(event.target===this)closeDetailModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetailModal()"><i class="fas fa-xmark"></i></button>
+    <div class="modal-hero">
+      <img id="detailImg" src="" alt="" onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'><rect width=\'600\' height=\'400\' fill=\'%23dcfce7\'/><text x=\'50%\' y=\'50%\' font-size=\'60\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🏪</text></svg>')">
+      <div class="modal-hero-content">
+        <h2 id="detailName">Market Name</h2>
+        <div class="area-label"><i class="fas fa-location-dot"></i> <span id="detailArea">Area</span></div>
+      </div>
+    </div>
+    <div class="modal-body" id="detailBody"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CART MODAL — SAME AS index.html
+     ============================================================ -->
+<div class="modal-bg" id="cartModal" onclick="if(event.target===this)closeCartModal()">
+  <div class="modal-box" style="max-width:520px;">
+    <button class="modal-close" onclick="closeCartModal()"><i class="fas fa-xmark"></i></button>
+    <div class="modal-hero" style="height:auto;padding:22px 24px;background:linear-gradient(135deg,var(--green-800),var(--green-700));">
+      <h2 style="color:white;font-size:1.3rem;display:flex;align-items:center;gap:10px;position:relative;z-index:2;margin-bottom:4px;">
+        <i class="fas fa-shopping-cart"></i> Your Basket
+      </h2>
+      <p style="color:rgba(255,255,255,0.85);font-size:0.82rem;position:relative;z-index:2;margin:0;" id="cartItemsCount">0 items</p>
+    </div>
+    <div class="modal-body" style="max-height:60vh;overflow-y:auto;" id="cartBody">
+      <div class="cart-empty" style="text-align:center;padding:40px 20px;color:var(--slate-400);">
+        <i class="fas fa-shopping-cart" style="font-size:3rem;color:var(--amber-300);margin-bottom:14px;display:block;"></i>
+        <h4 style="color:var(--slate-700);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;margin-bottom:6px;">Your basket is empty</h4>
+        <p style="font-size:0.85rem;">Add fresh products to get started!</p>
+      </div>
+    </div>
+    <div style="padding:18px 24px;border-top:1px solid var(--border);display:none;" id="cartFoot">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:12px;background:var(--amber-50);border:1px solid var(--amber-200);margin-bottom:14px;">
+        <span style="font-size:0.82rem;color:var(--amber-700);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Total</span>
+        <span style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:800;color:var(--green-900);letter-spacing:-0.02em;" id="cartTotalAmount">Rs 0</span>
+      </div>
+      <button onclick="checkout()" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--green-700),var(--green-800));color:white;border-radius:11px;font-size:0.92rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 16px rgba(22,163,74,0.3);">
+        <i class="fas fa-check-circle"></i> Proceed to Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AUTH MODAL (Login / Signup)
+     ============================================================ -->
+<div class="modal-bg" id="loginModal" onclick="if(event.target===this)closeAuthModal('login')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('login')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-leaf"></i></div>
+    <h2>Welcome back</h2>
+    <p class="hint">Sign in to save your favourite markets.</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <div class="footer-text">Don't have an account? <a onclick="closeAuthModal('login');openAuthModal('signup')">Sign up free</a></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="signupModal" onclick="if(event.target===this)closeAuthModal('signup')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('signup')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-seedling"></i></div>
+    <h2>Create your account</h2>
+    <p class="hint">Join FreshFind to save markets near you.</p>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label>Full Name</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" required placeholder="Your name" minlength="2">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" required placeholder="Create a password" minlength="4">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+    </form>
+    <div class="footer-text">Already have an account? <a onclick="closeAuthModal('signup');openAuthModal('login')">Sign in</a></div>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- ============================================================
+     CHATBOT — SAME AS index.html (data-driven)
+     ============================================================ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat">
+  <i class="fas fa-comment-dots fab-icon"></i>
+  <i class="fas fa-xmark fab-close"></i>
+  <span class="notif-dot" id="chatDot"></span>
+</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+    <div class="chat-head-text">
+      <h4>FreshFind Assistant</h4>
+      <span>Online now</span>
+    </div>
+    <button class="chat-head-close" onclick="toggleChat()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi! 👋 I know all about our <b>markets, fruits, vegetables, herbs, dairy</b>, prices, and areas in Karachi. Ask me anything!</div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button class="chat-send" id="chatSend" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ============================================================
+   ALL KARACHI MARKETS
+   ============================================================ */
+const MARKETS = [
+  { id:1, name:"Empress Market", area:"Saddar", category:"fruits",
+    lat:24.8607, lng:67.0119,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 9:00 PM",Tuesday:"7:00 AM – 9:00 PM",Wednesday:"7:00 AM – 9:00 PM",Thursday:"7:00 AM – 9:00 PM",Friday:"7:00 AM – 12:30 PM, 2:30 PM – 9:00 PM",Saturday:"7:00 AM – 9:00 PM",Sunday:"7:00 AM – 9:00 PM"},
+    description:"Karachi's iconic heritage market since 1889. Fresh fruits, vegetables, herbs & dairy all in one place.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/empress-market.png", rating:4.8, featured:true,
+    contact:"+92 21 9926 1234",
+    address:"Preedy Street, Saddar, Karachi"
+  },
+  { id:2, name:"Saddar Herb & Spice Shop", area:"Saddar", category:"herbs",
+    lat:24.8620, lng:67.0135,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh mint, coriander, basil, curry leaves, fenugreek & more. Aromatic herbs daily.",
+    produce:["herbs"],
+    image:"images/saddar-herb-spice.png", rating:4.6,
+    contact:"+92 21 9926 5678",
+    address:"M.A. Jinnah Road, Saddar, Karachi"
+  },
+  { id:3, name:"Saddar Fresh Dairy", area:"Saddar", category:"dairy",
+    lat:24.8635, lng:67.0155,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 10:00 PM",Tuesday:"6:00 AM – 10:00 PM",Wednesday:"6:00 AM – 10:00 PM",Thursday:"6:00 AM – 10:00 PM",Friday:"6:00 AM – 10:00 PM",Saturday:"6:00 AM – 10:00 PM",Sunday:"6:00 AM – 10:00 PM"},
+    description:"Farm-fresh milk, yogurt, butter, cream, cheese & khoya delivered twice daily.",
+    produce:["dairy"],
+    image:"images/saddar-fresh-dairy.png", rating:4.7,
+    contact:"+92 21 9926 9012",
+    address:"Nishtar Road, Saddar, Karachi"
+  },
+  { id:4, name:"Korangi No. 2 Fruit Market", area:"Korangi", category:"fruits",
+    lat:24.8240, lng:67.1290,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Popular fruit and vegetable market in Korangi No. 2. Fresh arrivals daily from Sabzi Mandi.",
+    produce:["fruits","vegetables"],
+    image:"images/korangi-no2-fruit.png", rating:4.6,
+    contact:"+92 21 3505 1234",
+    address:"Korangi No. 2, Main Road, Karachi"
+  },
+  { id:5, name:"Korangi No. 6 Fruit & Veg Market", area:"Korangi", category:"fruits",
+    lat:24.8135, lng:67.1405,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Well-stocked fruit & vegetable market in Korangi No. 6. Best for fresh daily shopping.",
+    produce:["fruits","vegetables"],
+    image:"images/korangi-no6-fruit-veg.png", rating:4.7,
+    contact:"+92 21 3506 2345",
+    address:"Korangi No. 6, Sector 5, Karachi"
+  },
+  { id:6, name:"Korangi Herbs Shop", area:"Korangi", category:"herbs",
+    lat:24.8205, lng:67.1255,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 9:00 PM",Tuesday:"8:00 AM – 9:00 PM",Wednesday:"8:00 AM – 9:00 PM",Thursday:"8:00 AM – 9:00 PM",Friday:"8:00 AM – 12:00 PM, 3:00 PM – 9:00 PM",Saturday:"8:00 AM – 9:00 PM",Sunday:"8:00 AM – 9:00 PM"},
+    description:"Fresh mint, coriander, curry leaves, green onion, methi & dill available daily.",
+    produce:["herbs"],
+    image:"images/korangi-herbs.png", rating:4.5,
+    contact:"+92 21 3505 3456",
+    address:"Korangi No. 5, Karachi"
+  },
+  { id:7, name:"Korangi Dairy Farm Shop", area:"Korangi", category:"dairy",
+    lat:24.8285, lng:67.1220,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 9:00 PM",Tuesday:"6:00 AM – 9:00 PM",Wednesday:"6:00 AM – 9:00 PM",Thursday:"6:00 AM – 9:00 PM",Friday:"6:00 AM – 9:00 PM",Saturday:"6:00 AM – 9:00 PM",Sunday:"6:00 AM – 9:00 PM"},
+    description:"Fresh milk, dahi, makkhan & khoya daily. Farm to home delivery available.",
+    produce:["dairy"],
+    image:"images/korangi-dairy-farm.png", rating:4.4,
+    contact:"+92 21 3506 4567",
+    address:"Korangi No. 4, Karachi"
+  },
+  { id:8, name:"Boat Basin Sunday Market", area:"Clifton", category:"fruits",
+    lat:24.8268, lng:67.0333,
+    days:["Sunday"],
+    hours:{Sunday:"6:00 AM – 11:00 AM"},
+    description:"Popular Sunday morning farmers market by the sea. Organic produce & homemade goods.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/boat-basin-sunday.png", rating:4.9, featured:true,
+    contact:"+92 21 3587 5678",
+    address:"Boat Basin, Block 5, Clifton, Karachi"
+  },
+  { id:9, name:"Clifton Fresh Fruit Shop", area:"Clifton", category:"fruits",
+    lat:24.8138, lng:67.0300,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"9:00 AM – 11:00 PM",Tuesday:"9:00 AM – 11:00 PM",Wednesday:"9:00 AM – 11:00 PM",Thursday:"9:00 AM – 11:00 PM",Friday:"9:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"9:00 AM – 11:00 PM",Sunday:"9:00 AM – 11:00 PM"},
+    description:"Premium fruit shop in Clifton with imported and local fruits. Air-conditioned.",
+    produce:["fruits"],
+    image:"images/clifton-fresh-fruit.png", rating:4.7,
+    contact:"+92 21 3587 6789",
+    address:"Block 5, Clifton, Karachi"
+  },
+  { id:10, name:"Clifton Dairy Mart", area:"Clifton", category:"dairy",
+    lat:24.8100, lng:67.0280,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 11:00 PM",Tuesday:"7:00 AM – 11:00 PM",Wednesday:"7:00 AM – 11:00 PM",Thursday:"7:00 AM – 11:00 PM",Friday:"7:00 AM – 11:00 PM",Saturday:"7:00 AM – 11:00 PM",Sunday:"7:00 AM – 11:00 PM"},
+    description:"Premium dairy including imported cheese, yogurt & fresh milk products.",
+    produce:["dairy"],
+    image:"images/clifton-dairy-mart.png", rating:4.6,
+    contact:"+92 21 3587 7890",
+    address:"Block 2, Clifton, Karachi"
+  },
+  { id:11, name:"DHA Phase 5 Fruit Market", area:"DHA", category:"fruits",
+    lat:24.8006, lng:67.0645,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 11:00 PM",Tuesday:"8:00 AM – 11:00 PM",Wednesday:"8:00 AM – 11:00 PM",Thursday:"8:00 AM – 11:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"8:00 AM – 11:00 PM",Sunday:"8:00 AM – 11:00 PM"},
+    description:"Premium fruit & vegetable market serving DHA residents. Wide imported selection.",
+    produce:["fruits","vegetables","herbs"],
+    image:"images/dha-phase5-fruit.png", rating:4.8, featured:true,
+    contact:"+92 21 3584 1234",
+    address:"Phase 5, DHA, Karachi"
+  },
+  { id:12, name:"DHA Dairy & Bakery", area:"DHA", category:"dairy",
+    lat:24.8020, lng:67.0670,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 11:00 PM",Tuesday:"7:00 AM – 11:00 PM",Wednesday:"7:00 AM – 11:00 PM",Thursday:"7:00 AM – 11:00 PM",Friday:"7:00 AM – 11:00 PM",Saturday:"7:00 AM – 11:00 PM",Sunday:"7:00 AM – 11:00 PM"},
+    description:"Fresh milk, cheese, butter & artisan dairy products daily.",
+    produce:["dairy"],
+    image:"images/dha-dairy-bakery.png", rating:4.7,
+    contact:"+92 21 3584 2345",
+    address:"Phase 6, DHA, Karachi"
+  },
+  { id:13, name:"Gulshan Chowrangi Fruit Market", area:"Gulshan", category:"fruits",
+    lat:24.9200, lng:67.0900,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 11:00 PM",Tuesday:"7:00 AM – 11:00 PM",Wednesday:"7:00 AM – 11:00 PM",Thursday:"7:00 AM – 11:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"7:00 AM – 11:00 PM",Sunday:"7:00 AM – 11:00 PM"},
+    description:"Busy fruit market at Gulshan Chowrangi. Wide variety of fresh fruits daily.",
+    produce:["fruits","vegetables"],
+    image:"images/gulshan-chowrangi-fruit.png", rating:4.6,
+    contact:"+92 21 3498 3456",
+    address:"Gulshan Chowrangi, Gulshan-e-Iqbal, Karachi"
+  },
+  { id:14, name:"Gulshan Block 13 Herbs", area:"Gulshan", category:"herbs",
+    lat:24.9280, lng:67.0980,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh herbs & vegetables in Gulshan Block 13-D. Locally sourced.",
+    produce:["herbs","vegetables"],
+    image:"images/gulshan-block13-herbs.png", rating:4.5,
+    contact:"+92 21 3498 4567",
+    address:"Block 13-D, Gulshan-e-Iqbal, Karachi"
+  },
+  { id:15, name:"Gulshan Fresh Dairy", area:"Gulshan", category:"dairy",
+    lat:24.9250, lng:67.0950,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 10:00 PM",Tuesday:"6:00 AM – 10:00 PM",Wednesday:"6:00 AM – 10:00 PM",Thursday:"6:00 AM – 10:00 PM",Friday:"6:00 AM – 10:00 PM",Saturday:"6:00 AM – 10:00 PM",Sunday:"6:00 AM – 10:00 PM"},
+    description:"Farm-fresh milk, dahi, makkhan & paneer available. Home delivery available.",
+    produce:["dairy"],
+    image:"images/gulshan-fresh-dairy.png", rating:4.6,
+    contact:"+92 21 3498 5678",
+    address:"Block 6, Gulshan-e-Iqbal, Karachi"
+  },
+  { id:16, name:"Tariq Road Fruit Market", area:"PECHS", category:"fruits",
+    lat:24.8742, lng:67.0654,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"9:00 AM – 10:00 PM",Tuesday:"9:00 AM – 10:00 PM",Wednesday:"9:00 AM – 10:00 PM",Thursday:"9:00 AM – 10:00 PM",Friday:"9:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"9:00 AM – 10:00 PM",Sunday:"9:00 AM – 10:00 PM"},
+    description:"Premium fruit market offering imported and local fruits. Air-conditioned shops.",
+    produce:["fruits"],
+    image:"images/tariq-road-fruit.png", rating:4.7,
+    contact:"+92 21 3454 6789",
+    address:"Tariq Road, PECHS Block 2, Karachi"
+  },
+  { id:17, name:"PECHS Vegetable Market", area:"PECHS", category:"vegetables",
+    lat:24.8720, lng:67.0620,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 9:00 PM",Tuesday:"8:00 AM – 9:00 PM",Wednesday:"8:00 AM – 9:00 PM",Thursday:"8:00 AM – 9:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 9:00 PM",Saturday:"8:00 AM – 9:00 PM",Sunday:"8:00 AM – 9:00 PM"},
+    description:"Fresh vegetable market in PECHS Block 6. Farm-direct vegetables.",
+    produce:["vegetables","fruits"],
+    image:"images/pechs-vegetable.png", rating:4.5,
+    contact:"+92 21 3454 7890",
+    address:"Block 6, PECHS, Karachi"
+  },
+  { id:18, name:"Bahadurabad Market", area:"Bahadurabad", category:"fruits",
+    lat:24.8794, lng:67.0645,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 11:00 PM",Tuesday:"8:00 AM – 11:00 PM",Wednesday:"8:00 AM – 11:00 PM",Thursday:"8:00 AM – 11:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"8:00 AM – 11:00 PM",Sunday:"8:00 AM – 11:00 PM"},
+    description:"Upscale market offering fresh produce, imported items & artisan food products.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/bahadurabad-market.png", rating:4.8,
+    contact:"+92 21 3493 8901",
+    address:"Bahadurabad Chowrangi, Karachi"
+  },
+  { id:19, name:"Bahadurabad Herbs Corner", area:"Bahadurabad", category:"herbs",
+    lat:24.8810, lng:67.0670,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh herbs & spices — mint, dhania, basil, curry leaves, methi & more.",
+    produce:["herbs"],
+    image:"images/bahadurabad-herbs.png", rating:4.6,
+    contact:"+92 21 3493 9012",
+    address:"Bahadurabad, Karachi"
+  },
+  { id:20, name:"Malir Cantt Market", area:"Malir", category:"fruits",
+    lat:24.8933, lng:67.1855,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 8:00 PM",Tuesday:"6:00 AM – 8:00 PM",Wednesday:"6:00 AM – 8:00 PM",Thursday:"6:00 AM – 8:00 PM",Friday:"6:00 AM – 12:00 PM, 3:00 PM – 8:00 PM",Saturday:"6:00 AM – 8:00 PM",Sunday:"6:00 AM – 8:00 PM"},
+    description:"Fresh produce market serving Malir with farm-direct vegetables and fruits.",
+    produce:["fruits","vegetables","herbs"],
+    image:"images/malir-cantt-market.png", rating:4.5,
+    contact:"+92 21 3455 0123",
+    address:"Main Malir Cantt Road, Karachi"
+  },
+  { id:21, name:"Malir Halt Dairy Shop", area:"Malir", category:"dairy",
+    lat:24.8870, lng:67.1620,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 9:00 PM",Tuesday:"7:00 AM – 9:00 PM",Wednesday:"7:00 AM – 9:00 PM",Thursday:"7:00 AM – 9:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 9:00 PM",Saturday:"7:00 AM – 9:00 PM",Sunday:"7:00 AM – 9:00 PM"},
+    description:"Neighbourhood dairy shop with fresh milk, yogurt & butter daily.",
+    produce:["dairy"],
+    image:"images/malir-halt-dairy.png", rating:4.4,
+    contact:"+92 21 3455 1234",
+    address:"Malir Halt, Karachi"
+  },
+  { id:22, name:"Landhi No. 6 Fruit Market", area:"Landhi", category:"fruits",
+    lat:24.8500, lng:67.1900,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Fruit and vegetable market in Landhi No. 6. Well-stocked with daily fresh arrivals.",
+    produce:["fruits","vegetables","herbs"],
+    image:"images/landhi-no6-fruit.png", rating:4.5,
+    contact:"+92 21 3501 2345",
+    address:"Landhi No. 6, Karachi"
+  },
+  { id:23, name:"Landhi Babar Market", area:"Landhi", category:"vegetables",
+    lat:24.8450, lng:67.1830,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Babar Market — complete vegetable & fruit shopping in Landhi.",
+    produce:["vegetables","fruits"],
+    image:"images/landhi-babar-market.png", rating:4.4,
+    contact:"+92 21 3501 3456",
+    address:"Babar Market, Landhi, Karachi"
+  },
+  { id:24, name:"Landhi Dairy Center", area:"Landhi", category:"dairy",
+    lat:24.8470, lng:67.1870,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 9:00 PM",Tuesday:"6:00 AM – 9:00 PM",Wednesday:"6:00 AM – 9:00 PM",Thursday:"6:00 AM – 9:00 PM",Friday:"6:00 AM – 9:00 PM",Saturday:"6:00 AM – 9:00 PM",Sunday:"6:00 AM – 9:00 PM"},
+    description:"Fresh milk, dahi, butter & cheese in Landhi. Wholesale available.",
+    produce:["dairy"],
+    image:"images/landhi-dairy-center.png", rating:4.4,
+    contact:"+92 21 3501 4567",
+    address:"Landhi No. 3, Karachi"
+  },
+  { id:25, name:"Hyderi Market", area:"North Nazimabad", category:"fruits",
+    lat:24.9435, lng:67.0412,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Busy market in North Karachi. Complete shopping including fruits, vegetables, herbs & dairy.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/hyderi-market.png", rating:4.6,
+    contact:"+92 21 3663 5678",
+    address:"Hyderi, Block H, North Nazimabad, Karachi"
+  },
+  { id:26, name:"North Nazimabad Block H Herbs", area:"North Nazimabad", category:"herbs",
+    lat:24.9450, lng:67.0450,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh herbs & vegetables shop in North Nazimabad Block H.",
+    produce:["herbs","vegetables"],
+    image:"images/north-nazimabad-herbs.png", rating:4.4,
+    contact:"+92 21 3663 6789",
+    address:"Block H, North Nazimabad, Karachi"
+  },
+  { id:27, name:"North Nazimabad Dairy Mart", area:"North Nazimabad", category:"dairy",
+    lat:24.9410, lng:67.0430,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 10:00 PM",Tuesday:"6:00 AM – 10:00 PM",Wednesday:"6:00 AM – 10:00 PM",Thursday:"6:00 AM – 10:00 PM",Friday:"6:00 AM – 10:00 PM",Saturday:"6:00 AM – 10:00 PM",Sunday:"6:00 AM – 10:00 PM"},
+    description:"Premium dairy mart in North Nazimabad with fresh milk & dairy products.",
+    produce:["dairy"],
+    image:"images/north-nazimabad-dairy.png", rating:4.5,
+    contact:"+92 21 3663 7890",
+    address:"Block F, North Nazimabad, Karachi"
+  },
+  { id:28, name:"Sabzi Mandi (Wholesale)", area:"Super Highway", category:"vegetables",
+    lat:24.9735, lng:67.1027,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"4:00 AM – 6:00 PM",Tuesday:"4:00 AM – 6:00 PM",Wednesday:"4:00 AM – 6:00 PM",Thursday:"4:00 AM – 6:00 PM",Friday:"4:00 AM – 6:00 PM",Saturday:"4:00 AM – 6:00 PM",Sunday:"4:00 AM – 6:00 PM"},
+    description:"Karachi's largest wholesale fruit & vegetable market. Best for bulk buying.",
+    produce:["fruits","vegetables"],
+    image:"images/sabzi-mandi-wholesale.png", rating:4.6, featured:true,
+    contact:"+92 21 3680 8901",
+    address:"Main Super Highway, Near Sohrab Goth, Karachi"
+  },
+  { id:29, name:"Super Highway Dairy Wholesale", area:"Super Highway", category:"dairy",
+    lat:24.9700, lng:67.1050,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"4:00 AM – 8:00 PM",Tuesday:"4:00 AM – 8:00 PM",Wednesday:"4:00 AM – 8:00 PM",Thursday:"4:00 AM – 8:00 PM",Friday:"4:00 AM – 8:00 PM",Saturday:"4:00 AM – 8:00 PM",Sunday:"4:00 AM – 8:00 PM"},
+    description:"Wholesale dairy supplier — fresh milk, butter, cheese in bulk quantities.",
+    produce:["dairy"],
+    image:"images/super-highway-dairy.png", rating:4.5,
+    contact:"+92 21 3680 9012",
+    address:"Super Highway, Karachi"
+  },
+  { id:30, name:"Jodia Bazaar (Wholesale)", area:"M.A. Jinnah Road", category:"herbs",
+    lat:24.8545, lng:67.0145,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    hours:{Monday:"9:00 AM – 8:00 PM",Tuesday:"9:00 AM – 8:00 PM",Wednesday:"9:00 AM – 8:00 PM",Thursday:"9:00 AM – 8:00 PM",Friday:"9:00 AM – 12:00 PM, 3:00 PM – 8:00 PM",Saturday:"9:00 AM – 8:00 PM"},
+    description:"Historic wholesale market for dry fruits, spices, and groceries. Herbs & dry items in bulk.",
+    produce:["herbs","fruits"],
+    image:"images/jodia-bazaar.png", rating:4.5,
+    contact:"+92 21 3221 0123",
+    address:"Jodia Bazaar, M.A. Jinnah Road, Karachi"
+  }
+];
+
+/* ============================================================
+   PRODUCTS — SAME AS index.html (for cart + chatbot data)
+   ============================================================ */
+const FRUITS = [
+  { id:"fruit-apple", name:"Apple",       urdu:"Saib",       price:300, unit:"kg",    trend:"stable", image:"images/fruit-apple.png", category:"fruits" },
+  { id:"fruit-banana", name:"Banana",     urdu:"Kela",       price:300, unit:"dozen", trend:"up",     image:"images/fruit-banana.png", category:"fruits" },
+  { id:"fruit-mango", name:"Mango",       urdu:"Aam",        price:275, unit:"kg",    trend:"down",   image:"images/fruit-mango.png", category:"fruits" },
+  { id:"fruit-orange", name:"Orange",     urdu:"Santra",     price:250, unit:"kg",    trend:"stable", image:"images/fruit-orange.png", category:"fruits" },
+  { id:"fruit-strawberry", name:"Strawberry", urdu:"Strawberry", price:350, unit:"kg", trend:"up",   image:"images/fruit-strawberry.png", category:"fruits" },
+  { id:"fruit-watermelon", name:"Watermelon", urdu:"Tarbooz", price:80,  unit:"kg",    trend:"down",   image:"images/fruit-watermelon.png", category:"fruits" },
+  { id:"fruit-grapes", name:"Grapes",     urdu:"Angoor",     price:280, unit:"kg",    trend:"stable", image:"images/fruit-grapes.png", category:"fruits" },
+  { id:"fruit-guava", name:"Guava",       urdu:"Amrood",     price:200, unit:"kg",    trend:"stable", image:"images/fruit-guava.png", category:"fruits" },
+  { id:"fruit-pomegranate", name:"Pomegranate", urdu:"Anar", price:400, unit:"kg",    trend:"up",     image:"images/fruit-pomegranate.png", category:"fruits" }
+];
+
+const VEGETABLES = [
+  { id:"veg-tomato", name:"Tomato",      urdu:"Tamatar",    price:150, unit:"kg",    trend:"down",   image:"images/veg-tomato.png", category:"vegetables" },
+  { id:"veg-onion", name:"Onion",       urdu:"Piyaz",      price:200, unit:"kg",    trend:"up",     image:"images/veg-onion.png", category:"vegetables" },
+  { id:"veg-potato", name:"Potato",      urdu:"Aloo",       price:110, unit:"kg",    trend:"stable", image:"images/veg-potato.png", category:"vegetables" },
+  { id:"veg-carrot", name:"Carrot",      urdu:"Gajar",      price:100, unit:"kg",    trend:"stable", image:"images/veg-carrot.png", category:"vegetables" },
+  { id:"veg-lemon", name:"Lemon",       urdu:"Nimbu",      price:200, unit:"kg",    trend:"up",     image:"images/veg-lemon.png", category:"vegetables" },
+  { id:"veg-cucumber", name:"Cucumber",    urdu:"Kheera",     price:80,  unit:"kg",    trend:"down",   image:"images/veg-cucumber.png", category:"vegetables" },
+  { id:"veg-spinach", name:"Spinach",     urdu:"Palak",      price:60,  unit:"bunch", trend:"stable", image:"images/veg-spinach.png", category:"vegetables" },
+  { id:"veg-cauliflower", name:"Cauliflower", urdu:"Gobi",   price:120, unit:"kg",    trend:"stable", image:"images/veg-cauliflower.png", category:"vegetables" },
+  { id:"veg-chili", name:"Green Chili", urdu:"Hari Mirch", price:180, unit:"kg",    trend:"up",     image:"images/veg-chili.png", category:"vegetables" },
+  { id:"veg-eggplant", name:"Eggplant",    urdu:"Baingan",    price:90,  unit:"kg",    trend:"down",   image:"images/veg-eggplant.png", category:"vegetables" }
+];
+
+const HERBS = [
+  { id:"herb-mint", name:"Mint",         urdu:"Podina",       price:40,  unit:"bunch", trend:"stable", image:"images/herb-mint.png", category:"herbs" },
+  { id:"herb-coriander", name:"Coriander",    urdu:"Dhania",       price:40,  unit:"bunch", trend:"up",     image:"images/herb-coriander.png", category:"herbs" },
+  { id:"herb-basil", name:"Basil",        urdu:"Tulsi",        price:60,  unit:"bunch", trend:"stable", image:"images/herb-basil.png", category:"herbs" },
+  { id:"herb-curry", name:"Curry Leaves", urdu:"Curry Patta",  price:30,  unit:"bunch", trend:"down",   image:"images/herb-curry.png", category:"herbs" },
+  { id:"herb-green-onion", name:"Green Onion",  urdu:"Hara Pyaz",    price:50,  unit:"bunch", trend:"stable", image:"images/herb-green-onion.png", category:"herbs" },
+  { id:"herb-dill", name:"Dill",         urdu:"Soya",         price:45,  unit:"bunch", trend:"up",     image:"images/herb-dill.png", category:"herbs" },
+  { id:"herb-fenugreek", name:"Fenugreek",    urdu:"Methi",        price:50,  unit:"bunch", trend:"stable", image:"images/herb-fenugreek.png", category:"herbs" },
+  { id:"herb-parsley", name:"Parsley",      urdu:"Parsley",      price:80,  unit:"bunch", trend:"stable", image:"images/herb-parsley.png", category:"herbs" }
+];
+
+const DAIRY = [
+  { id:"dairy-milk", name:"Fresh Milk",    urdu:"Taaza Doodh",  price:220, unit:"litre", trend:"up",     image:"images/dairy-milk.png", category:"dairy" },
+  { id:"dairy-yogurt", name:"Yogurt",        urdu:"Dahi",         price:200, unit:"kg",    trend:"stable", image:"images/dairy-yogurt.png", category:"dairy" },
+  { id:"dairy-butter", name:"Butter",        urdu:"Makkhan",      price:1400,unit:"kg",    trend:"up",     image:"images/dairy-butter.png", category:"dairy" },
+  { id:"dairy-cream", name:"Cream",         urdu:"Malai",        price:900, unit:"kg",    trend:"stable", image:"images/dairy-cream.png", category:"dairy" },
+  { id:"dairy-paneer", name:"Cottage Cheese",urdu:"Paneer",       price:1600,unit:"kg",    trend:"stable", image:"images/dairy-paneer.png", category:"dairy" },
+  { id:"dairy-cheese", name:"Cheese",        urdu:"Cheese",       price:1800,unit:"kg",    trend:"up",     image:"images/dairy-cheese.png", category:"dairy" },
+  { id:"dairy-lassi", name:"Lassi",         urdu:"Lassi",        price:150, unit:"glass", trend:"stable", image:"images/dairy-lassi.png", category:"dairy" },
+  { id:"dairy-khoya", name:"Khoya",         urdu:"Khoya",        price:1400,unit:"kg",    trend:"up",     image:"images/dairy-khoya.png", category:"dairy" }
+];
+
+const ALL_PRODUCTS = [...FRUITS, ...VEGETABLES, ...HERBS, ...DAIRY];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const store = {
+  get(k,d){ try { return JSON.parse(localStorage.getItem('ff_'+k)) ?? d; } catch { return d; } },
+  set(k,v){ localStorage.setItem('ff_'+k, JSON.stringify(v)); }
+};
+
+let appState = {
+  bookmarks: store.get('bookmarks', { markets:[] }),
+  user: store.get('user', null),
+  userLocation: store.get('userLocation', null),
+  cart: store.get('cart', []),      // ✅ SHARED WITH ALL PAGES
+  currentCategory: 'all'
+};
+
+const $ = (s,r=document) => r.querySelector(s);
+const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const todayName = () => DAY_NAMES[new Date().getDay()];
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function escape(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function getInitials(name){
+  if(!name) return '?';
+  const parts = name.trim().split(' ');
+  if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  return name.slice(0,2).toUpperCase();
+}
+function getFirstName(name){
+  return name ? name.trim().split(' ')[0] : 'Friend';
+}
+function capitalize(t){ return t.charAt(0).toUpperCase() + t.slice(1); }
+
+function parseTimeRanges(str){
+  if(!str) return null;
+  const parts = str.split(',').map(s => s.trim());
+  const ranges = [];
+  parts.forEach(part => {
+    const m = part.match(/(\d+):(\d+)\s*(AM|PM)\s*[–-]\s*(\d+):(\d+)\s*(AM|PM)/i);
+    if(m){
+      const toMin = (h,mi,p) => {
+        h=+h; mi=+mi;
+        if(p.toUpperCase()==='PM' && h!==12) h+=12;
+        if(p.toUpperCase()==='AM' && h===12) h=0;
+        return h*60+mi;
+      };
+      ranges.push({ start: toMin(m[1],m[2],m[3]), end: toMin(m[4],m[5],m[6]) });
+    }
+  });
+  return ranges.length ? ranges : null;
+}
+function isMarketOpen(m){
+  const d = todayName();
+  if(!m.days.includes(d)) return false;
+  const ranges = parseTimeRanges(m.hours[d]);
+  if(!ranges) return false;
+  const now = new Date();
+  const cur = now.getHours()*60 + now.getMinutes();
+  return ranges.some(r => cur >= r.start && cur < r.end);
+}
+function getCatLabel(cat){
+  const map = { fruits:"Fruits", vegetables:"Vegetables", herbs:"Herbs", dairy:"Dairy" };
+  return map[cat] || cat;
+}
+function formatPrice(n){
+  return 'Rs ' + n.toLocaleString('en-PK');
+}
+function getTrendIcon(trend){
+  if(trend === 'up') return 'fa-arrow-up';
+  if(trend === 'down') return 'fa-arrow-down';
+  return 'fa-minus';
+}
+function getTrendLabel(trend){
+  if(trend === 'up') return 'Rising';
+  if(trend === 'down') return 'Falling';
+  return 'Stable';
+}
+
+/* ============================================================
+   IMAGE FALLBACK
+   ============================================================ */
+function handleImageError(img){
+  img.onerror = null;
+  const label = img.alt || 'Image';
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#fef3c7"/><stop offset="100%" stop-color="#dcfce7"/>
+      </linearGradient></defs>
+      <rect width="400" height="400" fill="url(#g)"/>
+      <text x="50%" y="48%" font-family="sans-serif" font-size="80" text-anchor="middle" dominant-baseline="middle">🏪</text>
+      <text x="50%" y="72%" font-family="sans-serif" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">${label}</text>
+    </svg>`;
+  img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function toast(msg, type='success', icon='fa-circle-check'){
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.innerHTML = `<i class="fas ${icon}"></i><span>${escape(msg)}</span>`;
+  $('#toastStack').appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(20px)'; }, 2200);
+  setTimeout(() => el.remove(), 2600);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+function toggleNav(){
+  $('#navLinks').classList.toggle('open');
+  $('#hamburger').classList.toggle('open');
+}
+
+/* ============================================================
+   ✅ CART SYSTEM — SHARED ff_cart (SAME AS index.html)
+   ============================================================ */
+function getCartCount(){
+  return appState.cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+}
+function getCartTotal(){
+  return appState.cart.reduce((sum, item) => {
+    const product = ALL_PRODUCTS.find(p => p.id === item.id);
+    return sum + (product ? product.price * (item.qty || 1) : 0);
+  }, 0);
+}
+function getCartTotalWithDiscount(){
+  let subtotal = 0, discount = 0;
+  appState.cart.forEach(item => {
+    const p = ALL_PRODUCTS.find(x => x.id === item.id);
+    if(!p) return;
+    const qty = item.qty || 1;
+    const itemSub = p.price * qty;
+    let dp = 0;
+    if(qty >= 20) dp = 25;
+    else if(qty >= 15) dp = 20;
+    else if(qty >= 10) dp = 15;
+    else if(qty >= 5) dp = 10;
+    else if(qty >= 3) dp = 5;
+    subtotal += itemSub;
+    discount += itemSub * dp / 100;
+  });
+  return { subtotal, discount, total: subtotal - discount };
+}
+
+function refreshCartFromStorage(){
+  try {
+    const raw = localStorage.getItem('ff_cart');
+    const parsed = raw ? JSON.parse(raw) : [];
+    appState.cart = Array.isArray(parsed) ? parsed : [];
+    updateCartBadge();
+    const cartModal = document.getElementById('cartModal');
+    if(cartModal && cartModal.classList.contains('open')){
+      renderCartModal();
+    }
+  } catch (e) {
+    console.warn('Could not refresh cart:', e);
+  }
+}
+
+function updateCartBadge(){
+  const el = document.getElementById('cartCount');
+  if(!el) return;
+  const count = getCartCount();
+  el.textContent = count;
+  el.classList.add('bump');
+  setTimeout(() => el.classList.remove('bump'), 350);
+}
+
+function addToCart(id){
+  const product = ALL_PRODUCTS.find(p => p.id === id);
+  if(!product){ toast('Product not found', 'error', 'fa-circle-exclamation'); return; }
+
+  refreshCartFromStorage();
+
+  const existing = appState.cart.find(item => item.id === id);
+  if(existing){
+    existing.qty = (existing.qty || 1) + 1;
+  } else {
+    appState.cart.push({ id, qty: 1 });
+  }
+  store.set('cart', appState.cart);
+  updateCartBadge();
+  toast(`${product.name} added to cart`, 'success', 'fa-cart-plus');
+}
+
+function removeFromCart(id){
+  appState.cart = appState.cart.filter(item => item.id !== id);
+  store.set('cart', appState.cart);
+  updateCartBadge();
+  renderCartModal();
+}
+
+function changeQty(id, delta){
+  const item = appState.cart.find(i => i.id === id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0){
+    removeFromCart(id);
+    return;
+  }
+  store.set('cart', appState.cart);
+  updateCartBadge();
+  renderCartModal();
+}
+
+function openCart(){
+  refreshCartFromStorage();
+  renderCartModal();
+  $('#cartModal').classList.add('open');
+}
+function closeCartModal(){ $('#cartModal').classList.remove('open'); }
+
+function renderCartModal(){
+  const body = document.getElementById('cartBody');
+  const foot = document.getElementById('cartFoot');
+  const countLabel = document.getElementById('cartItemsCount');
+  if(!body) return;
+
+  const items = appState.cart.map(item => {
+    const p = ALL_PRODUCTS.find(x => x.id === item.id);
+    return p ? { ...p, qty: item.qty || 1 } : null;
+  }).filter(Boolean);
+
+  countLabel.textContent = items.length === 0
+    ? 'No items yet'
+    : `${getCartCount()} item${getCartCount() > 1 ? 's' : ''}`;
+
+  if(items.length === 0){
+    body.innerHTML = `
+      <div class="cart-empty" style="text-align:center;padding:40px 20px;color:var(--slate-400);">
+        <i class="fas fa-shopping-cart" style="font-size:3rem;color:var(--amber-300);margin-bottom:14px;display:block;"></i>
+        <h4 style="color:var(--slate-700);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;margin-bottom:6px;">Your basket is empty</h4>
+        <p style="font-size:0.85rem;">Add fresh products to get started!</p>
+      </div>
+    `;
+    foot.style.display = 'none';
+    return;
+  }
+
+  body.innerHTML = items.map(item => `
+    <div style="display:flex;gap:12px;padding:14px;background:var(--slate-50);border-radius:12px;border:1px solid var(--border);margin-bottom:10px;align-items:center;">
+      <img src="${item.image}" alt="${escape(item.name)}" onerror="handleImageError(this)" style="width:56px;height:56px;border-radius:10px;background:white;padding:6px;border:1px solid var(--border);object-fit:contain;flex-shrink:0;">
+      <div style="flex:1;min-width:0;">
+        <h5 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;font-weight:700;color:var(--green-900);margin-bottom:2px;">${escape(item.name)}</h5>
+        <div style="font-size:0.78rem;color:var(--slate-500);">
+          <strong style="color:var(--amber-700);font-family:'Fraunces',serif;font-size:0.9rem;">${formatPrice(item.price)}</strong> · per ${item.unit}
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;background:white;border-radius:8px;padding:3px;border:1px solid var(--border);">
+        <button onclick="changeQty('${item.id}', -1)" style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--green-700);font-size:0.75rem;"><i class="fas fa-minus"></i></button>
+        <span style="min-width:20px;text-align:center;font-weight:700;font-size:0.85rem;color:var(--green-900);">${item.qty}</span>
+        <button onclick="changeQty('${item.id}', 1)" style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--green-700);font-size:0.75rem;"><i class="fas fa-plus"></i></button>
+      </div>
+      <button onclick="removeFromCart('${item.id}')" title="Remove" style="width:30px;height:30px;border-radius:8px;background:white;border:1px solid var(--border);color:var(--rose-500);font-size:0.75rem;display:flex;align-items:center;justify-content:center;">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  `).join('');
+
+  const { total } = getCartTotalWithDiscount();
+  document.getElementById('cartTotalAmount').textContent = formatPrice(total);
+  foot.style.display = 'block';
+}
+
+function checkout(){
+  if(appState.cart.length === 0){
+    toast('Your cart is empty', 'error', 'fa-circle-exclamation');
+    return;
+  }
+  if(!appState.user){
+    toast('Please login to place an order', 'error', 'fa-lock');
+    closeCartModal();
+    setTimeout(() => openAuthModal('login'), 500);
+    return;
+  }
+  toast(`Order placed! Total: ${formatPrice(getCartTotalWithDiscount().total)} 🎉`, 'success', 'fa-check-circle');
+  appState.cart = [];
+  store.set('cart', []);
+  updateCartBadge();
+  closeCartModal();
+}
+
+/* ============================================================
+   ✅ CART SYNC LISTENERS
+   ============================================================ */
+window.addEventListener('storage', (e) => {
+  if(e.key === 'ff_cart') refreshCartFromStorage();
+});
+document.addEventListener('visibilitychange', () => {
+  if(!document.hidden) refreshCartFromStorage();
+});
+window.addEventListener('focus', () => refreshCartFromStorage());
+window.addEventListener('pageshow', () => refreshCartFromStorage());
+
+/* ============================================================
+   USER AUTH
+   ============================================================ */
+function renderNavActions(){
+  const container = document.getElementById('navActions');
+  if(!container) return;
+
+  const cartHTML = `
+    <button class="cart-icon-btn" onclick="openCart()" title="View Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">${getCartCount()}</span>
+    </button>
+  `;
+
+  if(appState.user){
+    const initials = getInitials(appState.user.name);
+    const firstName = getFirstName(appState.user.name);
+    container.innerHTML = cartHTML + `
+      <div class="user-pill" onclick="toggleUserMenu(event)">
+        <div class="avatar">${initials}</div>
+        <span>Hi, ${escape(firstName)}</span>
+        <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.6;"></i>
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-header">
+            <strong>${escape(appState.user.name)}</strong>
+            <span>${escape(appState.user.email)}</span>
+          </div>
+          <a href="saved.html"><i class="fas fa-bookmark"></i> My Saved Items</a>
+          <a href="index.html"><i class="fas fa-home"></i> Go Home</a>
+          <a class="danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = cartHTML + `
+      <button class="btn-ghost" onclick="openAuthModal('login')">Login</button>
+      <button class="btn-solid" onclick="openAuthModal('signup')">Sign Up</button>
+    `;
+  }
+}
+function toggleUserMenu(e){
+  if(e) e.stopPropagation();
+  const menu = document.getElementById('userMenu');
+  if(menu) menu.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('userMenu');
+  const pill = document.querySelector('.user-pill');
+  if(menu && pill && !pill.contains(e.target)) menu.classList.remove('open');
+});
+
+function openAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.add('open');
+}
+function closeAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.remove('open');
+}
+function handleSignup(e){
+  e.preventDefault();
+  const name = $('#signupName').value.trim();
+  const email = $('#signupEmail').value.trim().toLowerCase();
+  const password = $('#signupPassword').value;
+
+  if(!name || name.length < 2){ toast('Enter valid name','error','fa-circle-exclamation'); return; }
+  if(!email || !email.includes('@')){ toast('Enter valid email','error','fa-circle-exclamation'); return; }
+  if(password.length < 4){ toast('Password min 4 chars','error','fa-circle-exclamation'); return; }
+
+  const users = store.get('users', {});
+  if(users[email]){ toast('Email already registered','error','fa-circle-exclamation'); return; }
+
+  users[email] = { name, email, joinedAt:new Date().toISOString(), passwordHash:btoa(password) };
+  store.set('users', users);
+  appState.user = { name, email, joinedAt: users[email].joinedAt };
+  store.set('user', appState.user);
+
+  closeAuthModal('signup');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome, ${getFirstName(name)}! 🌿`, 'success', 'fa-seedling');
+  document.getElementById('signupName').value = '';
+  document.getElementById('signupEmail').value = '';
+  document.getElementById('signupPassword').value = '';
+}
+function handleLogin(e){
+  e.preventDefault();
+  const email = $('#loginEmail').value.trim().toLowerCase();
+  const password = $('#loginPassword').value;
+  const users = store.get('users', {});
+  const user = users[email];
+  if(!user){ toast('No account found','error','fa-circle-exclamation'); return; }
+  if(user.passwordHash !== btoa(password)){ toast('Incorrect password','error','fa-circle-exclamation'); return; }
+
+  appState.user = { name:user.name, email:user.email, joinedAt:user.joinedAt };
+  store.set('user', appState.user);
+  closeAuthModal('login');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome back, ${getFirstName(user.name)}! 🌿`, 'success', 'fa-leaf');
+  document.getElementById('loginEmail').value = '';
+  document.getElementById('loginPassword').value = '';
+}
+function logout(){
+  if(!confirm('Logout now?')) return;
+  appState.user = null;
+  store.set('user', null);
+  renderNavActions();
+  updateBadge();
+  toast('Logged out', 'success', 'fa-check-circle');
+}
+
+/* ============================================================
+   MARKETS RENDER
+   ============================================================ */
+function updateCategoryCounts(){
+  const counts = {
+    all: MARKETS.length,
+    fruits: MARKETS.filter(m => m.produce.includes('fruits')).length,
+    vegetables: MARKETS.filter(m => m.produce.includes('vegetables')).length,
+    herbs: MARKETS.filter(m => m.produce.includes('herbs')).length,
+    dairy: MARKETS.filter(m => m.produce.includes('dairy')).length
+  };
+  Object.keys(counts).forEach(k => {
+    const el = document.getElementById('count-' + k);
+    if(el) el.textContent = counts[k];
+  });
+}
+
+function marketCardHTML(m){
+  const bm = appState.bookmarks.markets.includes(m.id);
+  const open = isMarketOpen(m);
+  const catLabel = m.produce.slice(0,2).map(getCatLabel).join(' · ');
+
+  return `
+    <article class="market-card">
+      <div class="market-card-head">
+        ${open
+          ? `<div class="badge-open"><span class="dot"></span> Open Now</div>`
+          : `<div class="badge-closed"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Closed</div>`
+        }
+        <div class="badge-cat" data-cat="${m.category}">${escape(m.area)}</div>
+        <img src="${m.image}" alt="${escape(m.name)}" onerror="handleImageError(this)">
+      </div>
+      <div class="market-card-body">
+        <h3>${escape(m.name)}</h3>
+        <div class="market-meta">
+          <div><i class="fas fa-location-dot"></i> ${escape(m.area)}, Karachi</div>
+          <div><i class="fas fa-calendar-days"></i> ${m.days.length === 7 ? 'Open Daily' : escape(m.days.join(' · '))}</div>
+          <div><i class="fas fa-star"></i> ${m.rating} / 5 · ${escape(catLabel)}</div>
+        </div>
+        <p class="market-card-desc">${escape(m.description)}</p>
+        <div class="market-card-foot">
+          <button class="icon-btn ${bm?'active':''}" onclick="toggleBookmark(${m.id})" title="Save">
+            <i class="fas fa-bookmark"></i>
+          </button>
+          <button class="icon-btn" onclick="shareMarket('${escape(m.name).replace(/'/g,"\\'")}')" title="Share">
+            <i class="fas fa-share-nodes"></i>
+          </button>
+          <button class="btn-view" onclick="viewMarket(${m.id})">
+            View Details <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderMarkets(list){
+  const grid = document.getElementById('marketGrid');
+  const noRes = document.getElementById('noResults');
+  const count = document.getElementById('marketCount');
+  const title = document.getElementById('directoryTitle');
+  const subtitle = document.getElementById('directorySubtitle');
+
+  count.textContent = list.length;
+
+  if(list.length === 0){
+    grid.innerHTML = '';
+    noRes.style.display = 'block';
+    title.textContent = 'No Markets Found';
+    subtitle.textContent = 'Try changing your filters';
+    return;
+  }
+  noRes.style.display = 'none';
+  grid.innerHTML = list.map(marketCardHTML).join('');
+
+  const cat = appState.currentCategory;
+  if(cat === 'all'){
+    title.textContent = 'All Markets';
+    subtitle.textContent = 'Explore all markets across Karachi';
+  } else {
+    title.textContent = getCatLabel(cat) + ' Markets';
+    subtitle.textContent = `Showing all ${getCatLabel(cat).toLowerCase()} shops & markets in Karachi`;
+  }
+}
+
+/* ============================================================
+   FILTER
+   ============================================================ */
+function filterByCategory(cat, btn){
+  appState.currentCategory = cat;
+  $$('.category-tab').forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+  filterMarkets();
+}
+
+function filterMarkets(){
+  const search = ($('#searchInput')?.value || '').toLowerCase().trim();
+  const area = $('#locationFilter')?.value || '';
+  const day = $('#dayFilter')?.value || '';
+  const produce = $('#produceFilter')?.value || '';
+  const cat = appState.currentCategory;
+
+  let filtered = MARKETS.filter(m => {
+    const nameMatch = !search ||
+      m.name.toLowerCase().includes(search) ||
+      m.area.toLowerCase().includes(search) ||
+      m.address.toLowerCase().includes(search);
+
+    const areaMatch = !area || m.area === area;
+    const dayMatch = !day || m.days.includes(day);
+    const produceMatch = !produce || m.produce.includes(produce);
+    const catMatch = cat === 'all' || m.produce.includes(cat);
+
+    return nameMatch && areaMatch && dayMatch && produceMatch && catMatch;
+  });
+
+  renderMarkets(filtered);
+}
+
+function clearFilters(){
+  $('#searchInput').value = '';
+  $('#locationFilter').value = '';
+  $('#dayFilter').value = '';
+  $('#produceFilter').value = '';
+  appState.currentCategory = 'all';
+  $$('.category-tab').forEach(t => t.classList.toggle('active', t.dataset.cat === 'all'));
+  renderMarkets(MARKETS);
+}
+
+/* ============================================================
+   DETAIL MODAL
+   ============================================================ */
+function viewMarket(id){
+  const m = MARKETS.find(x => x.id === id);
+  if(!m) return;
+
+  const open = isMarketOpen(m);
+  const today = todayName();
+
+  $('#detailImg').src = m.image;
+  $('#detailName').textContent = m.name;
+  $('#detailArea').innerHTML = `${escape(m.area)}, Karachi`;
+
+  const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  const hoursHTML = allDays.map(day => {
+    const time = m.hours[day] || "Closed";
+    const isClosed = !m.hours[day];
+    const isToday = day === today;
+    return `
+      <div class="hours-item ${isToday?'today':''} ${isClosed?'closed':''}">
+        <span class="day">${isToday?'● ':''}${day}</span>
+        <span class="time">${isClosed?'Closed':time}</span>
+      </div>`;
+  }).join('');
+
+  const produceHTML = m.produce.map(p => {
+    return `<span class="produce-tag" data-cat="${p}">${getCatLabel(p)}</span>`;
+  }).join('');
+
+  const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lng}`;
+
+  $('#detailBody').innerHTML = `
+    <div class="detail-section">
+      <p style="color:var(--slate-600);font-size:0.9rem;line-height:1.6;">${escape(m.description)}</p>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-circle-info"></i> Basic Info</div>
+      <div class="detail-row">
+        <i class="fas fa-location-dot"></i>
+        <div><strong>Address:</strong> ${escape(m.address)}</div>
+      </div>
+      <div class="detail-row">
+        <i class="fas fa-map-marked-alt"></i>
+        <div><strong>Area:</strong> ${escape(m.area)}, Karachi</div>
+      </div>
+      <div class="detail-row">
+        <i class="fas fa-phone"></i>
+        <div><strong>Phone:</strong> ${escape(m.contact)}</div>
+      </div>
+      <div class="detail-row">
+        <i class="fas fa-star" style="color:var(--amber-500);"></i>
+        <div><strong>Rating:</strong> ${m.rating} / 5.0</div>
+      </div>
+      <div class="detail-row">
+        <i class="fas fa-circle" style="color:${open?'#22c55e':'#ef4444'};font-size:0.6rem;margin-top:8px;"></i>
+        <div><strong>Status:</strong> ${open?'Open Now':'Currently Closed'}</div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-clock"></i> Weekly Schedule</div>
+      <div class="hours-grid">${hoursHTML}</div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-basket-shopping"></i> Available Produce</div>
+      <div class="produce-tags">${produceHTML}</div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-arrow-right"></i> Quick Actions</div>
+      <div class="contact-block">
+        <a href="tel:${m.contact.replace(/\s/g,'')}" class="contact-btn primary">
+          <i class="fas fa-phone"></i> Call Market
+        </a>
+        <a href="${mapLink}" target="_blank" class="contact-btn">
+          <i class="fas fa-map-location-dot"></i> Get Directions
+        </a>
+        <button class="contact-btn" onclick="shareMarket('${escape(m.name).replace(/'/g,"\\'")}')">
+          <i class="fas fa-share-nodes"></i> Share
+        </button>
+      </div>
+    </div>
+  `;
+
+  $('#detailModal').classList.add('open');
+}
+
+function closeDetailModal(){
+  $('#detailModal').classList.remove('open');
+}
+
+/* ============================================================
+   BOOKMARK / SHARE
+   ============================================================ */
+function toggleBookmark(id){
+  if(!appState.user){
+    toast('Please login to save markets', 'error', 'fa-lock');
+    setTimeout(() => openAuthModal('login'), 800);
+    return;
+  }
+  const arr = appState.bookmarks.markets;
+  const i = arr.indexOf(id);
+  if(i > -1){ arr.splice(i,1); toast('Removed from saved'); }
+  else      { arr.push(id);    toast('Saved to favorites'); }
+  store.set('bookmarks', appState.bookmarks);
+  updateBadge();
+  filterMarkets();
+}
+function updateBadge(){
+  const el = $('#navBadge');
+  if(el) el.textContent = appState.bookmarks.markets.length;
+}
+function shareMarket(name){
+  const url = location.href;
+  if(navigator.share){
+    navigator.share({ title:'FreshFind', text:`Check out ${name} on FreshFind`, url }).catch(()=>{});
+    return;
+  }
+  navigator.clipboard.writeText(`${name} — ${url}`).then(() => toast('Link copied'));
+}
+
+/* ============================================================
+   URL PARAMS
+   ============================================================ */
+function applyURLParams(){
+  const params = new URLSearchParams(location.search);
+  const area = params.get('area');
+  const cat = params.get('cat') || params.get('produce');
+  const day = params.get('day');
+  const q = params.get('q');
+
+  if(area){
+    const select = $('#locationFilter');
+    [...select.options].forEach(opt => {
+      if(opt.value.toLowerCase() === area.toLowerCase()){
+        select.value = opt.value;
+      }
+    });
+  }
+  if(cat){
+    appState.currentCategory = cat;
+    $$('.category-tab').forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+  }
+  if(day){ $('#dayFilter').value = day; }
+  if(q){ $('#searchInput').value = q; }
+}
+
+/* ============================================================
+   ✅ CHATBOT — SAME AS index.html (data-driven, professional)
+   ============================================================ */
+function buildProductPriceList(){
+  return ALL_PRODUCTS.map(p => `${p.name} (${p.urdu}) – Rs ${p.price}/${p.unit}`).join(', ');
+}
+function buildCategoryItems(cat){
+  const items = ALL_PRODUCTS.filter(p => p.category === cat);
+  return items.map(p => `${p.name} – Rs ${p.price}/${p.unit}`).join(', ');
+}
+function buildAreaMarketInfo(){
+  const areas = [...new Set(MARKETS.map(m => m.area))];
+  return areas.join(', ');
+}
+function buildMarketList(){
+  const featured = MARKETS.filter(m => m.featured);
+  return featured.map(m => `${m.name} (${m.area})`).join(' · ');
+}
+
+const CHAT_RULES = [
+  { keys:["hello","hi","hey","salam","assalam"], reply:"Hi! 👋 I know everything about FreshFind markets in Karachi. Ask me about <b>markets, fruits, veggies, herbs, dairy, prices, or areas</b>!" },
+  { keys:["cart","basket","order","checkout"], reply:"Your basket is saved across all pages. Tap the <b>cart icon</b> (top right) to view items, change quantity, or checkout. 🛒" },
+  { keys:["fruit","fruits","apple","mango","banana","orange","strawberry","watermelon","grapes","guava","pomegranate"], reply:`Fresh fruits available: <b>${buildCategoryItems('fruits')}</b>` },
+  { keys:["vegetable","vegetables","tomato","onion","potato","carrot","lemon","cucumber","spinach","cauliflower","chili","eggplant"], reply:`Fresh vegetables: <b>${buildCategoryItems('vegetables')}</b>` },
+  { keys:["herb","herbs","mint","coriander","basil","curry","dill","fenugreek","parsley"], reply:`Fresh herbs: <b>${buildCategoryItems('herbs')}</b>` },
+  { keys:["dairy","milk","yogurt","dahi","butter","cream","paneer","cheese","lassi","khoya"], reply:`Fresh dairy: <b>${buildCategoryItems('dairy')}</b>` },
+  { keys:["price","rate","cost","how much"], reply:`Prices: ${buildProductPriceList()}` },
+  { keys:["area","nearest","near","location","market","shop","store"], reply:`We cover these areas in Karachi: ${buildAreaMarketInfo()}. Use the search filters above or ask me about a specific area!` },
+  { keys:["empress","boat basin","sunday market","sabzi mandi","hyderi","jodia"], reply:`Featured markets: ${buildMarketList()}. Click any market card to see produce and prices.` },
+  { keys:["korangi","landhi","clifton","dha","saddar","gulshan","pechs","bahadurabad","malir","north nazimabad","super highway","jinnah road"], reply:`Yes! We have markets in that area. Check the markets grid above or use the area filter to see them sorted.` },
+  { keys:["season","seasonal","winter","best now"], reply:`This week's seasonal picks: <b>Strawberry, Orange, Guava, Pomegranate, Carrot, Spinach, Cauliflower, Mint</b>. All in season and best price! 🍓🥕` },
+  { keys:["login","signup","account","register"], reply:"Sign up or login to save your favourite markets, sync your cart, and get personalized alerts. It's free! 🌿" },
+  { keys:["contact","help","support","email"], reply:"You can reach us at hello@freshfind.com ✉️ or use the contact page." },
+  { keys:["about","freshfind","what is"], reply:"FreshFind helps you find the nearest fruit, vegetable, herb & dairy shops in Karachi with live prices and timings. We cover 30 markets across 12 areas. 🥬" },
+  { keys:["how many","total","count"], reply:`We have <b>${MARKETS.length} markets</b> across Karachi. Use filters to find the perfect one for you!` }
+];
+const CHAT_FALLBACK = "I can tell you about <b>markets, fruits, vegetables, herbs, dairy</b>, prices, areas, or featured markets. Try: 'Tell me about Empress Market', 'What fruits are available?', or 'Show me Korangi markets'.";
+
+let chatOpen = false;
+function toggleChat(){
+  chatOpen = !chatOpen;
+  $('#chatPanel').classList.toggle('open', chatOpen);
+  $('#chatFab').classList.toggle('open', chatOpen);
+  if(chatOpen){
+    const dot = $('#chatDot');
+    if(dot) dot.style.display = 'none';
+    setTimeout(() => $('#chatInput')?.focus(), 300);
+  }
+}
+function sendChat(){
+  const input = $('#chatInput');
+  const txt = input.value.trim();
+  if(!txt) return;
+  appendChat(txt, 'user');
+  input.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  $('#chatBody').appendChild(typing);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    appendChat(getBotReply(txt), 'bot');
+  }, 600 + Math.random()*400);
+}
+function appendChat(text, who){
+  const el = document.createElement('div');
+  el.className = 'chat-msg ' + who;
+  el.innerHTML = text;
+  $('#chatBody').appendChild(el);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+}
+function getBotReply(msg){
+  const lower = ' ' + msg.toLowerCase() + ' ';
+  // Check specific areas first
+  const areas = [...new Set(MARKETS.map(m => m.area))];
+  for (const area of areas) {
+    if (lower.includes(area.toLowerCase())) {
+      const areaMarkets = MARKETS.filter(m => m.area === area);
+      if(areaMarkets.length > 0){
+        return `Yes! We have <b>${areaMarkets.length} market${areaMarkets.length > 1 ? 's' : ''}</b> in <b>${area}</b>: ${areaMarkets.slice(0,3).map(m => m.name).join(', ')}${areaMarkets.length > 3 ? ', and more' : ''}. Use the area filter above to see all!`;
+      }
+    }
+  }
+  for(const rule of CHAT_RULES){
+    if(rule.keys.some(k => lower.includes(k))) return rule.reply;
+  }
+  return CHAT_FALLBACK;
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  $('#yr').textContent = new Date().getFullYear();
+
+  refreshCartFromStorage();
+  renderNavActions();
+  updateBadge();
+  updateCategoryCounts();
+  applyURLParams();
+  filterMarkets();
+
+  const chatInput = document.getElementById('chatInput');
+  if(chatInput){
+    chatInput.addEventListener('keypress', e => {
+      if(e.key === 'Enter') sendChat();
+    });
+  }
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape'){
+      closeDetailModal();
+      closeCartModal();
+      closeAuthModal('login');
+      closeAuthModal('signup');
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', init);
+
+/* ============================================================
+   EXPOSE GLOBALLY
+   ============================================================ */
+window.toggleNav = toggleNav;
+window.filterMarkets = filterMarkets;
+window.filterByCategory = filterByCategory;
+window.clearFilters = clearFilters;
+window.viewMarket = viewMarket;
+window.closeDetailModal = closeDetailModal;
+window.toggleBookmark = toggleBookmark;
+window.shareMarket = shareMarket;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
+window.logout = logout;
+window.toggleUserMenu = toggleUserMenu;
+window.openCart = openCart;
+window.closeCartModal = closeCartModal;
+window.changeQty = changeQty;
+window.removeFromCart = removeFromCart;
+window.checkout = checkout;
+window.toggleChat = toggleChat;
+window.sendChat = sendChat;
+window.handleImageError = handleImageError;
+window.refreshCartFromStorage = refreshCartFromStorage;
+window.addToCart = addToCart;
+</script>
+
+</body>
+</html>

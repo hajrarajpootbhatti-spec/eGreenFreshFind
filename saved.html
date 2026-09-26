@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FreshFind — Your saved markets and favorite products in Karachi.">
+<title>Saved Items | FreshFind Karachi</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root{
+  --green-50:#f0fdf4; --green-100:#dcfce7; --green-200:#bbf7d0;
+  --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
+  --green-700:#15803d; --green-800:#166534; --green-900:#14532d;
+  --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-200:#fde68a;
+  --amber-300:#fcd34d; --amber-400:#fbbf24; --amber-500:#f59e0b;
+  --amber-600:#d97706; --amber-700:#b45309;
+  --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd;
+  --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1;
+  --rose-500:#f43f5e;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+  --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --slate-900:#0f172a;
+
+  --bg:#fbfdf9; --text:#0f172a; --text-muted:#64748b;
+  --border:#e6ecdf; --border-strong:#d3ddc9;
+
+  --radius:14px; --radius-lg:20px; --radius-xl:28px;
+  --shadow-xs:0 1px 2px rgba(15,23,42,0.04);
+  --shadow-sm:0 2px 8px rgba(15,23,42,0.06);
+  --shadow:0 4px 20px rgba(15,23,42,0.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,23,42,0.18);
+
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.15;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;}
+button{cursor:pointer;border:none;background:none;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+::selection{background:var(--amber-200);color:var(--green-900);}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--slate-100);}
+::-webkit-scrollbar-thumb{background:var(--slate-300);border-radius:10px;border:2px solid var(--slate-100);}
+::-webkit-scrollbar-thumb:hover{background:var(--amber-400);}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-xs);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.logo-img{height:52px;width:auto;transition:transform 0.4s var(--ease-spring);}
+.logo:hover .logo-img{transform:scale(1.05) rotate(-3deg);}
+
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{
+  padding:9px 18px;border-radius:10px;font-size:0.88rem;font-weight:500;
+  color:var(--slate-600);transition:all 0.2s var(--ease);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-links a:hover{color:var(--green-800);background:var(--green-50);}
+.nav-links a.active{color:var(--green-900);background:var(--amber-100);font-weight:600;}
+.nav-badge{
+  background:var(--amber-500);color:white;font-size:0.65rem;padding:2px 8px;
+  border-radius:10px;font-weight:700;min-width:20px;text-align:center;
+}
+.nav-actions{display:flex;gap:8px;align-items:center;}
+.btn-ghost{
+  padding:9px 18px;border-radius:10px;font-size:0.85rem;font-weight:600;
+  color:var(--green-800);border:1.5px solid var(--border-strong);background:white;
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+}
+.btn-ghost:hover{border-color:var(--green-600);background:var(--green-50);}
+.btn-solid{
+  padding:9px 20px;border-radius:10px;font-size:0.85rem;font-weight:700;
+  color:var(--green-900);background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 4px 12px rgba(245,158,11,0.3);
+}
+.btn-solid:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,0.45);}
+
+/* Cart icon button */
+.cart-icon-btn{
+  position:relative;
+  width:44px;height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:1rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.25);
+  flex-shrink:0;
+}
+.cart-icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+.cart-icon-btn .cart-count{
+  position:absolute;top:-5px;right:-5px;
+  background:var(--amber-500);color:white;
+  font-size:0.65rem;font-weight:800;
+  min-width:20px;height:20px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 5px;
+  border:2px solid white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* User pill */
+.user-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:999px;
+  background:linear-gradient(135deg,var(--green-50),var(--amber-50));
+  border:1.5px solid var(--green-200);
+  color:var(--green-800);font-size:0.85rem;font-weight:600;
+  cursor:pointer;position:relative;
+  transition:all 0.2s var(--ease);
+}
+.user-pill:hover{border-color:var(--green-400);box-shadow:0 4px 12px rgba(22,163,74,0.15);}
+.user-pill .avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:800;text-transform:uppercase;
+}
+.user-menu{
+  position:absolute;top:calc(100% + 10px);right:0;
+  min-width:220px;background:white;border-radius:14px;
+  box-shadow:0 20px 50px -12px rgba(15,23,42,0.25),0 0 0 1px var(--border);
+  padding:8px;display:none;z-index:100;
+}
+.user-menu.open{display:block;}
+.user-menu-header{padding:12px 14px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+.user-menu-header strong{display:block;color:var(--green-900);font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+.user-menu-header span{color:var(--slate-500);font-size:0.75rem;word-break:break-all;}
+.user-menu a{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9px;
+  color:var(--slate-700);font-size:0.85rem;font-weight:500;cursor:pointer;
+}
+.user-menu a:hover{background:var(--green-50);color:var(--green-800);}
+.user-menu a i{width:16px;color:var(--slate-400);font-size:0.9rem;}
+.user-menu a.danger{color:var(--rose-500);}
+.user-menu a.danger:hover{background:#fef2f2;color:#dc2626;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;border-radius:8px;}
+.hamburger span{width:22px;height:2px;background:var(--slate-700);border-radius:2px;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.saved-hero{
+  padding:90px 0 120px;text-align:center;position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(20,83,45,0.88), rgba(22,101,52,0.75)),
+    url('images/market-hero.png') center/cover no-repeat;
+  color:white;
+}
+.saved-hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(800px 400px at 10% 0%, rgba(251,191,36,0.18), transparent 60%),
+    radial-gradient(700px 400px at 90% 20%, rgba(34,197,94,0.20), transparent 60%);
+  pointer-events:none;
+}
+.saved-hero .container{position:relative;z-index:2;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  color:white;font-size:0.78rem;font-weight:700;
+  letter-spacing:0.05em;text-transform:uppercase;
+  margin-bottom:20px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.hero-badge i{color:var(--amber-400);}
+.saved-hero h1{
+  color:white;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  margin-bottom:16px;
+  text-shadow:0 2px 16px rgba(0,0,0,0.25);
+}
+.saved-hero h1 span{
+  color:var(--amber-300);
+  font-style:italic;position:relative;
+}
+.saved-hero h1 span::after{
+  content:'';position:absolute;left:0;right:0;bottom:4px;height:14px;
+  background:rgba(251,191,36,0.35);border-radius:4px;z-index:-1;
+}
+.saved-hero p{
+  max-width:660px;margin:auto;
+  color:rgba(255,255,255,0.92);
+  font-size:1.05rem;
+  text-shadow:0 1px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+.section{padding:70px 0;}
+.section-light{background:white;}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+.tabs-wrap{
+  margin-top:-50px;position:relative;z-index:5;
+  margin-bottom:50px;
+}
+.saved-tabs{
+  background:white;border-radius:999px;
+  padding:10px;
+  box-shadow:0 30px 60px -20px rgba(15,23,42,0.22),0 0 0 1px var(--border);
+  border-top:5px solid var(--amber-400);
+  display:flex;gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+  max-width:720px;margin:0 auto;
+}
+.saved-tab{
+  padding:12px 26px;border-radius:999px;
+  font-size:0.88rem;font-weight:700;
+  background:transparent;color:var(--slate-600);
+  border:none;
+  transition:all 0.25s var(--ease);
+  display:inline-flex;align-items:center;gap:8px;
+  cursor:pointer;white-space:nowrap;
+}
+.saved-tab:hover{background:var(--slate-50);color:var(--green-800);}
+.saved-tab.active{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;
+  box-shadow:0 6px 18px rgba(22,163,74,0.25);
+}
+.saved-tab .count-badge{
+  background:rgba(255,255,255,0.25);
+  padding:2px 8px;border-radius:999px;
+  font-size:0.7rem;font-weight:800;
+  min-width:20px;text-align:center;
+}
+.saved-tab:not(.active) .count-badge{
+  background:var(--slate-100);color:var(--slate-500);
+}
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+.section-header{
+  display:flex;justify-content:space-between;align-items:end;
+  gap:20px;margin-bottom:35px;flex-wrap:wrap;
+}
+.section-header h2{
+  color:var(--green-900);font-size:clamp(1.5rem,3vw,2rem);
+  margin-bottom:6px;
+}
+.section-header p{color:var(--slate-500);margin:0;}
+
+/* ============================================================
+   MARKET CARD
+   ============================================================ */
+.market-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:24px;
+}
+.market-card{
+  background:white;border-radius:var(--radius-lg);
+  overflow:hidden;border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);transition:all 0.35s var(--ease);
+  display:flex;flex-direction:column;position:relative;
+}
+.market-card:hover{
+  transform:translateY(-6px);box-shadow:var(--shadow-lg);
+  border-color:var(--amber-300);
+}
+.market-card-head{
+  height:200px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-100),var(--green-200));
+}
+.market-card-head img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s var(--ease);
+}
+.market-card:hover .market-card-head img{transform:scale(1.06);}
+.badge-cat{
+  position:absolute;top:12px;right:12px;
+  background:var(--amber-400);color:var(--green-900);
+  font-size:0.68rem;font-weight:700;
+  padding:5px 11px;border-radius:999px;z-index:2;
+  text-transform:uppercase;letter-spacing:0.04em;
+}
+.badge-cat[data-cat="fruits"]{background:linear-gradient(135deg,#ea580c,#f97316);color:white;}
+.badge-cat[data-cat="vegetables"]{background:linear-gradient(135deg,#16a34a,#22c55e);color:white;}
+.badge-cat[data-cat="herbs"]{background:linear-gradient(135deg,#059669,#10b981);color:white;}
+.badge-cat[data-cat="dairy"]{background:linear-gradient(135deg,var(--sky-500),var(--sky-600));color:white;}
+
+.market-card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+.market-card-body h3{
+  font-size:1.12rem;color:var(--green-900);
+  margin-bottom:8px;font-weight:700;
+}
+.market-meta{
+  display:flex;flex-direction:column;gap:6px;
+  margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);
+}
+.market-meta div{display:flex;align-items:center;gap:7px;}
+.market-meta i{color:var(--green-600);width:14px;font-size:0.78rem;}
+
+.market-card-desc{
+  font-size:0.85rem;color:var(--text-muted);
+  margin-bottom:16px;flex:1;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.market-card-foot{
+  display:flex;gap:8px;padding-top:14px;
+  border-top:1px solid var(--border);align-items:center;
+  margin-top:auto;
+}
+.icon-btn{
+  width:36px;height:36px;border-radius:10px;
+  border:1px solid var(--border);background:white;
+  color:var(--slate-500);
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);font-size:0.85rem;flex-shrink:0;
+}
+.icon-btn:hover{background:#fef2f2;color:var(--rose-500);border-color:#fecaca;}
+.btn-view{
+  margin-left:auto;padding:9px 16px;border-radius:9px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:0.78rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 3px 10px rgba(22,163,74,0.25);
+}
+.btn-view:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   PRODUCT GRID
+   ============================================================ */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:20px;
+}
+.product-card{
+  background:white;border-radius:var(--radius-lg);
+  overflow:hidden;height:100%;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  transition:all 0.35s var(--ease);
+  display:flex;flex-direction:column;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--amber-300);
+}
+.product-image{
+  height:180px;width:100%;object-fit:cover;
+  transition:transform 0.5s var(--ease);
+}
+.product-card:hover .product-image{transform:scale(1.06);}
+.product-body{padding:18px;flex:1;display:flex;flex-direction:column;}
+.category{
+  display:inline-block;
+  background:var(--green-50);color:var(--green-800);
+  padding:4px 10px;border-radius:20px;
+  font-size:0.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.04em;
+  margin-bottom:8px;align-self:flex-start;
+}
+.product-body h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1rem;font-weight:700;
+  color:var(--green-900);margin-bottom:6px;
+}
+.price{
+  color:var(--green-700);font-size:1.15rem;
+  font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.unit{color:var(--text-muted);font-size:0.8rem;}
+.product-buttons{
+  display:flex;gap:8px;margin-top:14px;
+  padding-top:14px;border-top:1px solid var(--border);
+}
+.btn-details{
+  flex:1;padding:9px;border-radius:9px;
+  border:1.5px solid var(--border);
+  background:white;color:var(--green-800);
+  font-size:0.75rem;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  transition:all 0.2s var(--ease);
+}
+.btn-details:hover{background:var(--green-50);border-color:var(--green-400);}
+.btn-cart{
+  flex:1;padding:9px;border-radius:9px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:0.75rem;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 3px 10px rgba(22,163,74,0.25);
+}
+.btn-cart:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state{
+  text-align:center;padding:80px 20px;
+  background:white;border:2px dashed var(--border);
+  border-radius:var(--radius-lg);
+}
+.empty-state i{
+  font-size:4rem;color:var(--amber-400);
+  margin-bottom:18px;
+}
+.empty-state h3{
+  color:var(--green-900);margin-bottom:8px;font-size:1.4rem;
+}
+.empty-state p{
+  color:var(--text-muted);margin-bottom:24px;max-width:400px;
+  margin-left:auto;margin-right:auto;
+}
+.empty-state .btn-main{
+  padding:13px 24px;border-radius:11px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.88rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 18px rgba(22,163,74,0.3);
+}
+.empty-state .btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(22,163,74,0.4);}
+
+/* Login prompt */
+.login-prompt{
+  background:linear-gradient(135deg,var(--green-800),var(--green-700));
+  color:white;border-radius:var(--radius-xl);
+  padding:50px 35px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.login-prompt::before{
+  content:'';position:absolute;top:-50%;right:-10%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(251,191,36,0.15),transparent 70%);
+  border-radius:50%;
+}
+.login-prompt i{font-size:3rem;color:var(--amber-400);margin-bottom:16px;position:relative;}
+.login-prompt h2{
+  font-size:1.8rem;color:white;position:relative;
+  margin-bottom:12px;
+}
+.login-prompt p{
+  color:rgba(255,255,255,0.85);position:relative;
+  margin-bottom:24px;
+}
+.login-prompt button{
+  padding:13px 26px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  position:relative;
+}
+.login-prompt button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--slate-900);color:var(--slate-300);
+  padding:60px 0 24px;position:relative;
+}
+.footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-500),var(--amber-400),var(--green-500));
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-img{height:52px;margin-bottom:16px;filter:brightness(0) invert(1);}
+.footer-brand p{font-size:0.88rem;color:var(--slate-400);margin:0 0 20px;max-width:320px;}
+.footer-col h4{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;color:white;margin-bottom:18px;
+}
+.footer-col a{display:block;padding:6px 0;font-size:0.88rem;color:var(--slate-400);cursor:pointer;}
+.footer-col a:hover{color:var(--amber-400);}
+.social-row{display:flex;gap:10px;}
+.social-row a{
+  width:40px;height:40px;background:rgba(255,255,255,0.06);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--slate-300);transition:all 0.25s var(--ease);
+}
+.social-row a:hover{background:var(--amber-500);color:var(--green-900);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;
+  text-align:center;font-size:0.82rem;color:var(--slate-500);
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(6px);z-index:2000;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-bg.open{display:flex;animation:fadeBg 0.2s ease-out;}
+@keyframes fadeBg{from{opacity:0}to{opacity:1}}
+
+.modal-box{
+  background:white;border-radius:var(--radius-lg);
+  width:100%;max-width:620px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(255,255,255,0.9);color:var(--slate-700);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover{background:var(--rose-500);color:white;}
+
+.modal-hero{
+  height:200px;position:relative;
+  background:linear-gradient(135deg,var(--green-100),var(--green-200));
+}
+.modal-hero img{width:100%;height:100%;object-fit:cover;}
+.modal-hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.6) 100%);
+}
+.modal-hero-content{
+  position:absolute;bottom:20px;left:24px;right:24px;
+  color:white;z-index:2;
+}
+.modal-hero-content h2{
+  font-size:1.5rem;color:white;margin-bottom:4px;
+  text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+.modal-hero-content .area-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.82rem;opacity:0.95;
+}
+
+.modal-body{padding:24px;overflow-y:auto;}
+.detail-section{margin-bottom:22px;}
+.detail-section:last-child{margin-bottom:0;}
+.detail-section-title{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--amber-700);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.detail-section-title i{color:var(--amber-500);}
+.detail-row{
+  display:flex;gap:12px;padding:11px 0;
+  border-bottom:1px solid var(--border);
+  color:var(--slate-600);font-size:0.9rem;align-items:flex-start;
+}
+.detail-row:last-child{border-bottom:none;}
+.detail-row i{color:var(--green-600);width:18px;margin-top:3px;flex-shrink:0;}
+.detail-row strong{color:var(--slate-800);font-weight:700;min-width:90px;}
+
+.produce-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.produce-tag{
+  padding:5px 12px;border-radius:999px;
+  background:var(--green-50);color:var(--green-800);
+  font-size:0.72rem;font-weight:700;
+  border:1px solid var(--green-100);
+}
+.produce-tag[data-cat="fruits"]{background:#fff7ed;color:#c2410c;border-color:#fed7aa;}
+.produce-tag[data-cat="vegetables"]{background:#f0fdf4;color:#15803d;border-color:#bbf7d0;}
+.produce-tag[data-cat="herbs"]{background:#ecfdf5;color:#047857;border-color:#a7f3d0;}
+.produce-tag[data-cat="dairy"]{background:#f0f9ff;color:#0369a1;border-color:#bae6fd;}
+
+.contact-block{display:flex;flex-wrap:wrap;gap:10px;}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 18px;border-radius:10px;
+  background:var(--slate-50);color:var(--slate-700);
+  font-size:0.82rem;font-weight:600;
+  border:1px solid var(--border);
+  transition:all 0.2s var(--ease);
+  text-decoration:none;cursor:pointer;
+}
+.contact-btn:hover{background:var(--green-50);color:var(--green-800);border-color:var(--green-300);}
+.contact-btn.primary{background:var(--green-700);color:white;border-color:var(--green-700);}
+.contact-btn.primary:hover{background:var(--green-800);}
+
+/* ============================================================
+   AUTH MODAL
+   ============================================================ */
+.auth-modal{
+  background:white;border-radius:var(--radius-lg);
+  padding:32px;width:100%;max-width:440px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;overflow-y:auto;
+}
+.auth-modal .modal-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--green-100),var(--amber-100));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--green-700);
+  margin-bottom:18px;
+}
+.auth-modal h2{font-size:1.5rem;color:var(--green-900);margin-bottom:6px;}
+.auth-modal .hint{font-size:0.82rem;color:var(--text-muted);margin-bottom:22px;}
+.auth-modal form{display:flex;flex-direction:column;gap:14px;}
+.auth-modal .field{display:flex;flex-direction:column;gap:6px;}
+.auth-modal label{font-size:0.78rem;font-weight:700;color:var(--slate-600);}
+.auth-modal .field-input-wrap{position:relative;display:flex;align-items:center;}
+.auth-modal .field-input-wrap i{position:absolute;left:14px;color:var(--slate-400);pointer-events:none;}
+.auth-modal input{
+  width:100%;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.9rem;outline:none;background:var(--slate-50);
+  transition:all 0.2s;
+}
+.auth-modal input:focus{border-color:var(--amber-400);background:white;box-shadow:0 0 0 4px rgba(251,191,36,0.12);}
+.auth-modal .submit-btn{
+  padding:14px;background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;font-weight:700;font-size:0.92rem;
+  margin-top:6px;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.auth-modal .submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,163,74,0.3);}
+.auth-modal .footer-text{
+  text-align:center;margin-top:18px;font-size:0.82rem;color:var(--text-muted);
+}
+.auth-modal .footer-text a{color:var(--green-700);font-weight:700;cursor:pointer;}
+.auth-modal .footer-text a:hover{text-decoration:underline;}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast-stack{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:3000;display:flex;flex-direction:column;gap:10px;align-items:center;
+}
+.toast{
+  background:var(--slate-900);color:white;padding:13px 22px;
+  border-radius:12px;font-size:0.87rem;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:var(--shadow-lg);animation:toastIn 0.4s var(--ease-spring);
+  max-width:90vw;
+}
+.toast.success{background:linear-gradient(135deg,var(--green-700),var(--green-800));}
+.toast.error{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+@keyframes toastIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
+   CHATBOT — SAME AS index.html
+   ============================================================ */
+.chat-fab{
+  position:fixed;bottom:28px;right:28px;
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-900));
+  color:white;font-size:1.5rem;
+  box-shadow:0 10px 30px rgba(22,101,52,0.45);
+  z-index:1500;
+  transition:all 0.3s var(--ease-spring);
+  animation:fabPulse 2.5s infinite;
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--amber-400);
+}
+@keyframes fabPulse{
+  0%,100%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 0 rgba(251,191,36,0.5);}
+  50%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 14px rgba(251,191,36,0);}
+}
+.chat-fab:hover{transform:scale(1.08);}
+.chat-fab .fab-close{display:none;}
+.chat-fab.open .fab-icon{display:none;}
+.chat-fab.open .fab-close{display:inline;}
+.chat-fab .notif-dot{
+  position:absolute;top:4px;right:4px;
+  width:14px;height:14px;background:var(--amber-400);
+  border-radius:50%;border:2px solid white;
+}
+
+.chat-panel{
+  position:fixed;bottom:100px;right:28px;
+  width:380px;max-width:calc(100vw - 40px);
+  height:560px;max-height:calc(100vh - 130px);
+  background:white;border-radius:var(--radius-lg);
+  box-shadow:0 30px 60px -12px rgba(15,23,42,0.35);
+  display:flex;flex-direction:column;z-index:1500;
+  overflow:hidden;border:1px solid var(--border);
+  transform:translateY(20px) scale(0.95);
+  opacity:0;pointer-events:none;
+  transition:all 0.3s var(--ease-spring);
+}
+.chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
+
+.chat-head{
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:42px;height:42px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.chat-head-text{flex:1;}
+.chat-head-text h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.92rem;font-weight:700;
+}
+.chat-head-text span{
+  font-size:0.72rem;opacity:0.9;
+  display:flex;align-items:center;gap:5px;
+}
+.chat-head-text span::before{
+  content:'';width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(251,191,36,0.3);
+}
+.chat-head-close{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,0.12);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.chat-head-close:hover{background:rgba(255,255,255,0.25);}
+
+.chat-body{
+  flex:1;overflow-y:auto;padding:20px;
+  background:linear-gradient(180deg,#fbfdf9,#fffbeb);
+  display:flex;flex-direction:column;gap:12px;
+}
+.chat-msg{
+  max-width:82%;padding:11px 15px;border-radius:16px;
+  font-size:0.86rem;line-height:1.5;
+  animation:msgIn 0.3s var(--ease-out);
+  word-wrap:break-word;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{
+  background:white;color:var(--slate-700);
+  border:1px solid var(--border);
+  border-bottom-left-radius:4px;align-self:flex-start;
+  box-shadow:var(--shadow-xs);
+}
+.chat-msg.user{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-bottom-right-radius:4px;align-self:flex-end;
+}
+
+.chat-input-wrap{
+  padding:12px 16px 16px;background:white;
+  border-top:1px solid var(--border);
+  display:flex;gap:8px;
+}
+.chat-input-wrap input{
+  flex:1;padding:11px 15px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.85rem;outline:none;
+}
+.chat-input-wrap input:focus{
+  border-color:var(--amber-400);
+  box-shadow:0 0 0 3px rgba(251,191,36,0.15);
+}
+.chat-send{
+  width:44px;height:44px;border-radius:11px;
+  background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);flex-shrink:0;
+}
+.chat-send:hover{transform:translateY(-1px);}
+
+.chat-typing{
+  display:flex;gap:4px;padding:12px 16px;
+  background:white;border-radius:16px 16px 16px 4px;
+  align-self:flex-start;border:1px solid var(--border);
+}
+.chat-typing span{
+  width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;animation:typing 1.2s infinite;
+}
+.chat-typing span:nth-child(2){animation-delay:0.15s;}
+.chat-typing span:nth-child(3){animation-delay:0.3s;}
+@keyframes typing{
+  0%,60%,100%{transform:translateY(0);opacity:0.4}
+  30%{transform:translateY(-4px);opacity:1}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:white;padding:16px;
+    box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
+    align-items:stretch;gap:4px;
+  }
+  .hamburger{display:flex;}
+  .market-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .container{padding:0 18px;}
+  .saved-hero{padding:60px 0 100px;}
+  .saved-hero h1{font-size:2rem;}
+  .section{padding:50px 0;}
+  .market-grid{grid-template-columns:1fr;}
+  .product-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .nav-actions .btn-ghost,
+  .nav-actions .btn-solid{display:none;}
+  .section-header{flex-direction:column;align-items:flex-start;}
+  .saved-tabs{border-radius:var(--radius-lg);gap:6px;padding:8px;}
+  .saved-tab{padding:10px 16px;font-size:0.8rem;}
+  .auth-modal{padding:24px;}
+  .modal-body{padding:18px;}
+  .chat-panel{right:12px;left:12px;width:auto;bottom:90px;}
+  .chat-fab{bottom:20px;right:20px;width:56px;height:56px;font-size:1.3rem;}
+}
+@media (max-width:400px){
+  .product-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ HEADER ============================================================ -->
+<header class="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="market.html">Markets</a></li>
+      <li><a href="produce.html">Produce</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="saved.html" class="active">Saved <span class="nav-badge" id="navBadge">0</span></a></li>
+    </ul>
+    <div class="nav-actions" id="navActions"></div>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ HERO ============================================================ -->
+<section class="saved-hero">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-bookmark"></i> Your Collection
+    </div>
+    <h1>Saved <span>Markets & Produce</span></h1>
+    <p>All your favorite markets and products in one place. Sign in to sync your collection across devices.</p>
+  </div>
+</section>
+
+<!-- ============================================================ TABS ============================================================ -->
+<div class="container tabs-wrap">
+  <div class="saved-tabs">
+    <button class="saved-tab active" data-tab="markets" onclick="switchTab('markets', this)">
+      <i class="fas fa-store"></i> Markets
+      <span class="count-badge" id="tabCount-markets">0</span>
+    </button>
+    <button class="saved-tab" data-tab="products" onclick="switchTab('products', this)">
+      <i class="fas fa-apple-whole"></i> Products
+      <span class="count-badge" id="tabCount-products">0</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================ SAVED MARKETS ============================================================ -->
+<section class="section" id="marketsTab">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Saved Markets</h2>
+        <p>Your bookmarked markets in Karachi</p>
+      </div>
+      <span id="marketsCount" style="color:var(--text-muted);font-size:0.85rem;"></span>
+    </div>
+
+    <div id="marketsEmpty" class="empty-state" style="display:none;">
+      <i class="fas fa-store"></i>
+      <h3>No saved markets yet</h3>
+      <p>Browse the market directory and click the bookmark icon to save your favorites.</p>
+      <a href="market.html" class="btn-main">
+        <i class="fas fa-store"></i> Explore Markets
+      </a>
+    </div>
+
+    <div id="marketsLoginPrompt" class="login-prompt" style="display:none;">
+      <i class="fas fa-lock"></i>
+      <h2>Login to Save Markets</h2>
+      <p>Create an account or sign in to start bookmarking your favorite markets.</p>
+      <button onclick="openAuthModal('login')">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+    </div>
+
+    <div class="market-grid" id="savedMarketsGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================ SAVED PRODUCTS ============================================================ -->
+<section class="section section-light" id="productsTab" style="display:none;">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Saved Products</h2>
+        <p>Your favorite fresh produce items</p>
+      </div>
+      <span id="productsCount" style="color:var(--text-muted);font-size:0.85rem;"></span>
+    </div>
+
+    <div id="productsEmpty" class="empty-state" style="display:none;">
+      <i class="fas fa-apple-whole"></i>
+      <h3>No saved products yet</h3>
+      <p>Browse the produce guide and click the save icon to bookmark products.</p>
+      <a href="produce.html" class="btn-main">
+        <i class="fas fa-seedling"></i> Explore Produce
+      </a>
+    </div>
+
+    <div id="productsLoginPrompt" class="login-prompt" style="display:none;">
+      <i class="fas fa-lock"></i>
+      <h2>Login to Save Products</h2>
+      <p>Create an account or sign in to start saving your favorite produce.</p>
+      <button onclick="openAuthModal('login')">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+    </div>
+
+    <div class="product-grid" id="savedProductsGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+        <p>Find the nearest fruits, vegetables, herbs & dairy shops and markets in Karachi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="market.html">All Markets</a>
+        <a href="produce.html">Produce Guide</a>
+        <a href="saved.html">Saved Items</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a onclick="openAuthModal('login')">Login</a>
+        <a onclick="openAuthModal('signup')">Create Account</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Along</h4>
+        <div class="social-row">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="yr"></span> FreshFind. All rights reserved. · © Aptech Limited
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ MARKET DETAILS MODAL ============================================================ -->
+<div class="modal-bg" id="detailModal" onclick="if(event.target===this)closeDetailModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDetailModal()"><i class="fas fa-xmark"></i></button>
+    <div class="modal-hero">
+      <img id="detailImg" src="" alt="" onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'><rect width=\'600\' height=\'400\' fill=\'%23dcfce7\'/><text x=\'50%\' y=\'50%\' font-size=\'60\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🏪</text></svg>')">
+      <div class="modal-hero-content">
+        <h2 id="detailName">Market Name</h2>
+        <div class="area-label"><i class="fas fa-location-dot"></i> <span id="detailArea">Area</span></div>
+      </div>
+    </div>
+    <div class="modal-body" id="detailBody"></div>
+  </div>
+</div>
+
+<!-- ============================================================ CART MODAL ============================================================ -->
+<div class="modal-bg" id="cartModal" onclick="if(event.target===this)closeCartModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCartModal()"><i class="fas fa-xmark"></i></button>
+    <div class="modal-hero" style="height:auto;padding:22px 24px;background:linear-gradient(135deg,var(--green-800),var(--green-700));">
+      <h2 style="color:white;font-size:1.3rem;display:flex;align-items:center;gap:10px;position:relative;z-index:2;">
+        <i class="fas fa-shopping-cart"></i> Your Cart
+      </h2>
+    </div>
+    <div class="modal-body" style="max-height:60vh;overflow-y:auto;">
+      <div id="emptyCart" style="text-align:center;padding:40px 20px;color:var(--slate-400);">
+        <i class="fas fa-shopping-cart" style="font-size:3rem;margin-bottom:14px;color:var(--slate-300);"></i>
+        <h3 style="color:var(--green-900);font-size:1.1rem;margin-bottom:6px;">Your cart is empty</h3>
+        <p style="font-size:0.88rem;">Add some fresh products to your cart.</p>
+      </div>
+      <div id="cartItems"></div>
+      <div id="cartBottom" style="display:none;">
+        <div style="background:var(--green-50);border:1px solid var(--green-200);border-radius:14px;padding:16px;margin-top:16px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.88rem;">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">Rs. 0</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.88rem;">
+            <span>Discount</span>
+            <strong id="cartDiscount" style="color:var(--green-700);">- Rs. 0</strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:1.05rem;font-weight:800;color:var(--green-900);padding-top:10px;border-top:1px dashed var(--green-200);">
+            <span>Total</span>
+            <strong id="cartTotal" style="color:var(--green-700);">Rs. 0</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:16px 24px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;">
+      <button onclick="clearCart()" style="padding:10px 18px;border-radius:10px;border:1.5px solid var(--rose-500);background:white;color:var(--rose-500);font-weight:700;font-size:0.85rem;display:inline-flex;align-items:center;gap:8px;">
+        <i class="fas fa-trash"></i> Clear Cart
+      </button>
+      <button onclick="checkoutMessage()" style="padding:10px 20px;border-radius:10px;background:linear-gradient(135deg,var(--green-700),var(--green-800));color:white;font-weight:700;font-size:0.85rem;display:inline-flex;align-items:center;gap:8px;">
+        <i class="fas fa-credit-card"></i> Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ AUTH MODALS ============================================================ -->
+<div class="modal-bg" id="loginModal" onclick="if(event.target===this)closeAuthModal('login')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('login')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-leaf"></i></div>
+    <h2>Welcome back</h2>
+    <p class="hint">Sign in to save your favourite items.</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <div class="footer-text">Don't have an account? <a onclick="closeAuthModal('login');openAuthModal('signup')">Sign up free</a></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="signupModal" onclick="if(event.target===this)closeAuthModal('signup')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('signup')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-seedling"></i></div>
+    <h2>Create your account</h2>
+    <p class="hint">Join FreshFind to save markets and products near you.</p>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label>Full Name</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" required placeholder="Your name" minlength="2">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" required placeholder="Create a password" minlength="4">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+    </form>
+    <div class="footer-text">Already have an account? <a onclick="closeAuthModal('signup');openAuthModal('login')">Sign in</a></div>
+  </div>
+</div>
+
+<!-- ============================================================ CHATBOT — SAME AS index.html ============================================================ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat">
+  <i class="fas fa-comment-dots fab-icon"></i>
+  <i class="fas fa-xmark fab-close"></i>
+  <span class="notif-dot" id="chatDot"></span>
+</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+    <div class="chat-head-text">
+      <h4>FreshFind Assistant</h4>
+      <span>Online now</span>
+    </div>
+    <button class="chat-head-close" onclick="toggleChat()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi! 👋 Ask me about <b>fruits, vegetables, herbs, dairy</b>, prices, or your <b>saved items</b>.</div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button class="chat-send" id="chatSend" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- ============================================================ TOASTS ============================================================ -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ============================================================
+   MARKET DATA (same as market.html — 30 markets)
+   ============================================================ */
+const MARKETS = [
+  { id:1, name:"Empress Market", area:"Saddar", category:"fruits",
+    lat:24.8607, lng:67.0119,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 9:00 PM",Tuesday:"7:00 AM – 9:00 PM",Wednesday:"7:00 AM – 9:00 PM",Thursday:"7:00 AM – 9:00 PM",Friday:"7:00 AM – 12:30 PM, 2:30 PM – 9:00 PM",Saturday:"7:00 AM – 9:00 PM",Sunday:"7:00 AM – 9:00 PM"},
+    description:"Karachi's iconic heritage market since 1889. Fresh fruits, vegetables, herbs & dairy all in one place.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/empress-market.png", rating:4.8,
+    contact:"+92 21 9926 1234",
+    address:"Preedy Street, Saddar, Karachi"
+  },
+  { id:2, name:"Saddar Herb & Spice Shop", area:"Saddar", category:"herbs",
+    lat:24.8620, lng:67.0135,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh mint, coriander, basil, curry leaves, fenugreek & more. Aromatic herbs daily.",
+    produce:["herbs"],
+    image:"images/saddar-herb-spice.png", rating:4.6,
+    contact:"+92 21 9926 5678",
+    address:"M.A. Jinnah Road, Saddar, Karachi"
+  },
+  { id:3, name:"Saddar Fresh Dairy", area:"Saddar", category:"dairy",
+    lat:24.8635, lng:67.0155,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 10:00 PM",Tuesday:"6:00 AM – 10:00 PM",Wednesday:"6:00 AM – 10:00 PM",Thursday:"6:00 AM – 10:00 PM",Friday:"6:00 AM – 10:00 PM",Saturday:"6:00 AM – 10:00 PM",Sunday:"6:00 AM – 10:00 PM"},
+    description:"Farm-fresh milk, yogurt, butter, cream, cheese & khoya delivered twice daily.",
+    produce:["dairy"],
+    image:"images/saddar-fresh-dairy.png", rating:4.7,
+    contact:"+92 21 9926 9012",
+    address:"Nishtar Road, Saddar, Karachi"
+  },
+  { id:4, name:"Korangi No. 2 Fruit Market", area:"Korangi", category:"fruits",
+    lat:24.8240, lng:67.1290,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Popular fruit and vegetable market in Korangi No. 2. Fresh arrivals daily from Sabzi Mandi.",
+    produce:["fruits","vegetables"],
+    image:"images/korangi-no2-fruit.png", rating:4.6,
+    contact:"+92 21 3505 1234",
+    address:"Korangi No. 2, Main Road, Karachi"
+  },
+  { id:5, name:"Korangi No. 6 Fruit & Veg Market", area:"Korangi", category:"fruits",
+    lat:24.8135, lng:67.1405,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Well-stocked fruit & vegetable market in Korangi No. 6. Best for fresh daily shopping.",
+    produce:["fruits","vegetables"],
+    image:"images/korangi-no6-fruit-veg.png", rating:4.7,
+    contact:"+92 21 3506 2345",
+    address:"Korangi No. 6, Sector 5, Karachi"
+  },
+  { id:6, name:"Korangi Herbs Shop", area:"Korangi", category:"herbs",
+    lat:24.8205, lng:67.1255,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 9:00 PM",Tuesday:"8:00 AM – 9:00 PM",Wednesday:"8:00 AM – 9:00 PM",Thursday:"8:00 AM – 9:00 PM",Friday:"8:00 AM – 12:00 PM, 3:00 PM – 9:00 PM",Saturday:"8:00 AM – 9:00 PM",Sunday:"8:00 AM – 9:00 PM"},
+    description:"Fresh mint, coriander, curry leaves, green onion, methi & dill available daily.",
+    produce:["herbs"],
+    image:"images/korangi-herbs.png", rating:4.5,
+    contact:"+92 21 3505 3456",
+    address:"Korangi No. 5, Karachi"
+  },
+  { id:7, name:"Korangi Dairy Farm Shop", area:"Korangi", category:"dairy",
+    lat:24.8285, lng:67.1220,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 9:00 PM",Tuesday:"6:00 AM – 9:00 PM",Wednesday:"6:00 AM – 9:00 PM",Thursday:"6:00 AM – 9:00 PM",Friday:"6:00 AM – 9:00 PM",Saturday:"6:00 AM – 9:00 PM",Sunday:"6:00 AM – 9:00 PM"},
+    description:"Fresh milk, dahi, makkhan & khoya daily. Farm to home delivery available.",
+    produce:["dairy"],
+    image:"images/korangi-dairy-farm.png", rating:4.4,
+    contact:"+92 21 3506 4567",
+    address:"Korangi No. 4, Karachi"
+  },
+  { id:8, name:"Boat Basin Sunday Market", area:"Clifton", category:"fruits",
+    lat:24.8268, lng:67.0333,
+    days:["Sunday"],
+    hours:{Sunday:"6:00 AM – 11:00 AM"},
+    description:"Popular Sunday morning farmers market by the sea. Organic produce & homemade goods.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/boat-basin-sunday.png", rating:4.9,
+    contact:"+92 21 3587 5678",
+    address:"Boat Basin, Block 5, Clifton, Karachi"
+  },
+  { id:9, name:"Clifton Fresh Fruit Shop", area:"Clifton", category:"fruits",
+    lat:24.8138, lng:67.0300,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"9:00 AM – 11:00 PM",Tuesday:"9:00 AM – 11:00 PM",Wednesday:"9:00 AM – 11:00 PM",Thursday:"9:00 AM – 11:00 PM",Friday:"9:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"9:00 AM – 11:00 PM",Sunday:"9:00 AM – 11:00 PM"},
+    description:"Premium fruit shop in Clifton with imported and local fruits. Air-conditioned.",
+    produce:["fruits"],
+    image:"images/clifton-fresh-fruit.png", rating:4.7,
+    contact:"+92 21 3587 6789",
+    address:"Block 5, Clifton, Karachi"
+  },
+  { id:10, name:"Clifton Dairy Mart", area:"Clifton", category:"dairy",
+    lat:24.8100, lng:67.0280,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 11:00 PM",Tuesday:"7:00 AM – 11:00 PM",Wednesday:"7:00 AM – 11:00 PM",Thursday:"7:00 AM – 11:00 PM",Friday:"7:00 AM – 11:00 PM",Saturday:"7:00 AM – 11:00 PM",Sunday:"7:00 AM – 11:00 PM"},
+    description:"Premium dairy including imported cheese, yogurt & fresh milk products.",
+    produce:["dairy"],
+    image:"images/clifton-dairy-mart.png", rating:4.6,
+    contact:"+92 21 3587 7890",
+    address:"Block 2, Clifton, Karachi"
+  },
+  { id:11, name:"DHA Phase 5 Fruit Market", area:"DHA", category:"fruits",
+    lat:24.8006, lng:67.0645,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 11:00 PM",Tuesday:"8:00 AM – 11:00 PM",Wednesday:"8:00 AM – 11:00 PM",Thursday:"8:00 AM – 11:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"8:00 AM – 11:00 PM",Sunday:"8:00 AM – 11:00 PM"},
+    description:"Premium fruit & vegetable market serving DHA residents. Wide imported selection.",
+    produce:["fruits","vegetables","herbs"],
+    image:"images/dha-phase5-fruit.png", rating:4.8,
+    contact:"+92 21 3584 1234",
+    address:"Phase 5, DHA, Karachi"
+  },
+  { id:12, name:"DHA Dairy & Bakery", area:"DHA", category:"dairy",
+    lat:24.8020, lng:67.0670,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 11:00 PM",Tuesday:"7:00 AM – 11:00 PM",Wednesday:"7:00 AM – 11:00 PM",Thursday:"7:00 AM – 11:00 PM",Friday:"7:00 AM – 11:00 PM",Saturday:"7:00 AM – 11:00 PM",Sunday:"7:00 AM – 11:00 PM"},
+    description:"Fresh milk, cheese, butter & artisan dairy products daily.",
+    produce:["dairy"],
+    image:"images/dha-dairy-bakery.png", rating:4.7,
+    contact:"+92 21 3584 2345",
+    address:"Phase 6, DHA, Karachi"
+  },
+  { id:13, name:"Gulshan Chowrangi Fruit Market", area:"Gulshan", category:"fruits",
+    lat:24.9200, lng:67.0900,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 11:00 PM",Tuesday:"7:00 AM – 11:00 PM",Wednesday:"7:00 AM – 11:00 PM",Thursday:"7:00 AM – 11:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"7:00 AM – 11:00 PM",Sunday:"7:00 AM – 11:00 PM"},
+    description:"Busy fruit market at Gulshan Chowrangi. Wide variety of fresh fruits daily.",
+    produce:["fruits","vegetables"],
+    image:"images/gulshan-chowrangi-fruit.png", rating:4.6,
+    contact:"+92 21 3498 3456",
+    address:"Gulshan Chowrangi, Gulshan-e-Iqbal, Karachi"
+  },
+  { id:14, name:"Gulshan Block 13 Herbs", area:"Gulshan", category:"herbs",
+    lat:24.9280, lng:67.0980,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh herbs & vegetables in Gulshan Block 13-D. Locally sourced.",
+    produce:["herbs","vegetables"],
+    image:"images/gulshan-block13-herbs.png", rating:4.5,
+    contact:"+92 21 3498 4567",
+    address:"Block 13-D, Gulshan-e-Iqbal, Karachi"
+  },
+  { id:15, name:"Gulshan Fresh Dairy", area:"Gulshan", category:"dairy",
+    lat:24.9250, lng:67.0950,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 10:00 PM",Tuesday:"6:00 AM – 10:00 PM",Wednesday:"6:00 AM – 10:00 PM",Thursday:"6:00 AM – 10:00 PM",Friday:"6:00 AM – 10:00 PM",Saturday:"6:00 AM – 10:00 PM",Sunday:"6:00 AM – 10:00 PM"},
+    description:"Farm-fresh milk, dahi, makkhan & paneer available. Home delivery available.",
+    produce:["dairy"],
+    image:"images/gulshan-fresh-dairy.png", rating:4.6,
+    contact:"+92 21 3498 5678",
+    address:"Block 6, Gulshan-e-Iqbal, Karachi"
+  },
+  { id:16, name:"Tariq Road Fruit Market", area:"PECHS", category:"fruits",
+    lat:24.8742, lng:67.0654,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"9:00 AM – 10:00 PM",Tuesday:"9:00 AM – 10:00 PM",Wednesday:"9:00 AM – 10:00 PM",Thursday:"9:00 AM – 10:00 PM",Friday:"9:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"9:00 AM – 10:00 PM",Sunday:"9:00 AM – 10:00 PM"},
+    description:"Premium fruit market offering imported and local fruits. Air-conditioned shops.",
+    produce:["fruits"],
+    image:"images/tariq-road-fruit.png", rating:4.7,
+    contact:"+92 21 3454 6789",
+    address:"Tariq Road, PECHS Block 2, Karachi"
+  },
+  { id:17, name:"PECHS Vegetable Market", area:"PECHS", category:"vegetables",
+    lat:24.8720, lng:67.0620,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 9:00 PM",Tuesday:"8:00 AM – 9:00 PM",Wednesday:"8:00 AM – 9:00 PM",Thursday:"8:00 AM – 9:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 9:00 PM",Saturday:"8:00 AM – 9:00 PM",Sunday:"8:00 AM – 9:00 PM"},
+    description:"Fresh vegetable market in PECHS Block 6. Farm-direct vegetables.",
+    produce:["vegetables","fruits"],
+    image:"images/pechs-vegetable.png", rating:4.5,
+    contact:"+92 21 3454 7890",
+    address:"Block 6, PECHS, Karachi"
+  },
+  { id:18, name:"Bahadurabad Market", area:"Bahadurabad", category:"fruits",
+    lat:24.8794, lng:67.0645,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 11:00 PM",Tuesday:"8:00 AM – 11:00 PM",Wednesday:"8:00 AM – 11:00 PM",Thursday:"8:00 AM – 11:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 11:00 PM",Saturday:"8:00 AM – 11:00 PM",Sunday:"8:00 AM – 11:00 PM"},
+    description:"Upscale market offering fresh produce, imported items & artisan food products.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/bahadurabad-market.png", rating:4.8,
+    contact:"+92 21 3493 8901",
+    address:"Bahadurabad Chowrangi, Karachi"
+  },
+  { id:19, name:"Bahadurabad Herbs Corner", area:"Bahadurabad", category:"herbs",
+    lat:24.8810, lng:67.0670,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh herbs & spices — mint, dhania, basil, curry leaves, methi & more.",
+    produce:["herbs"],
+    image:"images/bahadurabad-herbs.png", rating:4.6,
+    contact:"+92 21 3493 9012",
+    address:"Bahadurabad, Karachi"
+  },
+  { id:20, name:"Malir Cantt Market", area:"Malir", category:"fruits",
+    lat:24.8933, lng:67.1855,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 8:00 PM",Tuesday:"6:00 AM – 8:00 PM",Wednesday:"6:00 AM – 8:00 PM",Thursday:"6:00 AM – 8:00 PM",Friday:"6:00 AM – 12:00 PM, 3:00 PM – 8:00 PM",Saturday:"6:00 AM – 8:00 PM",Sunday:"6:00 AM – 8:00 PM"},
+    description:"Fresh produce market serving Malir with farm-direct vegetables and fruits.",
+    produce:["fruits","vegetables","herbs"],
+    image:"images/malir-cantt-market.png", rating:4.5,
+    contact:"+92 21 3455 0123",
+    address:"Main Malir Cantt Road, Karachi"
+  },
+  { id:21, name:"Malir Halt Dairy Shop", area:"Malir", category:"dairy",
+    lat:24.8870, lng:67.1620,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 9:00 PM",Tuesday:"7:00 AM – 9:00 PM",Wednesday:"7:00 AM – 9:00 PM",Thursday:"7:00 AM – 9:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 9:00 PM",Saturday:"7:00 AM – 9:00 PM",Sunday:"7:00 AM – 9:00 PM"},
+    description:"Neighbourhood dairy shop with fresh milk, yogurt & butter daily.",
+    produce:["dairy"],
+    image:"images/malir-halt-dairy.png", rating:4.4,
+    contact:"+92 21 3455 1234",
+    address:"Malir Halt, Karachi"
+  },
+  { id:22, name:"Landhi No. 6 Fruit Market", area:"Landhi", category:"fruits",
+    lat:24.8500, lng:67.1900,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Fruit and vegetable market in Landhi No. 6. Well-stocked with daily fresh arrivals.",
+    produce:["fruits","vegetables","herbs"],
+    image:"images/landhi-no6-fruit.png", rating:4.5,
+    contact:"+92 21 3501 2345",
+    address:"Landhi No. 6, Karachi"
+  },
+  { id:23, name:"Landhi Babar Market", area:"Landhi", category:"vegetables",
+    lat:24.8450, lng:67.1830,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"7:00 AM – 10:00 PM",Tuesday:"7:00 AM – 10:00 PM",Wednesday:"7:00 AM – 10:00 PM",Thursday:"7:00 AM – 10:00 PM",Friday:"7:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"7:00 AM – 10:00 PM",Sunday:"7:00 AM – 10:00 PM"},
+    description:"Babar Market — complete vegetable & fruit shopping in Landhi.",
+    produce:["vegetables","fruits"],
+    image:"images/landhi-babar-market.png", rating:4.4,
+    contact:"+92 21 3501 3456",
+    address:"Babar Market, Landhi, Karachi"
+  },
+  { id:24, name:"Landhi Dairy Center", area:"Landhi", category:"dairy",
+    lat:24.8470, lng:67.1870,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 9:00 PM",Tuesday:"6:00 AM – 9:00 PM",Wednesday:"6:00 AM – 9:00 PM",Thursday:"6:00 AM – 9:00 PM",Friday:"6:00 AM – 9:00 PM",Saturday:"6:00 AM – 9:00 PM",Sunday:"6:00 AM – 9:00 PM"},
+    description:"Fresh milk, dahi, butter & cheese in Landhi. Wholesale available.",
+    produce:["dairy"],
+    image:"images/landhi-dairy-center.png", rating:4.4,
+    contact:"+92 21 3501 4567",
+    address:"Landhi No. 3, Karachi"
+  },
+  { id:25, name:"Hyderi Market", area:"North Nazimabad", category:"fruits",
+    lat:24.9435, lng:67.0412,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Busy market in North Karachi. Complete shopping including fruits, vegetables, herbs & dairy.",
+    produce:["fruits","vegetables","herbs","dairy"],
+    image:"images/hyderi-market.png", rating:4.6,
+    contact:"+92 21 3663 5678",
+    address:"Hyderi, Block H, North Nazimabad, Karachi"
+  },
+  { id:26, name:"North Nazimabad Block H Herbs", area:"North Nazimabad", category:"herbs",
+    lat:24.9450, lng:67.0450,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"8:00 AM – 10:00 PM",Tuesday:"8:00 AM – 10:00 PM",Wednesday:"8:00 AM – 10:00 PM",Thursday:"8:00 AM – 10:00 PM",Friday:"8:00 AM – 12:30 PM, 3:00 PM – 10:00 PM",Saturday:"8:00 AM – 10:00 PM",Sunday:"8:00 AM – 10:00 PM"},
+    description:"Fresh herbs & vegetables shop in North Nazimabad Block H.",
+    produce:["herbs","vegetables"],
+    image:"images/north-nazimabad-herbs.png", rating:4.4,
+    contact:"+92 21 3663 6789",
+    address:"Block H, North Nazimabad, Karachi"
+  },
+  { id:27, name:"North Nazimabad Dairy Mart", area:"North Nazimabad", category:"dairy",
+    lat:24.9410, lng:67.0430,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"6:00 AM – 10:00 PM",Tuesday:"6:00 AM – 10:00 PM",Wednesday:"6:00 AM – 10:00 PM",Thursday:"6:00 AM – 10:00 PM",Friday:"6:00 AM – 10:00 PM",Saturday:"6:00 AM – 10:00 PM",Sunday:"6:00 AM – 10:00 PM"},
+    description:"Premium dairy mart in North Nazimabad with fresh milk & dairy products.",
+    produce:["dairy"],
+    image:"images/north-nazimabad-dairy.png", rating:4.5,
+    contact:"+92 21 3663 7890",
+    address:"Block F, North Nazimabad, Karachi"
+  },
+  { id:28, name:"Sabzi Mandi (Wholesale)", area:"Super Highway", category:"vegetables",
+    lat:24.9735, lng:67.1027,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"4:00 AM – 6:00 PM",Tuesday:"4:00 AM – 6:00 PM",Wednesday:"4:00 AM – 6:00 PM",Thursday:"4:00 AM – 6:00 PM",Friday:"4:00 AM – 6:00 PM",Saturday:"4:00 AM – 6:00 PM",Sunday:"4:00 AM – 6:00 PM"},
+    description:"Karachi's largest wholesale fruit & vegetable market. Best for bulk buying.",
+    produce:["fruits","vegetables"],
+    image:"images/sabzi-mandi-wholesale.png", rating:4.6,
+    contact:"+92 21 3680 8901",
+    address:"Main Super Highway, Near Sohrab Goth, Karachi"
+  },
+  { id:29, name:"Super Highway Dairy Wholesale", area:"Super Highway", category:"dairy",
+    lat:24.9700, lng:67.1050,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    hours:{Monday:"4:00 AM – 8:00 PM",Tuesday:"4:00 AM – 8:00 PM",Wednesday:"4:00 AM – 8:00 PM",Thursday:"4:00 AM – 8:00 PM",Friday:"4:00 AM – 8:00 PM",Saturday:"4:00 AM – 8:00 PM",Sunday:"4:00 AM – 8:00 PM"},
+    description:"Wholesale dairy supplier — fresh milk, butter, cheese in bulk quantities.",
+    produce:["dairy"],
+    image:"images/super-highway-dairy.png", rating:4.5,
+    contact:"+92 21 3680 9012",
+    address:"Super Highway, Karachi"
+  },
+  { id:30, name:"Jodia Bazaar (Wholesale)", area:"M.A. Jinnah Road", category:"herbs",
+    lat:24.8545, lng:67.0145,
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    hours:{Monday:"9:00 AM – 8:00 PM",Tuesday:"9:00 AM – 8:00 PM",Wednesday:"9:00 AM – 8:00 PM",Thursday:"9:00 AM – 8:00 PM",Friday:"9:00 AM – 12:00 PM, 3:00 PM – 8:00 PM",Saturday:"9:00 AM – 8:00 PM"},
+    description:"Historic wholesale market for dry fruits, spices, and groceries. Herbs & dry items in bulk.",
+    produce:["herbs","fruits"],
+    image:"images/jodia-bazaar.png", rating:4.5,
+    contact:"+92 21 3221 0123",
+    address:"Jodia Bazaar, M.A. Jinnah Road, Karachi"
+  }
+];
+
+/* ============================================================
+   PRODUCTS DATA
+   ============================================================ */
+const PRODUCTS = [
+  { id:1, name:"Mango", category:"Fruit", price:280, unit:"/ kg",
+    image:"images/mango.png", description:"Sweet and juicy summer mangoes." },
+  { id:2, name:"Apple", category:"Fruit", price:350, unit:"/ kg",
+    image:"images/apple.png", description:"Crisp fresh apples." },
+  { id:3, name:"Banana", category:"Fruit", price:220, unit:"/ dozen",
+    image:"images/banana.png", description:"Fresh ripe bananas." },
+  { id:4, name:"Strawberry", category:"Fruit", price:550, unit:"/ kg",
+    image:"images/strawberry.png", description:"Fresh red strawberries." },
+  { id:5, name:"Orange", category:"Fruit", price:300, unit:"/ kg",
+    image:"images/orange.png", description:"Juicy fresh oranges." },
+  { id:6, name:"Pineapple", category:"Fruit", price:420, unit:"/ piece",
+    image:"images/pineapple.png", description:"Fresh tropical pineapple." },
+  { id:7, name:"Carrot", category:"Vegetable", price:180, unit:"/ kg",
+    image:"images/carrot.png", description:"Fresh crunchy carrots." },
+  { id:8, name:"Broccoli", category:"Vegetable", price:320, unit:"/ kg",
+    image:"images/broccoli.png", description:"Fresh green broccoli." },
+  { id:9, name:"Tomato", category:"Vegetable", price:200, unit:"/ kg",
+    image:"images/tomato.png", description:"Fresh red tomatoes." },
+  { id:10, name:"Cucumber", category:"Vegetable", price:160, unit:"/ kg",
+    image:"images/cucumber.png", description:"Cool and refreshing cucumbers." },
+  { id:11, name:"Capsicum", category:"Vegetable", price:380, unit:"/ kg",
+    image:"images/capsicum.png", description:"Fresh colorful capsicums." },
+  { id:12, name:"Spinach", category:"Vegetable", price:150, unit:"/ kg",
+    image:"images/spinach.png", description:"Fresh leafy spinach." },
+  { id:13, name:"Potato", category:"Vegetable", price:170, unit:"/ kg",
+    image:"images/potato.png", description:"Fresh potatoes." },
+  { id:14, name:"Mixed Vegetables", category:"Vegetable", price:420, unit:"/ kg",
+    image:"images/mixed-vegetables.png", description:"Colorful mixed vegetables." }
+];
+
+/* ============================================================
+   STATE & HELPERS
+   ============================================================ */
+const store = {
+  get(k,d){ try { return JSON.parse(localStorage.getItem('ff_'+k)) ?? d; } catch { return d; } },
+  set(k,v){ localStorage.setItem('ff_'+k, JSON.stringify(v)); }
+};
+
+let appState = {
+  bookmarks: store.get('bookmarks', { markets:[] }),
+  user: store.get('user', null),
+  currentTab: 'markets'
+};
+
+let cart = store.get('cart', []);
+
+const $ = (s,r=document) => r.querySelector(s);
+const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const todayName = () => DAY_NAMES[new Date().getDay()];
+
+function escape(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function getInitials(name){
+  if(!name) return '?';
+  const parts = name.trim().split(' ');
+  if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  return name.slice(0,2).toUpperCase();
+}
+function getFirstName(name){ return name ? name.trim().split(' ')[0] : 'Friend'; }
+
+function parseTimeRanges(str){
+  if(!str) return null;
+  const parts = str.split(',').map(s => s.trim());
+  const ranges = [];
+  parts.forEach(part => {
+    const m = part.match(/(\d+):(\d+)\s*(AM|PM)\s*[–-]\s*(\d+):(\d+)\s*(AM|PM)/i);
+    if(m){
+      const toMin = (h,mi,p) => {
+        h=+h; mi=+mi;
+        if(p.toUpperCase()==='PM' && h!==12) h+=12;
+        if(p.toUpperCase()==='AM' && h===12) h=0;
+        return h*60+mi;
+      };
+      ranges.push({ start: toMin(m[1],m[2],m[3]), end: toMin(m[4],m[5],m[6]) });
+    }
+  });
+  return ranges.length ? ranges : null;
+}
+function isMarketOpen(m){
+  const d = todayName();
+  if(!m.days.includes(d)) return false;
+  const ranges = parseTimeRanges(m.hours[d]);
+  if(!ranges) return false;
+  const now = new Date();
+  const cur = now.getHours()*60 + now.getMinutes();
+  return ranges.some(r => cur >= r.start && cur < r.end);
+}
+function getCatLabel(cat){
+  const map = { fruits:"Fruits", vegetables:"Vegetables", herbs:"Herbs", dairy:"Dairy" };
+  return map[cat] || cat;
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function toast(msg, type='success', icon='fa-circle-check'){
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.innerHTML = `<i class="fas ${icon}"></i><span>${escape(msg)}</span>`;
+  $('#toastStack').appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(20px)'; }, 2200);
+  setTimeout(() => el.remove(), 2600);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+function toggleNav(){
+  $('#navLinks').classList.toggle('open');
+  $('#hamburger').classList.toggle('open');
+}
+
+/* ============================================================
+   CART
+   ============================================================ */
+function getDiscountPercent(qty){
+  if(qty >= 20) return 25;
+  if(qty >= 15) return 20;
+  if(qty >= 10) return 15;
+  if(qty >= 5) return 10;
+  if(qty >= 3) return 5;
+  return 0;
+}
+function updateCartCount(){
+  const count = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+  const el = document.getElementById('cartCount');
+  if(el) el.textContent = count;
+}
+function updateCart(){
+  updateCartCount();
+  const cartItems = document.getElementById("cartItems");
+  const empty = document.getElementById("emptyCart");
+  const bottom = document.getElementById("cartBottom");
+  if(!cartItems || !empty || !bottom) return;
+
+  if(cart.length === 0){
+    cartItems.innerHTML = "";
+    empty.style.display = "block";
+    bottom.style.display = "none";
+    return;
+  }
+  empty.style.display = "none";
+  bottom.style.display = "block";
+
+  let subtotal = 0;
+  let discount = 0;
+
+  cartItems.innerHTML = cart.map((item, index) => {
+    const itemSubtotal = item.price * (item.qty || 1);
+    const discountPercent = getDiscountPercent(item.qty || 1);
+    const itemDiscount = itemSubtotal * discountPercent / 100;
+    subtotal += itemSubtotal;
+    discount += itemDiscount;
+
+    return `
+      <div style="display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--border);">
+        <img src="${item.image}" alt="${escape(item.name)}" onerror="this.style.display='none'" style="width:70px;height:70px;border-radius:12px;object-fit:cover;flex-shrink:0;">
+        <div style="flex:1;min-width:0;">
+          <h6 style="font-weight:700;color:var(--green-900);margin-bottom:4px;font-size:0.95rem;">${escape(item.name)}</h6>
+          <div style="color:var(--green-700);font-weight:700;font-size:0.85rem;">Rs. ${item.price} ${escape(item.unit || '')}</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
+            <button onclick="changeCartQty(${index},-1)" style="width:28px;height:28px;border-radius:7px;border:1.5px solid var(--border);background:white;color:var(--green-800);font-weight:800;display:flex;align-items:center;justify-content:center;">−</button>
+            <strong style="min-width:24px;text-align:center;font-size:0.9rem;">${item.qty || 1}</strong>
+            <button onclick="changeCartQty(${index},1)" style="width:28px;height:28px;border-radius:7px;border:1.5px solid var(--border);background:white;color:var(--green-800);font-weight:800;display:flex;align-items:center;justify-content:center;">+</button>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <strong style="color:var(--green-800);">Rs. ${(itemSubtotal-itemDiscount).toFixed(0)}</strong>
+          <br>
+          <button onclick="removeFromCart(${index})" style="margin-top:8px;padding:7px 11px;border-radius:8px;background:#fef2f2;color:var(--rose-500);border:1px solid #fecaca;">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("cartSubtotal").textContent = "Rs. " + subtotal.toFixed(0);
+  document.getElementById("cartDiscount").textContent = "- Rs. " + discount.toFixed(0);
+  document.getElementById("cartTotal").textContent = "Rs. " + (subtotal - discount).toFixed(0);
+}
+function changeCartQty(index, amount){
+  if(!cart[index]) return;
+  cart[index].qty = (cart[index].qty || 1) + amount;
+  if(cart[index].qty <= 0) cart.splice(index, 1);
+  store.set('cart', cart);
+  updateCart();
+}
+function removeFromCart(index){
+  if(!cart[index]) return;
+  const name = cart[index].name;
+  cart.splice(index, 1);
+  store.set('cart', cart);
+  updateCart();
+  toast(`${name} removed from cart.`);
+}
+function openCart(){ updateCart(); $('#cartModal').classList.add('open'); }
+function closeCartModal(){ $('#cartModal').classList.remove('open'); }
+function clearCart(){
+  if(cart.length === 0){ toast("Your cart is already empty.", 'error', 'fa-circle-exclamation'); return; }
+  if(confirm("Are you sure you want to clear your cart?")){
+    cart = [];
+    store.set('cart', cart);
+    updateCart();
+    toast("Cart cleared.");
+  }
+}
+function checkoutMessage(){
+  if(cart.length === 0){ toast("Your cart is empty.", 'error', 'fa-circle-exclamation'); return; }
+  toast("Checkout ready! Your order has been prepared.", 'success', 'fa-check-circle');
+  setTimeout(() => {
+    alert("Thank you for shopping with FreshFind! 🌱\n\nYour order has been prepared successfully.");
+  }, 500);
+}
+function quickAddToCart(productId){
+  const product = PRODUCTS.find(p => String(p.id) === String(productId));
+  if(!product){ toast("Product not found.", 'error', 'fa-circle-exclamation'); return; }
+  const existing = cart.find(item => String(item.id) === String(product.id));
+  if(existing){ existing.qty = (existing.qty || 1) + 1; }
+  else { cart.push({ ...product, qty:1 }); }
+  store.set('cart', cart);
+  updateCart();
+  toast(`${product.name} added to your cart!`);
+}
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function renderNavActions(){
+  const container = document.getElementById('navActions');
+  if(!container) return;
+
+  const cartHTML = `
+    <button class="cart-icon-btn" onclick="openCart()" title="View Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  `;
+
+  if(appState.user){
+    const initials = getInitials(appState.user.name);
+    const firstName = getFirstName(appState.user.name);
+    container.innerHTML = cartHTML + `
+      <div class="user-pill" onclick="toggleUserMenu(event)">
+        <div class="avatar">${initials}</div>
+        <span>Hi, ${escape(firstName)}</span>
+        <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.6;"></i>
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-header">
+            <strong>${escape(appState.user.name)}</strong>
+            <span>${escape(appState.user.email)}</span>
+          </div>
+          <a href="saved.html"><i class="fas fa-bookmark"></i> My Saved Items</a>
+          <a href="index.html"><i class="fas fa-home"></i> Go Home</a>
+          <a class="danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = cartHTML + `
+      <button class="btn-ghost" onclick="openAuthModal('login')">Login</button>
+      <button class="btn-solid" onclick="openAuthModal('signup')">Sign Up</button>
+    `;
+  }
+  updateCartCount();
+}
+function toggleUserMenu(e){
+  if(e) e.stopPropagation();
+  const menu = document.getElementById('userMenu');
+  if(menu) menu.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('userMenu');
+  const pill = document.querySelector('.user-pill');
+  if(menu && pill && !pill.contains(e.target)) menu.classList.remove('open');
+});
+
+function openAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.add('open');
+}
+function closeAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.remove('open');
+}
+function handleSignup(e){
+  e.preventDefault();
+  const name = $('#signupName').value.trim();
+  const email = $('#signupEmail').value.trim().toLowerCase();
+  const password = $('#signupPassword').value;
+
+  if(!name || name.length < 2){ toast('Enter valid name','error','fa-circle-exclamation'); return; }
+  if(!email || !email.includes('@')){ toast('Enter valid email','error','fa-circle-exclamation'); return; }
+  if(password.length < 4){ toast('Password min 4 chars','error','fa-circle-exclamation'); return; }
+
+  const users = store.get('users', {});
+  if(users[email]){ toast('Email already registered','error','fa-circle-exclamation'); return; }
+
+  users[email] = { name, email, joinedAt:new Date().toISOString(), passwordHash:btoa(password) };
+  store.set('users', users);
+  appState.user = { name, email, joinedAt: users[email].joinedAt };
+  store.set('user', appState.user);
+
+  closeAuthModal('signup');
+  renderNavActions();
+  updateBadge();
+  renderSaved();
+  toast(`Welcome, ${getFirstName(name)}! 🌿`, 'success', 'fa-seedling');
+}
+function handleLogin(e){
+  e.preventDefault();
+  const email = $('#loginEmail').value.trim().toLowerCase();
+  const password = $('#loginPassword').value;
+  const users = store.get('users', {});
+  const user = users[email];
+  if(!user){ toast('No account found','error','fa-circle-exclamation'); return; }
+  if(user.passwordHash !== btoa(password)){ toast('Incorrect password','error','fa-circle-exclamation'); return; }
+
+  appState.user = { name:user.name, email:user.email, joinedAt:user.joinedAt };
+  store.set('user', appState.user);
+  closeAuthModal('login');
+  renderNavActions();
+  updateBadge();
+  renderSaved();
+  toast(`Welcome back, ${getFirstName(user.name)}! 🌿`, 'success', 'fa-leaf');
+}
+function logout(){
+  if(!confirm('Logout now?')) return;
+  appState.user = null;
+  store.set('user', null);
+  renderNavActions();
+  updateBadge();
+  renderSaved();
+  toast('Logged out', 'success', 'fa-check-circle');
+}
+function updateBadge(){
+  const el = $('#navBadge');
+  if(el) el.textContent = (appState.bookmarks.markets || []).length;
+}
+
+/* ============================================================
+   SAVED MARKETS RENDER
+   ============================================================ */
+function marketCardHTML(m){
+  const catLabel = m.produce.slice(0,2).map(getCatLabel).join(' · ');
+
+  return `
+    <article class="market-card">
+      <div class="market-card-head">
+        <div class="badge-cat" data-cat="${m.category}">${escape(m.area)}</div>
+        <img src="${m.image}" alt="${escape(m.name)}" onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'400\\'><rect width=\\'400\\' height=\\'400\\' fill=\\'%23dcfce7\\'/><text x=\\'50%\\' y=\\'50%\\' font-size=\\'80\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'>🏪</text></svg>')">
+      </div>
+      <div class="market-card-body">
+        <h3>${escape(m.name)}</h3>
+        <div class="market-meta">
+          <div><i class="fas fa-location-dot"></i> ${escape(m.area)}, Karachi</div>
+          <div><i class="fas fa-calendar-days"></i> ${m.days.length === 7 ? 'Open Daily' : escape(m.days.join(' · '))}</div>
+          <div><i class="fas fa-star"></i> ${m.rating} / 5 · ${escape(catLabel)}</div>
+        </div>
+        <p class="market-card-desc">${escape(m.description)}</p>
+        <div class="market-card-foot">
+          <button class="icon-btn" onclick="unsaveMarket(${m.id})" title="Remove">
+            <i class="fas fa-bookmark"></i>
+          </button>
+          <button class="icon-btn" onclick="shareMarket('${escape(m.name).replace(/'/g,"\\'")}')" title="Share">
+            <i class="fas fa-share-nodes"></i>
+          </button>
+          <button class="btn-view" onclick="viewMarket(${m.id})">
+            View Details <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderSavedMarkets(){
+  const grid = document.getElementById('savedMarketsGrid');
+  const empty = document.getElementById('marketsEmpty');
+  const loginPrompt = document.getElementById('marketsLoginPrompt');
+  const count = document.getElementById('marketsCount');
+
+  if(!appState.user){
+    grid.innerHTML = '';
+    empty.style.display = 'none';
+    loginPrompt.style.display = 'block';
+    count.textContent = '';
+    return;
+  }
+  loginPrompt.style.display = 'none';
+
+  const ids = appState.bookmarks.markets || [];
+  const saved = MARKETS.filter(m => ids.includes(m.id));
+
+  count.textContent = saved.length + ' saved';
+
+  if(saved.length === 0){
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.innerHTML = saved.map(marketCardHTML).join('');
+}
+
+/* ============================================================
+   SAVED PRODUCTS RENDER
+   ============================================================ */
+function productCardHTML(p){
+  const fallback = "this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'400\\'><rect width=\\'400\\' height=\\'400\\' fill=\\'%23dcfce7\\'/><text x=\\'50%\\' y=\\'50%\\' font-size=\\'80\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'>🥬</text></svg>')";
+  return `
+    <div class="product-card">
+      <img src="${p.image}" class="product-image" alt="${escape(p.name)}" onerror="${fallback}">
+      <div class="product-body">
+        <span class="category">${escape(p.category)}</span>
+        <h5>${escape(p.name)}</h5>
+        <div>
+          <span class="price">Rs. ${p.price}</span>
+          <span class="unit">${escape(p.unit || '')}</span>
+        </div>
+        <div class="product-buttons">
+          <button class="btn-details" onclick="unsaveProduct('${p.id}')" style="border-color:#fecaca;color:var(--rose-500);">
+            <i class="fas fa-bookmark"></i> Remove
+          </button>
+          <button class="btn-cart" onclick="quickAddToCart('${p.id}')">
+            <i class="fas fa-cart-plus"></i> Add
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderSavedProducts(){
+  const grid = document.getElementById('savedProductsGrid');
+  const empty = document.getElementById('productsEmpty');
+  const loginPrompt = document.getElementById('productsLoginPrompt');
+  const count = document.getElementById('productsCount');
+
+  if(!appState.user){
+    grid.innerHTML = '';
+    empty.style.display = 'none';
+    loginPrompt.style.display = 'block';
+    count.textContent = '';
+    return;
+  }
+  loginPrompt.style.display = 'none';
+
+  const saved = store.get('savedProducts', []);
+  count.textContent = saved.length + ' saved';
+
+  if(saved.length === 0){
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.innerHTML = saved.map(productCardHTML).join('');
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+function switchTab(tab, btn){
+  appState.currentTab = tab;
+  document.querySelectorAll('.saved-tab').forEach(t => t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+
+  document.getElementById('marketsTab').style.display = tab === 'markets' ? 'block' : 'none';
+  document.getElementById('productsTab').style.display = tab === 'products' ? 'block' : 'none';
+}
+
+function updateTabCounts(){
+  const mCount = (appState.bookmarks.markets || []).length;
+  const pCount = (store.get('savedProducts', []) || []).length;
+  document.getElementById('tabCount-markets').textContent = mCount;
+  document.getElementById('tabCount-products').textContent = pCount;
+}
+
+/* ============================================================
+   UNSAVE
+   ============================================================ */
+function unsaveMarket(id){
+  const arr = appState.bookmarks.markets;
+  const i = arr.indexOf(id);
+  if(i > -1){ arr.splice(i,1); }
+  store.set('bookmarks', appState.bookmarks);
+  updateBadge();
+  updateTabCounts();
+  renderSavedMarkets();
+  toast('Removed from saved markets');
+}
+
+function unsaveProduct(id){
+  let saved = store.get('savedProducts', []);
+  saved = saved.filter(p => String(p.id) !== String(id));
+  store.set('savedProducts', saved);
+  updateTabCounts();
+  renderSavedProducts();
+  toast('Removed from saved products');
+}
+
+/* ============================================================
+   MARKET DETAILS MODAL
+   ============================================================ */
+function viewMarket(id){
+  const m = MARKETS.find(x => x.id === id);
+  if(!m) return;
+
+  const open = isMarketOpen(m);
+  const today = todayName();
+
+  $('#detailImg').src = m.image;
+  $('#detailName').textContent = m.name;
+  $('#detailArea').innerHTML = `${escape(m.area)}, Karachi`;
+
+  const allDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  const hoursHTML = allDays.map(day => {
+    const time = m.hours[day] || "Closed";
+    const isClosed = !m.hours[day];
+    const isToday = day === today;
+    return `
+      <div style="display:flex;justify-content:space-between;padding:10px 14px;border-radius:10px;background:${isToday?'var(--amber-50)':'var(--slate-50)'};font-size:0.82rem;border:1px solid ${isToday?'var(--amber-300)':'var(--border)'};gap:8px;${isToday?'font-weight:700;':''}">
+        <span style="color:var(--slate-700);font-weight:600;">${isToday?'● ':''}${day}</span>
+        <span style="color:${isClosed?'var(--rose-500)':'var(--green-800)'};font-weight:600;text-align:right;">${isClosed?'Closed':time}</span>
+      </div>`;
+  }).join('');
+
+  const produceHTML = m.produce.map(p =>
+    `<span class="produce-tag" data-cat="${p}">${getCatLabel(p)}</span>`
+  ).join('');
+
+  const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lng}`;
+
+  $('#detailBody').innerHTML = `
+    <div class="detail-section">
+      <p style="color:var(--slate-600);font-size:0.9rem;line-height:1.6;">${escape(m.description)}</p>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-circle-info"></i> Basic Info</div>
+      <div class="detail-row"><i class="fas fa-location-dot"></i><div><strong>Address:</strong> ${escape(m.address)}</div></div>
+      <div class="detail-row"><i class="fas fa-map-marked-alt"></i><div><strong>Area:</strong> ${escape(m.area)}, Karachi</div></div>
+      <div class="detail-row"><i class="fas fa-phone"></i><div><strong>Phone:</strong> ${escape(m.contact)}</div></div>
+      <div class="detail-row"><i class="fas fa-star" style="color:var(--amber-500);"></i><div><strong>Rating:</strong> ${m.rating} / 5.0</div></div>
+      <div class="detail-row"><i class="fas fa-circle" style="color:${open?'#22c55e':'#ef4444'};font-size:0.6rem;margin-top:8px;"></i><div><strong>Status:</strong> ${open?'Open Now':'Currently Closed'}</div></div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-clock"></i> Weekly Schedule</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">${hoursHTML}</div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-basket-shopping"></i> Available Produce</div>
+      <div class="produce-tags">${produceHTML}</div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title"><i class="fas fa-arrow-right"></i> Quick Actions</div>
+      <div class="contact-block">
+        <a href="tel:${m.contact.replace(/\s/g,'')}" class="contact-btn primary"><i class="fas fa-phone"></i> Call Market</a>
+        <a href="${mapLink}" target="_blank" class="contact-btn"><i class="fas fa-map-location-dot"></i> Get Directions</a>
+        <button class="contact-btn" onclick="shareMarket('${escape(m.name).replace(/'/g,"\\'")}')"><i class="fas fa-share-nodes"></i> Share</button>
+      </div>
+    </div>
+  `;
+
+  $('#detailModal').classList.add('open');
+}
+
+function closeDetailModal(){ $('#detailModal').classList.remove('open'); }
+
+function shareMarket(name){
+  const url = location.href;
+  if(navigator.share){
+    navigator.share({ title:'FreshFind', text:`Check out ${name} on FreshFind`, url }).catch(()=>{});
+    return;
+  }
+  navigator.clipboard.writeText(`${name} — ${url}`).then(() => toast('Link copied'));
+}
+
+/* ============================================================
+   CHATBOT — SAME AS index.html
+   ============================================================ */
+const CHAT_RULES = [
+  { keys:["hello","hi","hey"], reply:"Hi! 👋 I can help you find nearest shops for <b>fruits, vegetables, herbs & dairy</b> in Karachi." },
+  { keys:["cart","basket","order"], reply:"Tap the <b>cart icon</b> in the header to view your basket. Add products with the green <b>Add</b> button! 🛒" },
+  { keys:["herb","herbs","podina","dhania","mint"], reply:"Fresh herbs available: <b>Mint, Coriander, Basil, Curry Leaves, Green Onion, Dill, Fenugreek, Parsley</b>. 🌿" },
+  { keys:["dairy","doodh","milk","yogurt","dahi","cheese","butter"], reply:"Fresh dairy available: <b>Milk, Yogurt, Butter, Cream, Paneer, Cheese, Lassi, Khoya</b>. 🥛" },
+  { keys:["login","signup","account"], reply:"Sign up to save your favourite markets and get personalized price alerts. It's free! 🌿" },
+  { keys:["saved","bookmark","favorite","favourite","my saved"], reply:"Your <b>saved items</b> are on this page! <b>Markets tab</b> shows saved shops, <b>Products tab</b> shows saved produce. Bookmark more from the Markets & Produce pages. ⭐" },
+  { keys:["near","nearest","close"], reply:"Use the search filters on the Markets page — pick your area, day, or category to find the closest markets! 📍" },
+  { keys:["season","seasonal"], reply:"Winter season mein fresh: <b>Strawberry, Orange, Guava, Pomegranate, Carrot, Spinach, Cauliflower, Mint</b>. 🍓🥕" },
+  { keys:["price","rate","cost"], reply:"Prices: Apple Rs. 350/kg, Tomato Rs. 200/kg, Mint Rs. 40/bunch, Milk Rs. 220/L. 💰" },
+  { keys:["fruit"], reply:"Apple Rs. 350/kg, Mango Rs. 280/kg, Banana Rs. 220/dozen. 🍎" },
+  { keys:["vegetable"], reply:"Tomato Rs. 200/kg, Potato Rs. 170/kg, Onion Rs. 200/kg. 🥕" },
+  { keys:["contact","help"], reply:"Reach us at hello@freshfind.com ✉️" }
+];
+const CHAT_FALLBACK = "Try asking about <b>fruits, vegetables, herbs, dairy</b>, prices, or your <b>saved items</b>.";
+
+let chatOpen = false;
+function toggleChat(){
+  chatOpen = !chatOpen;
+  $('#chatPanel').classList.toggle('open', chatOpen);
+  $('#chatFab').classList.toggle('open', chatOpen);
+  if(chatOpen){
+    const dot = $('#chatDot');
+    if(dot) dot.style.display = 'none';
+    setTimeout(() => $('#chatInput')?.focus(), 300);
+  }
+}
+function sendChat(){
+  const input = $('#chatInput');
+  const txt = input.value.trim();
+  if(!txt) return;
+  appendChat(txt, 'user');
+  input.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  $('#chatBody').appendChild(typing);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    appendChat(getBotReply(txt), 'bot');
+  }, 600 + Math.random()*400);
+}
+function appendChat(text, who){
+  const el = document.createElement('div');
+  el.className = 'chat-msg ' + who;
+  el.innerHTML = text;
+  $('#chatBody').appendChild(el);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+}
+function getBotReply(msg){
+  const lower = ' ' + msg.toLowerCase() + ' ';
+  for(const rule of CHAT_RULES){
+    if(rule.keys.some(k => lower.includes(k))) return rule.reply;
+  }
+  return CHAT_FALLBACK;
+}
+
+/* ============================================================
+   ESC TO CLOSE
+   ============================================================ */
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeDetailModal();
+    closeCartModal();
+    closeAuthModal('login');
+    closeAuthModal('signup');
+    if(chatOpen) toggleChat();
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function renderSaved(){
+  renderSavedMarkets();
+  renderSavedProducts();
+  updateTabCounts();
+}
+
+function init(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  renderNavActions();
+  updateBadge();
+  updateCart();
+  renderSaved();
+
+  const chatInput = document.getElementById('chatInput');
+  if(chatInput){
+    chatInput.addEventListener('keypress', e => {
+      if(e.key === 'Enter') sendChat();
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded', init);
+
+window.toggleNav = toggleNav;
+window.switchTab = switchTab;
+window.unsaveMarket = unsaveMarket;
+window.unsaveProduct = unsaveProduct;
+window.viewMarket = viewMarket;
+window.closeDetailModal = closeDetailModal;
+window.shareMarket = shareMarket;
+window.openCart = openCart;
+window.closeCartModal = closeCartModal;
+window.changeCartQty = changeCartQty;
+window.removeFromCart = removeFromCart;
+window.clearCart = clearCart;
+window.checkoutMessage = checkoutMessage;
+window.quickAddToCart = quickAddToCart;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
+window.logout = logout;
+window.toggleUserMenu = toggleUserMenu;
+window.toggleChat = toggleChat;
+window.sendChat = sendChat;
+</script>
+
+</body>
+</html>

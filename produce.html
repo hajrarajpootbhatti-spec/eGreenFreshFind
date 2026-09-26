@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FreshFind Produce Guide — Fresh fruits, vegetables, herbs & dairy with prices, seasons, and market info.">
+<title>Produce Guide | FreshFind Karachi</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root{
+  --green-50:#f0fdf4; --green-100:#dcfce7; --green-200:#bbf7d0;
+  --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
+  --green-700:#15803d; --green-800:#166534; --green-900:#14532d;
+  --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-200:#fde68a;
+  --amber-300:#fcd34d; --amber-400:#fbbf24; --amber-500:#f59e0b;
+  --amber-600:#d97706; --amber-700:#b45309;
+  --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd;
+  --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1;
+  --rose-500:#f43f5e;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+  --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --slate-900:#0f172a;
+
+  --bg:#fbfdf9; --text:#0f172a; --text-muted:#64748b;
+  --border:#e6ecdf; --border-strong:#d3ddc9;
+
+  --radius:14px; --radius-lg:20px; --radius-xl:28px;
+  --shadow-xs:0 1px 2px rgba(15,23,42,0.04);
+  --shadow-sm:0 2px 8px rgba(15,23,42,0.06);
+  --shadow:0 4px 20px rgba(15,23,42,0.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,23,42,0.18);
+
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.15;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;}
+button{cursor:pointer;border:none;background:none;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+::selection{background:var(--amber-200);color:var(--green-900);}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--slate-100);}
+::-webkit-scrollbar-thumb{background:var(--slate-300);border-radius:10px;border:2px solid var(--slate-100);}
+::-webkit-scrollbar-thumb:hover{background:var(--amber-400);}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-xs);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.logo-img{height:52px;width:auto;transition:transform 0.4s var(--ease-spring);}
+.logo:hover .logo-img{transform:scale(1.05) rotate(-3deg);}
+
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{
+  padding:9px 18px;border-radius:10px;font-size:0.88rem;font-weight:500;
+  color:var(--slate-600);transition:all 0.2s var(--ease);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-links a:hover{color:var(--green-800);background:var(--green-50);}
+.nav-links a.active{color:var(--green-900);background:var(--amber-100);font-weight:600;}
+.nav-badge{
+  background:var(--amber-500);color:white;font-size:0.65rem;padding:2px 8px;
+  border-radius:10px;font-weight:700;min-width:20px;text-align:center;
+}
+.nav-actions{display:flex;gap:8px;align-items:center;}
+.btn-ghost{
+  padding:9px 18px;border-radius:10px;font-size:0.85rem;font-weight:600;
+  color:var(--green-800);border:1.5px solid var(--border-strong);background:white;
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+}
+.btn-ghost:hover{border-color:var(--green-600);background:var(--green-50);}
+.btn-solid{
+  padding:9px 20px;border-radius:10px;font-size:0.85rem;font-weight:700;
+  color:var(--green-900);background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 4px 12px rgba(245,158,11,0.3);
+}
+.btn-solid:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,0.45);}
+
+/* Cart icon button */
+.cart-icon-btn{
+  position:relative;
+  width:44px;height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:1rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.25);
+  flex-shrink:0;
+}
+.cart-icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+.cart-icon-btn .cart-count{
+  position:absolute;top:-5px;right:-5px;
+  background:var(--amber-500);color:white;
+  font-size:0.65rem;font-weight:800;
+  min-width:20px;height:20px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 5px;
+  border:2px solid white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:transform 0.3s var(--ease-spring);
+}
+.cart-icon-btn .cart-count.bump{transform:scale(1.3);}
+
+/* User pill */
+.user-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:999px;
+  background:linear-gradient(135deg,var(--green-50),var(--amber-50));
+  border:1.5px solid var(--green-200);
+  color:var(--green-800);font-size:0.85rem;font-weight:600;
+  cursor:pointer;position:relative;
+  transition:all 0.2s var(--ease);
+}
+.user-pill:hover{border-color:var(--green-400);box-shadow:0 4px 12px rgba(22,163,74,0.15);}
+.user-pill .avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:800;text-transform:uppercase;
+}
+.user-menu{
+  position:absolute;top:calc(100% + 10px);right:0;
+  min-width:220px;background:white;border-radius:14px;
+  box-shadow:0 20px 50px -12px rgba(15,23,42,0.25),0 0 0 1px var(--border);
+  padding:8px;display:none;z-index:100;
+}
+.user-menu.open{display:block;}
+.user-menu-header{padding:12px 14px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+.user-menu-header strong{display:block;color:var(--green-900);font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+.user-menu-header span{color:var(--slate-500);font-size:0.75rem;word-break:break-all;}
+.user-menu a{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9px;
+  color:var(--slate-700);font-size:0.85rem;font-weight:500;cursor:pointer;
+}
+.user-menu a:hover{background:var(--green-50);color:var(--green-800);}
+.user-menu a i{width:16px;color:var(--slate-400);font-size:0.9rem;}
+.user-menu a.danger{color:var(--rose-500);}
+.user-menu a.danger:hover{background:#fef2f2;color:#dc2626;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;border-radius:8px;}
+.hamburger span{width:22px;height:2px;background:var(--slate-700);border-radius:2px;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.produce-hero{
+  padding:90px 0 120px;text-align:center;position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(20,83,45,0.88), rgba(22,101,52,0.75)),
+    url('images/produced.png') center/cover no-repeat;
+  color:white;
+}
+.produce-hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(800px 400px at 10% 0%, rgba(251,191,36,0.18), transparent 60%),
+    radial-gradient(700px 400px at 90% 20%, rgba(34,197,94,0.20), transparent 60%);
+  pointer-events:none;
+}
+.produce-hero .container{position:relative;z-index:2;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  color:white;font-size:0.78rem;font-weight:700;
+  letter-spacing:0.05em;text-transform:uppercase;
+  margin-bottom:20px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.hero-badge i{color:var(--amber-400);}
+.produce-hero h1{
+  color:white;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  margin-bottom:16px;
+  text-shadow:0 2px 16px rgba(0,0,0,0.25);
+}
+.produce-hero h1 span{
+  color:var(--amber-300);
+  font-style:italic;position:relative;
+}
+.produce-hero h1 span::after{
+  content:'';position:absolute;left:0;right:0;bottom:4px;height:14px;
+  background:rgba(251,191,36,0.35);border-radius:4px;z-index:-1;
+}
+.produce-hero p{
+  max-width:660px;margin:auto;
+  color:rgba(255,255,255,0.92);
+  font-size:1.05rem;
+  text-shadow:0 1px 8px rgba(0,0,0,0.2);
+}
+
+/* Search box */
+.search-wrapper{margin-top:-60px;position:relative;z-index:5;}
+.search-box{
+  background:white;border-radius:var(--radius-xl);
+  padding:22px;
+  box-shadow:0 30px 60px -20px rgba(15,23,42,0.22),0 0 0 1px var(--border);
+  border-top:5px solid var(--amber-400);
+}
+.search-row{
+  display:flex;gap:10px;align-items:center;
+}
+.search-field{position:relative;flex:1;}
+.search-field i{
+  position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  color:var(--slate-400);font-size:0.9rem;pointer-events:none;
+}
+.search-field input{
+  width:100%;padding:14px 16px 14px 44px;
+  border:1.5px solid var(--border);border-radius:12px;
+  background:var(--slate-50);font-size:0.9rem;outline:none;
+  transition:all 0.2s var(--ease);
+}
+.search-field input:focus{
+  border-color:var(--amber-400);background:white;
+  box-shadow:0 0 0 4px rgba(251,191,36,0.15);
+}
+.search-btn{
+  padding:14px 24px;border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.3);
+  white-space:nowrap;
+}
+.search-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+.section{padding:70px 0;}
+.section-light{background:white;}
+.section-heading{margin-bottom:40px;}
+.section-heading .eyebrow{
+  color:var(--amber-600);font-size:0.72rem;
+  text-transform:uppercase;letter-spacing:0.15em;
+  font-weight:800;margin-bottom:10px;
+}
+.section-heading h2{
+  color:var(--green-900);
+  font-size:clamp(1.8rem,3.5vw,2.5rem);
+  margin-bottom:12px;
+}
+.section-heading p{
+  color:var(--slate-600);
+  max-width:650px;line-height:1.7;
+}
+.section-heading.text-center p{margin-left:auto;margin-right:auto;}
+
+/* ============================================================
+   FILTER
+   ============================================================ */
+.filter-area{
+  display:flex;justify-content:center;gap:10px;
+  flex-wrap:wrap;margin-bottom:35px;
+}
+.filter-btn{
+  padding:10px 22px;border-radius:999px;
+  font-size:0.85rem;font-weight:700;
+  background:white;color:var(--slate-600);
+  border:1.5px solid var(--border);
+  transition:all 0.25s var(--ease);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.filter-btn:hover{background:var(--slate-50);color:var(--green-800);border-color:var(--green-300);}
+.filter-btn.active{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-color:var(--green-700);
+  box-shadow:0 6px 18px rgba(22,163,74,0.25);
+}
+
+/* ============================================================
+   PRODUCT CARD
+   ============================================================ */
+.product-card{
+  background:white;border-radius:var(--radius-lg);
+  overflow:hidden;height:100%;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  transition:all 0.35s var(--ease);
+  display:flex;flex-direction:column;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--amber-300);
+}
+.product-image{
+  height:200px;width:100%;object-fit:cover;
+  transition:transform 0.5s var(--ease);
+}
+.product-card:hover .product-image{transform:scale(1.06);}
+.product-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+.category{
+  display:inline-block;
+  background:var(--green-50);color:var(--green-800);
+  padding:5px 12px;border-radius:20px;
+  font-size:0.68rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.04em;
+  margin-bottom:10px;align-self:flex-start;
+}
+.product-body h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.05rem;font-weight:700;
+  color:var(--green-900);margin-bottom:8px;
+}
+.price{
+  color:var(--green-700);font-size:1.25rem;
+  font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.unit{color:var(--text-muted);font-size:0.82rem;}
+.deal{
+  color:var(--amber-700);font-size:0.78rem;
+  font-weight:700;background:var(--amber-50);
+  padding:5px 10px;border-radius:8px;
+  display:inline-block;margin-top:8px;
+  border:1px solid var(--amber-200);
+}
+.product-buttons{
+  display:flex;gap:8px;margin-top:15px;
+  padding-top:15px;border-top:1px solid var(--border);
+}
+.btn-details{
+  flex:1;padding:10px;border-radius:10px;
+  border:1.5px solid var(--border);
+  background:white;color:var(--green-800);
+  font-size:0.78rem;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  transition:all 0.2s var(--ease);
+}
+.btn-details:hover{background:var(--green-50);border-color:var(--green-400);}
+.btn-cart{
+  flex:1;padding:10px;border-radius:10px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:0.78rem;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 3px 10px rgba(22,163,74,0.25);
+}
+.btn-cart:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   SEASON CARD
+   ============================================================ */
+.season-card{
+  background:white;border-radius:var(--radius-lg);
+  overflow:hidden;height:100%;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  transition:all 0.3s var(--ease);
+}
+.season-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);border-color:var(--amber-300);}
+.season-card img{width:100%;height:210px;object-fit:cover;}
+.season-body{padding:24px;}
+.season-body h4{
+  color:var(--green-900);font-weight:700;
+  font-size:1.15rem;margin-bottom:8px;
+}
+.season-body p{color:var(--slate-600);font-size:0.85rem;margin-bottom:16px;line-height:1.6;}
+.season-btn{
+  padding:11px 20px;border-radius:10px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.82rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 3px 10px rgba(22,163,74,0.25);
+}
+.season-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   SEASON RESULTS
+   ============================================================ */
+#seasonResults{display:none;background:var(--green-50);padding:60px 0;}
+.close-season{
+  padding:10px 18px;border-radius:10px;
+  background:white;color:var(--slate-700);
+  font-size:0.82rem;font-weight:700;
+  border:1px solid var(--border);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:all 0.2s var(--ease);
+}
+.close-season:hover{background:var(--slate-100);}
+
+/* ============================================================
+   MARKET CTA
+   ============================================================ */
+.market-section{
+  background:linear-gradient(135deg,var(--green-800),var(--green-700));
+  color:white;padding:70px 0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.market-section::before{
+  content:'';position:absolute;top:-50%;right:-10%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(251,191,36,0.15),transparent 70%);
+  border-radius:50%;
+}
+.market-section h2{
+  font-size:clamp(1.8rem,3.5vw,2.4rem);
+  font-weight:800;color:white;
+  position:relative;margin-bottom:14px;
+}
+.market-section p{color:#d1fae5;max-width:600px;margin:0 auto 24px;position:relative;}
+.market-btn{
+  padding:14px 28px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  position:relative;
+}
+.market-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(6px);z-index:2000;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-bg.open{display:flex;animation:fadeBg 0.2s ease-out;}
+@keyframes fadeBg{from{opacity:0}to{opacity:1}}
+
+.modal-box{
+  background:white;border-radius:var(--radius-lg);
+  width:100%;max-width:900px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.modal-box.modal-sm{max-width:480px;}
+.modal-box.modal-lg{max-width:960px;}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:36px;height:36px;border-radius:10px;
+  background:var(--slate-100);color:var(--slate-700);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover{background:var(--rose-500);color:white;}
+
+.modal-header-bar{
+  padding:20px 24px;
+  border-bottom:1px solid var(--border);
+}
+.modal-header-bar h3{
+  color:var(--green-900);font-size:1.3rem;
+}
+.modal-body-scroll{
+  padding:24px;overflow-y:auto;flex:1;
+}
+
+.detail-image{
+  width:100%;height:320px;object-fit:cover;
+  border-radius:var(--radius);
+}
+.detail-label{
+  font-size:0.72rem;font-weight:800;
+  color:var(--amber-700);text-transform:uppercase;
+  letter-spacing:0.08em;margin-bottom:6px;
+}
+.detail-text{color:var(--slate-600);font-size:0.88rem;line-height:1.7;}
+.detail-block{
+  background:var(--slate-50);border:1px solid var(--border);
+  border-radius:12px;padding:14px;height:100%;
+}
+.detail-block .detail-label{color:var(--green-700);}
+.fact-box{
+  background:var(--amber-50);border:1px solid var(--amber-200);
+  border-radius:12px;padding:16px;
+  color:var(--amber-800);font-size:0.85rem;
+}
+
+/* Qty control */
+.qty-control{display:flex;align-items:center;gap:8px;}
+.qty-control button{
+  width:34px;height:34px;border-radius:8px;
+  border:1.5px solid var(--border);background:white;
+  color:var(--green-800);font-weight:800;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);
+}
+.qty-control button:hover{background:var(--green-50);border-color:var(--green-400);}
+.qty-control input{
+  width:70px;padding:8px;text-align:center;
+  border:1.5px solid var(--border);border-radius:8px;
+  font-weight:700;outline:none;
+}
+
+.modal-footer-bar{
+  padding:16px 24px;border-top:1px solid var(--border);
+  display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;
+}
+.btn-outline-green{
+  padding:11px 18px;border-radius:10px;
+  border:1.5px solid var(--green-700);background:white;
+  color:var(--green-800);font-weight:700;font-size:0.85rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+}
+.btn-outline-green:hover{background:var(--green-50);}
+.btn-solid-green{
+  padding:11px 20px;border-radius:10px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-weight:700;font-size:0.85rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.3);
+}
+.btn-solid-green:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   CART
+   ============================================================ */
+.cart-item{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 0;border-bottom:1px solid var(--border);
+}
+.cart-item:last-child{border-bottom:none;}
+.cart-item img{
+  width:70px;height:70px;border-radius:12px;
+  object-fit:cover;flex-shrink:0;
+}
+.cart-info{flex:1;min-width:0;}
+.cart-info h6{
+  font-weight:700;color:var(--green-900);
+  margin-bottom:4px;font-size:0.95rem;
+}
+.cart-info .price-tag{
+  color:var(--green-700);font-weight:700;font-size:0.85rem;
+}
+.qty-control-sm{display:flex;align-items:center;gap:6px;margin-top:8px;}
+.qty-control-sm button{
+  width:28px;height:28px;border-radius:7px;
+  border:1.5px solid var(--border);background:white;
+  color:var(--green-800);font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;
+  transition:all 0.2s var(--ease);
+}
+.qty-control-sm button:hover{background:var(--green-50);border-color:var(--green-400);}
+.qty-control-sm strong{min-width:24px;text-align:center;font-size:0.9rem;}
+.remove-btn{
+  padding:7px 11px;border-radius:8px;
+  background:#fef2f2;color:var(--rose-500);
+  border:1px solid #fecaca;
+  transition:all 0.2s var(--ease);
+}
+.remove-btn:hover{background:var(--rose-500);color:white;border-color:var(--rose-500);}
+
+.total-box{
+  background:var(--green-50);
+  border:1px solid var(--green-200);
+  border-radius:14px;padding:18px;margin-top:16px;
+}
+.total-box .row-line{
+  display:flex;justify-content:space-between;
+  margin-bottom:8px;font-size:0.88rem;
+}
+.total-box .row-line.total{
+  font-size:1.05rem;font-weight:800;
+  color:var(--green-900);
+  margin-top:8px;padding-top:10px;
+  border-top:1px dashed var(--green-200);
+  margin-bottom:0;
+}
+
+.empty-box{
+  text-align:center;padding:50px 20px;color:var(--slate-400);
+}
+.empty-box i{font-size:3rem;color:var(--slate-300);margin-bottom:14px;}
+.empty-box h5{color:var(--green-900);margin-bottom:6px;}
+
+/* ============================================================
+   SEASON MODAL
+   ============================================================ */
+.season-mini-card{
+  background:white;border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;height:100%;
+  transition:all 0.2s var(--ease);
+}
+.season-mini-card:hover{border-color:var(--amber-300);box-shadow:var(--shadow);}
+.season-mini-card img{
+  width:100%;height:150px;object-fit:cover;
+}
+.season-mini-body{padding:14px;}
+.season-mini-body h6{
+  color:var(--green-900);font-weight:700;
+  font-size:0.95rem;margin-bottom:4px;
+}
+.season-mini-body .price{
+  color:var(--green-700);font-weight:800;
+  font-size:0.95rem;margin-bottom:8px;
+}
+.season-mini-body p{
+  color:var(--slate-500);font-size:0.78rem;
+  line-height:1.5;margin-bottom:10px;
+}
+.season-mini-actions{display:flex;gap:6px;}
+.season-mini-actions button{
+  flex:1;padding:8px;border-radius:8px;
+  font-size:0.72rem;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;gap:4px;
+  transition:all 0.2s var(--ease);
+}
+.season-mini-actions .btn-detail{
+  background:white;color:var(--green-800);
+  border:1.5px solid var(--border);
+}
+.season-mini-actions .btn-detail:hover{border-color:var(--green-400);background:var(--green-50);}
+.season-mini-actions .btn-add{
+  background:var(--green-700);color:white;border:none;
+}
+.season-mini-actions .btn-add:hover{background:var(--green-800);}
+
+/* ============================================================
+   CHATBOT — SAME AS index.html
+   ============================================================ */
+.chat-fab{
+  position:fixed;bottom:28px;right:28px;
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-900));
+  color:white;font-size:1.5rem;
+  box-shadow:0 10px 30px rgba(22,101,52,0.45);
+  z-index:1500;
+  transition:all 0.3s var(--ease-spring);
+  animation:fabPulse 2.5s infinite;
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--amber-400);
+}
+@keyframes fabPulse{
+  0%,100%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 0 rgba(251,191,36,0.5);}
+  50%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 14px rgba(251,191,36,0);}
+}
+.chat-fab:hover{transform:scale(1.08);}
+.chat-fab .fab-close{display:none;}
+.chat-fab.open .fab-icon{display:none;}
+.chat-fab.open .fab-close{display:inline;}
+.chat-fab .notif-dot{
+  position:absolute;top:4px;right:4px;
+  width:14px;height:14px;background:var(--amber-400);
+  border-radius:50%;border:2px solid white;
+}
+
+.chat-panel{
+  position:fixed;bottom:100px;right:28px;
+  width:380px;max-width:calc(100vw - 40px);
+  height:560px;max-height:calc(100vh - 130px);
+  background:white;border-radius:var(--radius-lg);
+  box-shadow:0 30px 60px -12px rgba(15,23,42,0.35);
+  display:flex;flex-direction:column;z-index:1500;
+  overflow:hidden;border:1px solid var(--border);
+  transform:translateY(20px) scale(0.95);
+  opacity:0;pointer-events:none;
+  transition:all 0.3s var(--ease-spring);
+}
+.chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
+
+.chat-head{
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:42px;height:42px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.chat-head-text{flex:1;}
+.chat-head-text h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.92rem;font-weight:700;
+}
+.chat-head-text span{
+  font-size:0.72rem;opacity:0.9;
+  display:flex;align-items:center;gap:5px;
+}
+.chat-head-text span::before{
+  content:'';width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(251,191,36,0.3);
+}
+.chat-head-close{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,0.12);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.chat-head-close:hover{background:rgba(255,255,255,0.25);}
+
+.chat-body{
+  flex:1;overflow-y:auto;padding:20px;
+  background:linear-gradient(180deg,#fbfdf9,#fffbeb);
+  display:flex;flex-direction:column;gap:12px;
+}
+.chat-msg{
+  max-width:82%;padding:11px 15px;border-radius:16px;
+  font-size:0.86rem;line-height:1.5;
+  animation:msgIn 0.3s var(--ease-out);
+  word-wrap:break-word;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{
+  background:white;color:var(--slate-700);
+  border:1px solid var(--border);
+  border-bottom-left-radius:4px;align-self:flex-start;
+  box-shadow:var(--shadow-xs);
+}
+.chat-msg.user{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-bottom-right-radius:4px;align-self:flex-end;
+}
+
+.chat-input-wrap{
+  padding:12px 16px 16px;background:white;
+  border-top:1px solid var(--border);
+  display:flex;gap:8px;
+}
+.chat-input-wrap input{
+  flex:1;padding:11px 15px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.85rem;outline:none;
+}
+.chat-input-wrap input:focus{
+  border-color:var(--amber-400);
+  box-shadow:0 0 0 3px rgba(251,191,36,0.15);
+}
+.chat-send{
+  width:44px;height:44px;border-radius:11px;
+  background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);flex-shrink:0;
+}
+.chat-send:hover{transform:translateY(-1px);}
+
+.chat-typing{
+  display:flex;gap:4px;padding:12px 16px;
+  background:white;border-radius:16px 16px 16px 4px;
+  align-self:flex-start;border:1px solid var(--border);
+}
+.chat-typing span{
+  width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;animation:typing 1.2s infinite;
+}
+.chat-typing span:nth-child(2){animation-delay:0.15s;}
+.chat-typing span:nth-child(3){animation-delay:0.3s;}
+@keyframes typing{
+  0%,60%,100%{transform:translateY(0);opacity:0.4}
+  30%{transform:translateY(-4px);opacity:1}
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--slate-900);color:var(--slate-300);
+  padding:60px 0 24px;position:relative;
+}
+.footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-500),var(--amber-400),var(--green-500));
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-img{height:52px;margin-bottom:16px;filter:brightness(0) invert(1);}
+.footer-brand p{font-size:0.88rem;color:var(--slate-400);margin:0 0 20px;max-width:320px;}
+.footer-col h4{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;color:white;margin-bottom:18px;
+}
+.footer-col a{display:block;padding:6px 0;font-size:0.88rem;color:var(--slate-400);cursor:pointer;}
+.footer-col a:hover{color:var(--amber-400);}
+.social-row{display:flex;gap:10px;}
+.social-row a{
+  width:40px;height:40px;background:rgba(255,255,255,0.06);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--slate-300);transition:all 0.25s var(--ease);
+}
+.social-row a:hover{background:var(--amber-500);color:var(--green-900);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;
+  text-align:center;font-size:0.82rem;color:var(--slate-500);
+}
+
+/* ============================================================
+   AUTH MODAL
+   ============================================================ */
+.auth-modal{
+  background:white;border-radius:var(--radius-lg);
+  padding:32px;width:100%;max-width:440px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;overflow-y:auto;
+}
+.auth-modal .modal-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--green-100),var(--amber-100));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--green-700);
+  margin-bottom:18px;
+}
+.auth-modal h2{font-size:1.5rem;color:var(--green-900);margin-bottom:6px;}
+.auth-modal .hint{font-size:0.82rem;color:var(--text-muted);margin-bottom:22px;}
+.auth-modal form{display:flex;flex-direction:column;gap:14px;}
+.auth-modal .field{display:flex;flex-direction:column;gap:6px;}
+.auth-modal label{font-size:0.78rem;font-weight:700;color:var(--slate-600);}
+.auth-modal .field-input-wrap{position:relative;display:flex;align-items:center;}
+.auth-modal .field-input-wrap i{position:absolute;left:14px;color:var(--slate-400);pointer-events:none;}
+.auth-modal input{
+  width:100%;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.9rem;outline:none;background:var(--slate-50);
+  transition:all 0.2s;
+}
+.auth-modal input:focus{border-color:var(--amber-400);background:white;box-shadow:0 0 0 4px rgba(251,191,36,0.12);}
+.auth-modal .submit-btn{
+  padding:14px;background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;font-weight:700;font-size:0.92rem;
+  margin-top:6px;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.auth-modal .submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,163,74,0.3);}
+.auth-modal .footer-text{
+  text-align:center;margin-top:18px;font-size:0.82rem;color:var(--text-muted);
+}
+.auth-modal .footer-text a{color:var(--green-700);font-weight:700;cursor:pointer;}
+.auth-modal .footer-text a:hover{text-decoration:underline;}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast-stack{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:3000;display:flex;flex-direction:column;gap:10px;align-items:center;
+}
+.toast{
+  background:var(--slate-900);color:white;padding:13px 22px;
+  border-radius:12px;font-size:0.87rem;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:var(--shadow-lg);animation:toastIn 0.4s var(--ease-spring);
+  max-width:90vw;
+}
+.toast.success{background:linear-gradient(135deg,var(--green-700),var(--green-800));}
+.toast.error{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+@keyframes toastIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:white;padding:16px;
+    box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
+    align-items:stretch;gap:4px;
+  }
+  .hamburger{display:flex;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:768px){
+  .container{padding:0 18px;}
+  .produce-hero{padding:60px 0 100px;}
+  .produce-hero h1{font-size:2rem;}
+  .search-row{flex-direction:column;}
+  .search-btn{width:100%;justify-content:center;}
+  .section{padding:50px 0;}
+  .section-heading h2{font-size:1.6rem;}
+  .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .nav-actions .btn-ghost,
+  .nav-actions .btn-solid{display:none;}
+  .chat-panel{right:12px;left:12px;width:auto;bottom:90px;}
+  .chat-fab{bottom:20px;right:20px;width:56px;height:56px;font-size:1.3rem;}
+  .modal-body-scroll{padding:18px;}
+  .modal-header-bar{padding:16px 18px;}
+  .modal-footer-bar{padding:14px 18px;}
+  .auth-modal{padding:24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="market.html">Markets</a></li>
+      <li><a href="produce.html" class="active">Produce</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="saved.html">Saved <span class="nav-badge" id="navBadge">0</span></a></li>
+    </ul>
+    <div class="nav-actions" id="navActions"></div>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="produce-hero">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-seedling"></i> Fresh Produce Guide
+    </div>
+    <h1>Fresh <span>Fruits & Vegetables</span> All Year</h1>
+    <p>Discover fresh fruits, vegetables, herbs & dairy with live prices, seasonal info, and nearby market details.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SEARCH
+     ============================================================ -->
+<section class="search-wrapper">
+  <div class="container">
+    <div class="search-box">
+      <div class="search-row">
+        <div class="search-field">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search fruits, vegetables, products..." oninput="applyFilters()">
+        </div>
+        <button class="search-btn" onclick="applyFilters()">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRODUCTS
+     ============================================================ -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-heading text-center">
+      <div class="eyebrow">Fresh Finds</div>
+      <h2>Fresh Produce Guide</h2>
+      <p class="mx-auto">Find fresh fruits and vegetables for every season.</p>
+    </div>
+
+    <div class="filter-area">
+      <button class="filter-btn active" onclick="setFilter('all',this)">
+        <i class="fas fa-th-large"></i> All Products
+      </button>
+      <button class="filter-btn" onclick="setFilter('Fruit',this)">
+        <i class="fas fa-apple-whole"></i> Fruits
+      </button>
+      <button class="filter-btn" onclick="setFilter('Vegetable',this)">
+        <i class="fas fa-carrot"></i> Vegetables
+      </button>
+      <button class="filter-btn" onclick="clearSearch()">
+        <i class="fas fa-rotate-left"></i> Reset
+      </button>
+    </div>
+
+    <div id="noResults" class="empty-box" style="display:none;">
+      <i class="fas fa-magnifying-glass"></i>
+      <h5>No products found</h5>
+      <p>Try another fruit, vegetable or product name.</p>
+    </div>
+
+    <!-- FRUITS -->
+    <div id="fruitSection">
+      <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+        <h3 style="color:var(--green-900);font-size:1.4rem;"><i class="fas fa-apple-whole" style="color:var(--amber-600);"></i> Fresh Fruits</h3>
+        <span id="fruitCount" style="color:var(--text-muted);font-size:0.85rem;"></span>
+      </div>
+      <div class="row g-4" id="fruitGrid"></div>
+    </div>
+
+    <!-- VEGETABLES -->
+    <div id="vegetableSection" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 style="color:var(--green-900);font-size:1.4rem;"><i class="fas fa-carrot" style="color:var(--amber-600);"></i> Fresh Vegetables</h3>
+        <span id="vegetableCount" style="color:var(--text-muted);font-size:0.85rem;"></span>
+      </div>
+      <div class="row g-4" id="vegetableGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CUT FRUITS
+     ============================================================ -->
+<section class="section section-light" id="cutFruits">
+  <div class="container">
+    <div class="section-heading text-center">
+      <div class="eyebrow">Ready to Eat</div>
+      <h2><i class="fas fa-apple-whole" style="color:var(--amber-600);"></i> Fresh Cut Fruits</h2>
+      <p class="mx-auto">Ready-to-eat fresh fruit packs.</p>
+    </div>
+    <div class="row g-4" id="cutFruitGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CUT VEGETABLES
+     ============================================================ -->
+<section class="section" id="cutVegetables">
+  <div class="container">
+    <div class="section-heading text-center">
+      <div class="eyebrow">Prepared Fresh</div>
+      <h2><i class="fas fa-leaf" style="color:var(--amber-600);"></i> Fresh Cut Vegetables</h2>
+      <p class="mx-auto">Freshly prepared vegetable packs.</p>
+    </div>
+    <div class="row g-4" id="cutVegetableGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SEASONS
+     ============================================================ -->
+<section class="section section-light" id="seasons">
+  <div class="container">
+    <div class="section-heading text-center">
+      <div class="eyebrow">Seasonal Guide</div>
+      <h2><i class="fas fa-seedling" style="color:var(--green-600);"></i> Seasonal Guide</h2>
+      <p class="mx-auto">Explore products that are perfect for each season.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- SPRING -->
+      <div class="col-lg-3 col-md-6">
+        <div class="season-card">
+          <img src="images/spring.png" alt="Spring"
+               onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'210\'><rect width=\'400\' height=\'210\' fill=\'%23dcfce7\'/><text x=\'50%\' y=\'50%\' font-size=\'80\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🌸</text></svg>')">
+          <div class="season-body">
+            <h4><i class="fas fa-seedling" style="color:var(--green-600);"></i> Spring</h4>
+            <p>Fresh greens, strawberries and colorful seasonal produce.</p>
+            <button class="season-btn" onclick="showSeasonDetails('Spring')">
+              View Spring Products <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUMMER -->
+      <div class="col-lg-3 col-md-6">
+        <div class="season-card">
+          <img src="images/summer.png" alt="Summer"
+               onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'210\'><rect width=\'400\' height=\'210\' fill=\'%23fef3c7\'/><text x=\'50%\' y=\'50%\' font-size=\'80\' text-anchor=\'middle\' dominant-baseline=\'middle\'>☀️</text></svg>')">
+          <div class="season-body">
+            <h4><i class="fas fa-sun" style="color:var(--amber-500);"></i> Summer</h4>
+            <p>Juicy mangoes, tomatoes, cucumbers and refreshing produce.</p>
+            <button class="season-btn" onclick="showSeasonDetails('Summer')">
+              View Summer Products <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTUMN -->
+      <div class="col-lg-3 col-md-6">
+        <div class="season-card">
+          <img src="images/autumn.png" alt="Autumn"
+               onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'210\'><rect width=\'400\' height=\'210\' fill=\'%23fed7aa\'/><text x=\'50%\' y=\'50%\' font-size=\'80\' text-anchor=\'middle\' dominant-baseline=\'middle\'>🍂</text></svg>')">
+          <div class="season-body">
+            <h4><i class="fas fa-leaf" style="color:#c2410c;"></i> Autumn</h4>
+            <p>Crisp apples, potatoes and delicious autumn harvest.</p>
+            <button class="season-btn" onclick="showSeasonDetails('Autumn')">
+              View Autumn Products <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- WINTER -->
+      <div class="col-lg-3 col-md-6">
+        <div class="season-card">
+          <img src="images/winter.png" alt="Winter"
+               onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'210\'><rect width=\'400\' height=\'210\' fill=\'%23bae6fd\'/><text x=\'50%\' y=\'50%\' font-size=\'80\' text-anchor=\'middle\' dominant-baseline=\'middle\'>❄️</text></svg>')">
+          <div class="season-body">
+            <h4><i class="fas fa-snowflake" style="color:var(--sky-500);"></i> Winter</h4>
+            <p>Oranges, broccoli, carrots and healthy winter produce.</p>
+            <button class="season-btn" onclick="showSeasonDetails('Winter')">
+              View Winter Products <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SEASON RESULTS
+     ============================================================ -->
+<section id="seasonResults">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+      <div>
+        <h2 id="seasonResultsTitle" style="color:var(--green-900);font-size:1.8rem;"></h2>
+        <p id="seasonResultsDescription" style="color:var(--text-muted);margin:0;"></p>
+      </div>
+      <button class="close-season" onclick="closeSeasonResults()">
+        <i class="fas fa-xmark"></i> Close
+      </button>
+    </div>
+    <div class="row g-4" id="activeSeasonProducts"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARKET CTA
+     ============================================================ -->
+<section class="market-section" id="markets">
+  <div class="container">
+    <h2>Find Fresh Markets Near You</h2>
+    <p>Discover local farmers markets and fresh produce sellers across Karachi.</p>
+    <a href="market.html" class="market-btn">
+      <i class="fas fa-location-dot"></i> Find Markets
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+        <p>Find the nearest fruits, vegetables, herbs & dairy shops and markets in Karachi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="market.html">All Markets</a>
+        <a href="produce.html">Produce Guide</a>
+        <a href="saved.html">Saved Markets</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a onclick="openAuthModal('login')">Login</a>
+        <a onclick="openAuthModal('signup')">Create Account</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Along</h4>
+        <div class="social-row">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="yr"></span> FreshFind. All rights reserved. · © Aptech Limited
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     PRODUCT MODAL
+     ============================================================ -->
+<div class="modal-bg" id="productModal" onclick="if(event.target===this)closeModal('productModal')">
+  <div class="modal-box modal-lg">
+    <button class="modal-close" onclick="closeModal('productModal')"><i class="fas fa-xmark"></i></button>
+
+    <div class="modal-header-bar">
+      <h3 id="modalTitle">Product Details</h3>
+    </div>
+
+    <div class="modal-body-scroll">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <img id="modalImage" class="detail-image" src="" alt="Product">
+        </div>
+
+        <div class="col-lg-7">
+          <span id="modalCategory" class="category"></span>
+          <h2 id="modalProductName" style="color:var(--green-900);margin:10px 0;"></h2>
+
+          <div class="mb-2">
+            <span id="modalPrice" class="price"></span>
+            <span id="modalUnit" class="unit"></span>
+          </div>
+
+          <p id="modalDeal" class="deal"></p>
+
+          <p id="modalDescription" class="detail-text"></p>
+
+          <div class="row g-3 mt-2">
+            <div class="col-md-6">
+              <div class="detail-block">
+                <div class="detail-label">Season</div>
+                <div id="modalSeason" class="detail-text"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="detail-block">
+                <div class="detail-label">Markets</div>
+                <div id="modalMarkets" class="detail-text"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="detail-block">
+                <div class="detail-label">Uses</div>
+                <div id="modalUses" class="detail-text"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="detail-block">
+                <div class="detail-label">Storage</div>
+                <div id="modalStorage" class="detail-text"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="detail-block">
+                <div class="detail-label">Nutrition</div>
+                <div id="modalNutrition" class="detail-text"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="detail-block">
+                <div class="detail-label">Freshness</div>
+                <div id="modalFreshness" class="detail-text"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fact-box mt-3">
+            <strong><i class="fas fa-lightbulb"></i> Did You Know?</strong>
+            <p id="modalFact" style="margin:6px 0 0;"></p>
+          </div>
+
+          <div class="row align-items-center mt-4">
+            <div class="col-md-5">
+              <label class="detail-label">Quantity</label>
+              <div class="qty-control">
+                <button onclick="changePurchaseQty(-1)">−</button>
+                <input id="purchaseQty" type="number" value="1" min="1">
+                <button onclick="changePurchaseQty(1)">+</button>
+              </div>
+            </div>
+            <div class="col-md-7 text-md-end mt-3 mt-md-0">
+              <div>Total: <strong id="purchaseTotal" style="color:var(--green-700);font-size:1.15rem;">Rs. 0</strong></div>
+              <div id="purchaseSaving" style="color:var(--green-600);font-size:0.82rem;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer-bar">
+      <button class="btn-outline-green" onclick="saveCurrentProduct()">
+        <i class="fas fa-bookmark"></i> Save
+      </button>
+      <button class="btn-solid-green" onclick="addCurrentToCart()">
+        <i class="fas fa-cart-plus"></i> Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SEASON MODAL
+     ============================================================ -->
+<div class="modal-bg" id="seasonModal" onclick="if(event.target===this)closeModal('seasonModal')">
+  <div class="modal-box modal-lg">
+    <button class="modal-close" onclick="closeModal('seasonModal')"><i class="fas fa-xmark"></i></button>
+
+    <div class="modal-header-bar">
+      <h3 id="seasonModalTitle"></h3>
+    </div>
+
+    <div class="modal-body-scroll">
+      <p id="seasonModalDescription" class="detail-text" style="margin-bottom:20px;"></p>
+
+      <div class="row g-3" id="seasonProductList"></div>
+
+      <div class="fact-box mt-4">
+        <strong><i class="fas fa-seedling"></i> Season Tip:</strong>
+        <span id="seasonModalTip"></span>
+      </div>
+    </div>
+
+    <div class="modal-footer-bar">
+      <button class="btn-solid-green" onclick="viewSeasonProducts()">
+        View All Season Products <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CART MODAL — SAME AS index.html     ============================================================ -->
+<div class="modal-bg" id="cartModal" onclick="if(event.target===this)closeModal('cartModal')">
+  <div class="modal-box" style="max-width:520px;">
+    <button class="modal-close" onclick="closeModal('cartModal')"><i class="fas fa-xmark"></i></button>
+
+    <div class="modal-header-bar" style="background:linear-gradient(135deg,var(--green-800),var(--green-900));padding:20px 24px;">
+      <h3 style="color:white;font-size:1.15rem;display:flex;align-items:center;gap:10px;margin:0;">
+        <i class="fas fa-shopping-cart" style="color:var(--amber-400);"></i> Your Basket
+      </h3>
+      <p style="color:rgba(255,255,255,0.85);font-size:0.8rem;margin:4px 0 0;" id="cartItemsCount">0 items</p>
+    </div>
+
+    <div class="modal-body-scroll" id="cartBody">
+      <div id="emptyCart" class="empty-box">
+        <i class="fas fa-shopping-cart"></i>
+        <h5>Your basket is empty</h5>
+        <p>Add fresh products to get started!</p>
+      </div>
+
+      <div id="cartItems"></div>
+    </div>
+
+    <div class="modal-footer-bar" style="display:none;" id="cartFoot">
+      <div style="flex:1;">
+        <div class="total-box" style="margin:0;">
+          <div class="row-line">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">Rs. 0</strong>
+          </div>
+          <div class="row-line">
+            <span>Discount</span>
+            <strong id="cartDiscount" style="color:var(--green-700);">- Rs. 0</strong>
+          </div>
+          <div class="row-line total">
+            <span>Total</span>
+            <strong id="cartTotal" style="color:var(--green-700);">Rs. 0</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer-bar" style="justify-content:space-between;">
+      <button class="btn-outline-green" onclick="clearCart()">
+        <i class="fas fa-trash"></i> Clear Cart
+      </button>
+      <button class="btn-solid-green" onclick="checkout()">
+        <i class="fas fa-credit-card"></i> Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AUTH MODALS
+     ============================================================ -->
+<div class="modal-bg" id="loginModal" onclick="if(event.target===this)closeAuthModal('login')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('login')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-leaf"></i></div>
+    <h2>Welcome back</h2>
+    <p class="hint">Sign in to save your favourite products.</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <div class="footer-text">Don't have an account? <a onclick="closeAuthModal('login');openAuthModal('signup')">Sign up free</a></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="signupModal" onclick="if(event.target===this)closeAuthModal('signup')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('signup')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-seedling"></i></div>
+    <h2>Create your account</h2>
+    <p class="hint">Join FreshFind to save products near you.</p>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label>Full Name</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" required placeholder="Your name" minlength="2">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" required placeholder="Create a password" minlength="4">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+    </form>
+    <div class="footer-text">Already have an account? <a onclick="closeAuthModal('signup');openAuthModal('login')">Sign in</a></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CHATBOT — SAME AS index.html (data-driven, professional)
+     ============================================================ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat">
+  <i class="fas fa-comment-dots fab-icon"></i>
+  <i class="fas fa-xmark fab-close"></i>
+  <span class="notif-dot" id="chatDot"></span>
+</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+    <div class="chat-head-text">
+      <h4>FreshFind Assistant</h4>
+      <span>Online now</span>
+    </div>
+    <button class="chat-head-close" onclick="toggleChat()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi! 👋 I know all about our <b>fruits, vegetables, herbs, dairy</b>, prices, seasons, and Karachi markets. Ask me anything!</div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button class="chat-send" id="chatSend" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- ============================================================
+     TOASTS
+     ============================================================ -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ============================================================
+   ✅ PRODUCT DATA — 8 FRUITS (added Grapes + Guava) & 8 VEGETABLES
+   ============================================================ */
+const products = [
+  // ---------- FRUITS (8 items) ----------
+  { id:1, name:"Mango", category:"Fruit", price:280, unit:"/ kg", season:"Summer",
+    markets:"Local Farmers Markets", uses:"Juices, smoothies, desserts and fresh eating",
+    storage:"Keep at room temperature until ripe", freshness:"Firm, colorful and naturally sweet",
+    nutrition:"Rich in Vitamin C and antioxidants", fact:"Mango is often called the king of fruits.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/mango.png" },
+  { id:2, name:"Apple", category:"Fruit", price:350, unit:"/ kg", season:"Autumn / Winter",
+    markets:"Farmers Markets", uses:"Fresh eating, pies, juices and salads",
+    storage:"Refrigerate for longer freshness", freshness:"Firm texture with smooth skin",
+    nutrition:"Contains fiber and Vitamin C", fact:"There are thousands of apple varieties worldwide.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/apple.png" },
+  { id:3, name:"Banana", category:"Fruit", price:220, unit:"/ dozen", season:"Year-round",
+    markets:"Fruit Markets", uses:"Smoothies, breakfast and desserts",
+    storage:"Store at room temperature", freshness:"Bright yellow with a firm texture",
+    nutrition:"Contains potassium and Vitamin B6", fact:"Bananas are naturally rich in potassium.",
+    deal:"Buy 3 dozen and save 5%",
+    image:"images/banana.png" },
+  { id:4, name:"Strawberry", category:"Fruit", price:550, unit:"/ kg", season:"Spring",
+    markets:"Local Farmers Markets", uses:"Desserts, smoothies and fresh eating",
+    storage:"Refrigerate and wash before eating", freshness:"Bright red with fresh green leaves",
+    nutrition:"Rich in Vitamin C and antioxidants", fact:"Strawberries are one of the most popular berries.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/strawberry.png" },
+  { id:5, name:"Orange", category:"Fruit", price:300, unit:"/ kg", season:"Winter",
+    markets:"Winter Farmers Markets", uses:"Juice, salads and fresh eating",
+    storage:"Keep refrigerated", freshness:"Heavy for its size with bright skin",
+    nutrition:"Excellent source of Vitamin C", fact:"Oranges are one of the world's most popular citrus fruits.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/orange.png" },
+  { id:6, name:"Pineapple", category:"Fruit", price:420, unit:"/ piece", season:"Summer",
+    markets:"Fruit Markets", uses:"Juices, salads and desserts",
+    storage:"Refrigerate after cutting", freshness:"Sweet aroma with firm leaves",
+    nutrition:"Contains Vitamin C and manganese", fact:"Pineapple contains an enzyme called bromelain.",
+    deal:"Buy 3 pieces and save 5%",
+    image:"images/pineapple.png" },
+  // ✅ NEW: Grapes
+  { id:15, name:"Grapes", category:"Fruit", price:380, unit:"/ kg", season:"Summer / Autumn",
+    markets:"Local Farmers Markets", uses:"Fresh eating, juices and fruit salads",
+    storage:"Refrigerate and wash before eating", freshness:"Plump, firm and naturally sweet",
+    nutrition:"Rich in Vitamin C, K and antioxidants", fact:"Grapes come in green, red, black and purple varieties.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/grapes.png" },
+  // ✅ NEW: Guava
+  { id:16, name:"Guava", category:"Fruit", price:240, unit:"/ kg", season:"Winter",
+    markets:"Winter Fruit Markets", uses:"Fresh eating, juices and jams",
+    storage:"Store at room temperature until ripe", freshness:"Firm with a sweet aroma",
+    nutrition:"Rich in Vitamin C and fiber", fact:"Guava has more Vitamin C than oranges.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/guava.png" },
+
+  // ---------- VEGETABLES (8 items) ----------
+  { id:7, name:"Carrot", category:"Vegetable", price:180, unit:"/ kg", season:"Winter",
+    markets:"Vegetable Markets", uses:"Salads, soups and cooking",
+    storage:"Keep refrigerated", freshness:"Firm and bright orange",
+    nutrition:"Rich in beta-carotene", fact:"Carrots come in several natural colors.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/carrot.png" },
+  { id:8, name:"Broccoli", category:"Vegetable", price:320, unit:"/ kg", season:"Winter",
+    markets:"Farmers Markets", uses:"Steaming, salads and stir-fry",
+    storage:"Refrigerate in a breathable bag", freshness:"Dark green compact florets",
+    nutrition:"Contains Vitamin C, K and fiber", fact:"Broccoli belongs to the cabbage family.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/broccoli.png" },
+  { id:9, name:"Tomato", category:"Vegetable", price:200, unit:"/ kg", season:"Summer / Year-round",
+    markets:"Local Vegetable Markets", uses:"Salads, sauces and cooking",
+    storage:"Store at room temperature until ripe", freshness:"Firm and bright red",
+    nutrition:"Contains Vitamin C and lycopene", fact:"Tomatoes are botanically fruits but commonly used as vegetables.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/tomato.png" },
+  { id:10, name:"Cucumber", category:"Vegetable", price:160, unit:"/ kg", season:"Summer",
+    markets:"Farmers Markets", uses:"Salads, raita and refreshing drinks",
+    storage:"Refrigerate", freshness:"Firm and crisp",
+    nutrition:"High water content", fact:"Cucumber is made up mostly of water.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/cucumber.png" },
+  { id:11, name:"Capsicum", category:"Vegetable", price:380, unit:"/ kg", season:"Summer",
+    markets:"Vegetable Markets", uses:"Pizza, stir-fry and salads",
+    storage:"Refrigerate", freshness:"Firm, glossy and colorful",
+    nutrition:"Rich in Vitamin C", fact:"Capsicums come in green, red, yellow and orange colors.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/capsicum.png" },
+  { id:12, name:"Spinach", category:"Vegetable", price:150, unit:"/ kg", season:"Spring / Winter",
+    markets:"Farmers Markets", uses:"Curries, soups, salads and smoothies",
+    storage:"Refrigerate and keep dry", freshness:"Dark green fresh leaves",
+    nutrition:"Rich in iron, folate and Vitamin K", fact:"Spinach is a leafy green vegetable.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/spinach.png" },
+  { id:13, name:"Potato", category:"Vegetable", price:170, unit:"/ kg", season:"Year-round",
+    markets:"Local Vegetable Markets", uses:"Fries, curries, soups and baking",
+    storage:"Keep in a cool dark place", freshness:"Firm with smooth skin",
+    nutrition:"Contains potassium and carbohydrates", fact:"Potatoes are one of the world's most widely grown crops.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/potato.png" },
+  { id:14, name:"Mixed Vegetables", category:"Vegetable", price:420, unit:"/ kg", season:"Year-round",
+    markets:"Fresh Vegetable Markets", uses:"Stir-fry, soups and mixed dishes",
+    storage:"Refrigerate", freshness:"Colorful fresh vegetables",
+    nutrition:"Provides fiber and multiple vitamins", fact:"A mixed vegetable pack gives variety in one purchase.",
+    deal:"Buy 3 kg and save 5%",
+    image:"images/mixed-vegetables.png" }
+];
+
+const cutFruits = [
+  { id:101, name:"Cut Mango Cup", category:"Cut Fruit", price:180, unit:"/ cup",
+    oldPrice:220, deal:"Save Rs. 40",
+    description:"Freshly cut sweet mango pieces ready to eat.",
+    image:"images/cut-mango.png" },
+  { id:102, name:"Mixed Fruit Cup", category:"Cut Fruit", price:220, unit:"/ cup",
+    oldPrice:270, deal:"Save Rs. 50",
+    description:"A colorful mix of fresh seasonal fruit pieces.",
+    image:"images/mixed-fruit.png" },
+  { id:103, name:"Cut Pineapple Box", category:"Cut Fruit", price:300, unit:"/ box",
+    oldPrice:350, deal:"Save Rs. 50",
+    description:"Fresh juicy pineapple pieces packed for convenience.",
+    image:"images/cut-pineapple.png" },
+  { id:104, name:"Strawberry Fruit Box", category:"Cut Fruit", price:350, unit:"/ box",
+    oldPrice:410, deal:"Save Rs. 60",
+    description:"Fresh red strawberries prepared and packed.",
+    image:"images/strawberry-box.png" }
+];
+
+const cutVegetables = [
+  { id:201, name:"Cut Salad Mix", category:"Cut Vegetable", price:180, unit:"/ box",
+    oldPrice:220, deal:"Save Rs. 40",
+    description:"Fresh cucumber, carrot and tomato salad mix.",
+    image:"images/salad-mix.png" },
+  { id:202, name:"Cut Carrot Pack", category:"Cut Vegetable", price:140, unit:"/ pack",
+    oldPrice:170, deal:"Save Rs. 30",
+    description:"Freshly cut carrot sticks ready for cooking or snacking.",
+    image:"images/cut-carrot.png" },
+  { id:203, name:"Cut Broccoli Pack", category:"Cut Vegetable", price:250, unit:"/ pack",
+    oldPrice:290, deal:"Save Rs. 40",
+    description:"Fresh broccoli florets ready for cooking.",
+    image:"images/cut-broccoli.png" },
+  { id:204, name:"Stir Fry Vegetable Mix", category:"Cut Vegetable", price:320, unit:"/ box",
+    oldPrice:380, deal:"Save Rs. 60",
+    description:"A colorful ready-to-cook vegetable mix.",
+    image:"images/stir-fry-mix.png" }
+];
+
+const seasonalData = {
+  Spring: {
+    description:"Spring brings colorful, fresh and nutritious produce.",
+    tip:"Choose bright green leaves and fresh berries for the best quality.",
+    products:[
+      { id:"spring-strawberry", name:"Strawberry", category:"Fruit", price:450, unit:"/ 500g",
+        image:"images/strawberry.png", description:"Fresh spring strawberries with a naturally sweet flavor.",
+        season:"Spring", uses:"Desserts, smoothies and fresh eating",
+        storage:"Refrigerate", nutrition:"Rich in Vitamin C and antioxidants",
+        freshness:"Bright red and firm", fact:"Strawberries are among the most popular spring berries." },
+      { id:"spring-spinach", name:"Spinach", category:"Vegetable", price:180, unit:"/ 500g",
+        image:"images/spinach.png", description:"Fresh leafy spinach perfect for healthy meals.",
+        season:"Spring", uses:"Curries, soups and salads",
+        storage:"Refrigerate and keep dry", nutrition:"Contains iron, folate and Vitamin K",
+        freshness:"Dark green leaves", fact:"Spinach is a nutrient-rich leafy green." },
+      { id:"spring-carrot", name:"Carrot", category:"Vegetable", price:160, unit:"/ kg",
+        image:"images/carrot.png", description:"Fresh crunchy carrots.",
+        season:"Spring", uses:"Salads, soups and snacks",
+        storage:"Refrigerate", nutrition:"Rich in beta-carotene",
+        freshness:"Firm and bright orange", fact:"Carrots can naturally grow in several colors." }
+    ]
+  },
+  Summer: {
+    description:"Summer is full of juicy fruits and refreshing vegetables.",
+    tip:"Keep summer produce cool and hydrated for better freshness.",
+    products:[
+      { id:"summer-mango", name:"Mango", category:"Fruit", price:320, unit:"/ kg",
+        image:"images/mango.png", description:"Sweet and juicy summer mangoes.",
+        season:"Summer", uses:"Juice, smoothies and fresh eating",
+        storage:"Keep at room temperature until ripe", nutrition:"Rich in Vitamin C",
+        freshness:"Sweet aroma and colorful skin", fact:"Mangoes are one of the most popular summer fruits." },
+      { id:"summer-blueberry", name:"Blueberry", category:"Fruit", price:850, unit:"/ 250g",
+        image:"images/blueberry.png", description:"Fresh juicy blueberries.",
+        season:"Summer", uses:"Smoothies, desserts and breakfast",
+        storage:"Refrigerate", nutrition:"Rich in antioxidants",
+        freshness:"Firm blue berries", fact:"Blueberries are known for their antioxidant content." },
+      { id:"summer-tomato", name:"Tomato", category:"Vegetable", price:180, unit:"/ kg",
+        image:"images/tomato.png", description:"Fresh red tomatoes.",
+        season:"Summer", uses:"Salads, sauces and cooking",
+        storage:"Keep at room temperature until ripe", nutrition:"Contains Vitamin C and lycopene",
+        freshness:"Firm and bright red", fact:"Tomatoes are botanically fruits." },
+      { id:"summer-cucumber", name:"Cucumber", category:"Vegetable", price:140, unit:"/ kg",
+        image:"images/cucumber.png", description:"Cool and refreshing summer cucumbers.",
+        season:"Summer", uses:"Salads, raita and drinks",
+        storage:"Refrigerate", nutrition:"High water content",
+        freshness:"Firm and crisp", fact:"Cucumbers contain a very high percentage of water." }
+    ]
+  },
+  Autumn: {
+    description:"Autumn harvest brings crisp apples and hearty vegetables.",
+    tip:"Choose firm produce with natural color and no soft spots.",
+    products:[
+      { id:"autumn-apple", name:"Apple", category:"Fruit", price:380, unit:"/ kg",
+        image:"images/apple.png", description:"Crisp fresh autumn apples.",
+        season:"Autumn", uses:"Fresh eating, pies and juices",
+        storage:"Refrigerate", nutrition:"Contains fiber and Vitamin C",
+        freshness:"Firm and crisp", fact:"Apples are harvested in many regions during autumn." },
+      { id:"autumn-potato", name:"Potato", category:"Vegetable", price:150, unit:"/ kg",
+        image:"images/potato.png", description:"Fresh potatoes from the autumn harvest.",
+        season:"Autumn", uses:"Fries, curries and soups",
+        storage:"Cool dark place", nutrition:"Contains potassium and carbohydrates",
+        freshness:"Firm skin", fact:"Potatoes are one of the world's major food crops." }
+    ]
+  },
+  Winter: {
+    description:"Winter produce is full of nutritious greens and citrus fruits.",
+    tip:"Choose bright citrus and firm green vegetables for the best quality.",
+    products:[
+      { id:"winter-orange", name:"Orange", category:"Fruit", price:280, unit:"/ kg",
+        image:"images/orange.png", description:"Juicy fresh winter oranges.",
+        season:"Winter", uses:"Juice, salads and fresh eating",
+        storage:"Refrigerate", nutrition:"Excellent source of Vitamin C",
+        freshness:"Heavy for size and bright skin", fact:"Citrus fruits are especially popular in winter." },
+      { id:"winter-broccoli", name:"Broccoli", category:"Vegetable", price:300, unit:"/ 500g",
+        image:"images/broccoli.png", description:"Fresh green broccoli florets.",
+        season:"Winter", uses:"Steaming, salads and stir-fry",
+        storage:"Refrigerate", nutrition:"Contains Vitamin C, K and fiber",
+        freshness:"Dark green compact florets", fact:"Broccoli belongs to the cabbage family." },
+      { id:"winter-carrot", name:"Carrot", category:"Vegetable", price:160, unit:"/ kg",
+        image:"images/carrot.png", description:"Crunchy winter carrots.",
+        season:"Winter", uses:"Soups, salads and cooking",
+        storage:"Refrigerate", nutrition:"Rich in beta-carotene",
+        freshness:"Firm and bright orange", fact:"Carrots are a popular root vegetable." },
+      { id:"winter-spinach", name:"Spinach", category:"Vegetable", price:180, unit:"/ 500g",
+        image:"images/spinach.png", description:"Fresh winter spinach leaves.",
+        season:"Winter", uses:"Curries, soups and salads",
+        storage:"Refrigerate", nutrition:"Contains iron and Vitamin K",
+        freshness:"Fresh dark green leaves", fact:"Spinach is commonly used in many healthy dishes." }
+    ]
+  }
+};
+
+/* ============================================================
+   ✅ SHARED PRODUCTS FOR CART + CHATBOT (fruits/veg/herbs/dairy)
+   ============================================================ */
+const FRUITS = [
+  { id:"fruit-apple", name:"Apple",       urdu:"Saib",       price:300, unit:"kg",    trend:"stable", image:"images/fruit-apple.png", category:"fruits" },
+  { id:"fruit-banana", name:"Banana",     urdu:"Kela",       price:300, unit:"dozen", trend:"up",     image:"images/fruit-banana.png", category:"fruits" },
+  { id:"fruit-mango", name:"Mango",       urdu:"Aam",        price:275, unit:"kg",    trend:"down",   image:"images/fruit-mango.png", category:"fruits" },
+  { id:"fruit-orange", name:"Orange",     urdu:"Santra",     price:250, unit:"kg",    trend:"stable", image:"images/fruit-orange.png", category:"fruits" },
+  { id:"fruit-strawberry", name:"Strawberry", urdu:"Strawberry", price:350, unit:"kg", trend:"up",   image:"images/fruit-strawberry.png", category:"fruits" },
+  { id:"fruit-watermelon", name:"Watermelon", urdu:"Tarbooz", price:80,  unit:"kg",    trend:"down",   image:"images/fruit-watermelon.png", category:"fruits" },
+  { id:"fruit-grapes", name:"Grapes",     urdu:"Angoor",     price:280, unit:"kg",    trend:"stable", image:"images/fruit-grapes.png", category:"fruits" },
+  { id:"fruit-guava", name:"Guava",       urdu:"Amrood",     price:200, unit:"kg",    trend:"stable", image:"images/fruit-guava.png", category:"fruits" },
+  { id:"fruit-pomegranate", name:"Pomegranate", urdu:"Anar", price:400, unit:"kg",    trend:"up",     image:"images/fruit-pomegranate.png", category:"fruits" }
+];
+
+const VEGETABLES = [
+  { id:"veg-tomato", name:"Tomato",      urdu:"Tamatar",    price:150, unit:"kg",    trend:"down",   image:"images/veg-tomato.png", category:"vegetables" },
+  { id:"veg-onion", name:"Onion",       urdu:"Piyaz",      price:200, unit:"kg",    trend:"up",     image:"images/veg-onion.png", category:"vegetables" },
+  { id:"veg-potato", name:"Potato",      urdu:"Aloo",       price:110, unit:"kg",    trend:"stable", image:"images/veg-potato.png", category:"vegetables" },
+  { id:"veg-carrot", name:"Carrot",      urdu:"Gajar",      price:100, unit:"kg",    trend:"stable", image:"images/veg-carrot.png", category:"vegetables" },
+  { id:"veg-lemon", name:"Lemon",       urdu:"Nimbu",      price:200, unit:"kg",    trend:"up",     image:"images/veg-lemon.png", category:"vegetables" },
+  { id:"veg-cucumber", name:"Cucumber",    urdu:"Kheera",     price:80,  unit:"kg",    trend:"down",   image:"images/veg-cucumber.png", category:"vegetables" },
+  { id:"veg-spinach", name:"Spinach",     urdu:"Palak",      price:60,  unit:"bunch", trend:"stable", image:"images/veg-spinach.png", category:"vegetables" },
+  { id:"veg-cauliflower", name:"Cauliflower", urdu:"Gobi",   price:120, unit:"kg",    trend:"stable", image:"images/veg-cauliflower.png", category:"vegetables" },
+  { id:"veg-chili", name:"Green Chili", urdu:"Hari Mirch", price:180, unit:"kg",    trend:"up",     image:"images/veg-chili.png", category:"vegetables" },
+  { id:"veg-eggplant", name:"Eggplant",    urdu:"Baingan",    price:90,  unit:"kg",    trend:"down",   image:"images/veg-eggplant.png", category:"vegetables" }
+];
+
+const HERBS = [
+  { id:"herb-mint", name:"Mint",         urdu:"Podina",       price:40,  unit:"bunch", trend:"stable", image:"images/herb-mint.png", category:"herbs" },
+  { id:"herb-coriander", name:"Coriander",    urdu:"Dhania",       price:40,  unit:"bunch", trend:"up",     image:"images/herb-coriander.png", category:"herbs" },
+  { id:"herb-basil", name:"Basil",        urdu:"Tulsi",        price:60,  unit:"bunch", trend:"stable", image:"images/herb-basil.png", category:"herbs" },
+  { id:"herb-curry", name:"Curry Leaves", urdu:"Curry Patta",  price:30,  unit:"bunch", trend:"down",   image:"images/herb-curry.png", category:"herbs" },
+  { id:"herb-green-onion", name:"Green Onion",  urdu:"Hara Pyaz",    price:50,  unit:"bunch", trend:"stable", image:"images/herb-green-onion.png", category:"herbs" },
+  { id:"herb-dill", name:"Dill",         urdu:"Soya",         price:45,  unit:"bunch", trend:"up",     image:"images/herb-dill.png", category:"herbs" },
+  { id:"herb-fenugreek", name:"Fenugreek",    urdu:"Methi",        price:50,  unit:"bunch", trend:"stable", image:"images/herb-fenugreek.png", category:"herbs" },
+  { id:"herb-parsley", name:"Parsley",      urdu:"Parsley",      price:80,  unit:"bunch", trend:"stable", image:"images/herb-parsley.png", category:"herbs" }
+];
+
+const DAIRY = [
+  { id:"dairy-milk", name:"Fresh Milk",    urdu:"Taaza Doodh",  price:220, unit:"litre", trend:"up",     image:"images/dairy-milk.png", category:"dairy" },
+  { id:"dairy-yogurt", name:"Yogurt",        urdu:"Dahi",         price:200, unit:"kg",    trend:"stable", image:"images/dairy-yogurt.png", category:"dairy" },
+  { id:"dairy-butter", name:"Butter",        urdu:"Makkhan",      price:1400,unit:"kg",    trend:"up",     image:"images/dairy-butter.png", category:"dairy" },
+  { id:"dairy-cream", name:"Cream",         urdu:"Malai",        price:900, unit:"kg",    trend:"stable", image:"images/dairy-cream.png", category:"dairy" },
+  { id:"dairy-paneer", name:"Cottage Cheese",urdu:"Paneer",       price:1600,unit:"kg",    trend:"stable", image:"images/dairy-paneer.png", category:"dairy" },
+  { id:"dairy-cheese", name:"Cheese",        urdu:"Cheese",       price:1800,unit:"kg",    trend:"up",     image:"images/dairy-cheese.png", category:"dairy" },
+  { id:"dairy-lassi", name:"Lassi",         urdu:"Lassi",        price:150, unit:"glass", trend:"stable", image:"images/dairy-lassi.png", category:"dairy" },
+  { id:"dairy-khoya", name:"Khoya",         urdu:"Khoya",        price:1400,unit:"kg",    trend:"up",     image:"images/dairy-khoya.png", category:"dairy" }
+];
+
+const ALL_PRODUCTS = [...FRUITS, ...VEGETABLES, ...HERBS, ...DAIRY];
+
+/* ============================================================
+   GLOBAL STATE
+   ============================================================ */
+let currentFilter = "all";
+let currentProduct = null;
+let currentSeason = null;
+
+const store = {
+  get(k,d){ try { return JSON.parse(localStorage.getItem('ff_'+k)) ?? d; } catch { return d; } },
+  set(k,v){ localStorage.setItem('ff_'+k, JSON.stringify(v)); }
+};
+
+let appState = {
+  bookmarks: store.get('bookmarks', { markets:[], products:[] }),
+  user: store.get('user', null),
+  cart: store.get('cart', [])  // ✅ SHARED WITH ALL PAGES
+};
+
+const $ = (s,r=document) => r.querySelector(s);
+const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+
+function escape(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function getInitials(name){
+  if(!name) return '?';
+  const parts = name.trim().split(' ');
+  if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  return name.slice(0,2).toUpperCase();
+}
+function getFirstName(name){ return name ? name.trim().split(' ')[0] : 'Friend'; }
+function formatPrice(n){ return 'Rs ' + n.toLocaleString('en-PK'); }
+
+/* ============================================================
+   IMAGE FALLBACK
+   ============================================================ */
+function handleImageError(img){
+  img.onerror = null;
+  const label = img.alt || 'Image';
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#fef3c7"/><stop offset="100%" stop-color="#dcfce7"/>
+      </linearGradient></defs>
+      <rect width="400" height="400" fill="url(#g)"/>
+      <text x="50%" y="48%" font-family="sans-serif" font-size="80" text-anchor="middle" dominant-baseline="middle">🥬</text>
+      <text x="50%" y="72%" font-family="sans-serif" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">${label}</text>
+    </svg>`;
+  img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function toast(msg, type='success', icon='fa-circle-check'){
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.innerHTML = `<i class="fas ${icon}"></i><span>${escape(msg)}</span>`;
+  $('#toastStack').appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(20px)'; }, 2200);
+  setTimeout(() => el.remove(), 2600);
+}
+const showToast = toast;
+
+/* ============================================================
+   NAV
+   ============================================================ */
+function toggleNav(){
+  $('#navLinks').classList.toggle('open');
+  $('#hamburger').classList.toggle('open');
+}
+
+/* ============================================================
+   ✅ CART SYSTEM — SHARED ff_cart
+   ============================================================ */
+function getCartCount(){
+  return appState.cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+}
+function getDiscountPercent(qty){
+  if(qty >= 20) return 25;
+  if(qty >= 15) return 20;
+  if(qty >= 10) return 15;
+  if(qty >= 5) return 10;
+  if(qty >= 3) return 5;
+  return 0;
+}
+function refreshCartFromStorage(){
+  try {
+    const raw = localStorage.getItem('ff_cart');
+    const parsed = raw ? JSON.parse(raw) : [];
+    appState.cart = Array.isArray(parsed) ? parsed : [];
+    updateCartBadge();
+    const cartModal = document.getElementById('cartModal');
+    if(cartModal && cartModal.classList.contains('open')){
+      renderCartModal();
+    }
+  } catch (e) {
+    console.warn('Could not refresh cart:', e);
+  }
+}
+function updateCartBadge(){
+  const el = document.getElementById('cartCount');
+  if(!el) return;
+  const count = getCartCount();
+  el.textContent = count;
+  el.classList.add('bump');
+  setTimeout(() => el.classList.remove('bump'), 350);
+}
+function addToCartById(id, qty){
+  qty = qty || 1;
+  const product = ALL_PRODUCTS.find(p => String(p.id) === String(id));
+  if(!product){ toast('Product not found', 'error', 'fa-circle-exclamation'); return false; }
+
+  refreshCartFromStorage();
+
+  const existing = appState.cart.find(item => String(item.id) === String(id));
+  if(existing){
+    existing.qty = (existing.qty || 1) + qty;
+  } else {
+    appState.cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      unit: product.unit,
+      qty: qty
+    });
+  }
+  store.set('cart', appState.cart);
+  updateCartBadge();
+  toast(`${product.name} added to cart`, 'success', 'fa-cart-plus');
+  return true;
+}
+function removeFromCart(id){
+  appState.cart = appState.cart.filter(item => String(item.id) !== String(id));
+  store.set('cart', appState.cart);
+  updateCartBadge();
+  renderCartModal();
+}
+function changeQty(id, delta){
+  const item = appState.cart.find(i => String(i.id) === String(id));
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0){
+    removeFromCart(id);
+    return;
+  }
+  store.set('cart', appState.cart);
+  updateCartBadge();
+  renderCartModal();
+}
+function openCart(){
+  refreshCartFromStorage();
+  renderCartModal();
+  $('#cartModal').classList.add('open');
+}
+function closeCartModal(){ $('#cartModal').classList.remove('open'); }
+
+function renderCartModal(){
+  const body = document.getElementById('cartItems');
+  const empty = document.getElementById('emptyCart');
+  const foot = document.getElementById('cartFoot');
+  const countLabel = document.getElementById('cartItemsCount');
+  if(!body) return;
+
+  const items = appState.cart.map(item => {
+    const p = ALL_PRODUCTS.find(x => String(x.id) === String(item.id));
+    if(p) return { ...p, qty: item.qty || 1 };
+    return item;
+  }).filter(Boolean);
+
+  if(countLabel){
+    countLabel.textContent = items.length === 0
+      ? 'No items yet'
+      : `${getCartCount()} item${getCartCount() > 1 ? 's' : ''}`;
+  }
+
+  if(items.length === 0){
+    body.innerHTML = '';
+    if(empty) empty.style.display = 'block';
+    if(foot) foot.style.display = 'none';
+    return;
+  }
+
+  if(empty) empty.style.display = 'none';
+  if(foot) foot.style.display = 'flex';
+
+  let subtotal = 0, discount = 0;
+
+  body.innerHTML = items.map(item => {
+    const itemSubtotal = item.price * item.qty;
+    const dp = getDiscountPercent(item.qty);
+    const itemDiscount = itemSubtotal * dp / 100;
+    subtotal += itemSubtotal;
+    discount += itemDiscount;
+
+    return `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${escape(item.name)}" onerror="handleImageError(this)">
+        <div class="cart-info">
+          <h6>${escape(item.name)}</h6>
+          <div class="price-tag">${formatPrice(item.price)} ${escape(item.unit || '')}</div>
+          <div class="qty-control-sm">
+            <button onclick="changeQty('${item.id}', -1)">−</button>
+            <strong>${item.qty}</strong>
+            <button onclick="changeQty('${item.id}', 1)">+</button>
+          </div>
+        </div>
+        <div class="text-end">
+          <strong style="color:var(--green-800);">${formatPrice((itemSubtotal-itemDiscount).toFixed(0))}</strong>
+          <br>
+          <button class="remove-btn mt-2" onclick="removeFromCart('${item.id}')">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('cartSubtotal').textContent = formatPrice(subtotal.toFixed(0));
+  document.getElementById('cartDiscount').textContent = '- ' + formatPrice(discount.toFixed(0));
+  document.getElementById('cartTotal').textContent = formatPrice((subtotal - discount).toFixed(0));
+}
+
+function clearCart(){
+  if(appState.cart.length === 0){ toast("Your cart is already empty.", 'error', 'fa-circle-exclamation'); return; }
+  if(confirm("Are you sure you want to clear your cart?")){
+    appState.cart = [];
+    store.set('cart', []);
+    updateCartBadge();
+    renderCartModal();
+    toast("Cart cleared.");
+  }
+}
+
+function checkout(){
+  if(appState.cart.length === 0){
+    toast('Your cart is empty', 'error', 'fa-circle-exclamation');
+    return;
+  }
+  if(!appState.user){
+    toast('Please login to place an order', 'error', 'fa-lock');
+    closeCartModal();
+    setTimeout(() => openAuthModal('login'), 500);
+    return;
+  }
+
+  let subtotal = 0, discount = 0;
+  appState.cart.forEach(item => {
+    const itemSub = item.price * item.qty;
+    subtotal += itemSub;
+    discount += itemSub * getDiscountPercent(item.qty) / 100;
+  });
+  const total = subtotal - discount;
+
+  toast(`Order placed! Total: ${formatPrice(total.toFixed(0))} 🎉`, 'success', 'fa-check-circle');
+  appState.cart = [];
+  store.set('cart', []);
+  updateCartBadge();
+  closeCartModal();
+}
+
+/* ============================================================
+   ✅ CART SYNC LISTENERS
+   ============================================================ */
+window.addEventListener('storage', (e) => {
+  if(e.key === 'ff_cart') refreshCartFromStorage();
+});
+document.addEventListener('visibilitychange', () => {
+  if(!document.hidden) refreshCartFromStorage();
+});
+window.addEventListener('focus', () => refreshCartFromStorage());
+window.addEventListener('pageshow', () => refreshCartFromStorage());
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function renderNavActions(){
+  const container = document.getElementById('navActions');
+  if(!container) return;
+
+  const cartHTML = `
+    <button class="cart-icon-btn" onclick="openCart()" title="View Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">${getCartCount()}</span>
+    </button>
+  `;
+
+  if(appState.user){
+    const initials = getInitials(appState.user.name);
+    const firstName = getFirstName(appState.user.name);
+    container.innerHTML = cartHTML + `
+      <div class="user-pill" onclick="toggleUserMenu(event)">
+        <div class="avatar">${initials}</div>
+        <span>Hi, ${escape(firstName)}</span>
+        <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.6;"></i>
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-header">
+            <strong>${escape(appState.user.name)}</strong>
+            <span>${escape(appState.user.email)}</span>
+          </div>
+          <a href="saved.html"><i class="fas fa-bookmark"></i> My Saved Items</a>
+          <a href="index.html"><i class="fas fa-home"></i> Go Home</a>
+          <a class="danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = cartHTML + `
+      <button class="btn-ghost" onclick="openAuthModal('login')">Login</button>
+      <button class="btn-solid" onclick="openAuthModal('signup')">Sign Up</button>
+    `;
+  }
+  updateCartBadge();
+}
+function toggleUserMenu(e){
+  if(e) e.stopPropagation();
+  const menu = document.getElementById('userMenu');
+  if(menu) menu.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('userMenu');
+  const pill = document.querySelector('.user-pill');
+  if(menu && pill && !pill.contains(e.target)) menu.classList.remove('open');
+});
+
+function openAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.add('open');
+}
+function closeAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.remove('open');
+}
+function handleSignup(e){
+  e.preventDefault();
+  const name = $('#signupName').value.trim();
+  const email = $('#signupEmail').value.trim().toLowerCase();
+  const password = $('#signupPassword').value;
+
+  if(!name || name.length < 2){ toast('Enter valid name','error','fa-circle-exclamation'); return; }
+  if(!email || !email.includes('@')){ toast('Enter valid email','error','fa-circle-exclamation'); return; }
+  if(password.length < 4){ toast('Password min 4 chars','error','fa-circle-exclamation'); return; }
+
+  const users = store.get('users', {});
+  if(users[email]){ toast('Email already registered','error','fa-circle-exclamation'); return; }
+
+  users[email] = { name, email, joinedAt:new Date().toISOString(), passwordHash:btoa(password) };
+  store.set('users', users);
+  appState.user = { name, email, joinedAt: users[email].joinedAt };
+  store.set('user', appState.user);
+
+  closeAuthModal('signup');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome, ${getFirstName(name)}! 🌿`, 'success', 'fa-seedling');
+}
+function handleLogin(e){
+  e.preventDefault();
+  const email = $('#loginEmail').value.trim().toLowerCase();
+  const password = $('#loginPassword').value;
+  const users = store.get('users', {});
+  const user = users[email];
+  if(!user){ toast('No account found','error','fa-circle-exclamation'); return; }
+  if(user.passwordHash !== btoa(password)){ toast('Incorrect password','error','fa-circle-exclamation'); return; }
+
+  appState.user = { name:user.name, email:user.email, joinedAt:user.joinedAt };
+  store.set('user', appState.user);
+  closeAuthModal('login');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome back, ${getFirstName(user.name)}! 🌿`, 'success', 'fa-leaf');
+}
+function logout(){
+  if(!confirm('Logout now?')) return;
+  appState.user = null;
+  store.set('user', null);
+  renderNavActions();
+  updateBadge();
+  toast('Logged out', 'success', 'fa-check-circle');
+}
+function updateBadge(){
+  const el = $('#navBadge');
+  if(el) el.textContent = (appState.bookmarks.markets || []).length;
+}
+
+/* ============================================================
+   PRODUCTS
+   ============================================================ */
+function getAllProducts(){
+  let list = [...products, ...cutFruits, ...cutVegetables];
+  Object.values(seasonalData).forEach(season => {
+    season.products.forEach(p => {
+      if(!list.some(x => String(x.id) === String(p.id))) list.push(p);
+    });
+  });
+  return list;
+}
+
+function createProductCard(product){
+  const fallback = "this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'400\\'><rect width=\\'400\\' height=\\'400\\' fill=\\'%23dcfce7\\'/><text x=\\'50%\\' y=\\'50%\\' font-size=\\'80\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'>🥬</text></svg>')";
+  return `
+    <div class="col-xl-3 col-lg-4 col-md-6">
+      <div class="product-card">
+        <img src="${product.image}" class="product-image" alt="${escape(product.name)}" onerror="${fallback}">
+        <div class="product-body">
+          <span class="category">${escape(product.category)}</span>
+          <h5>${escape(product.name)}</h5>
+          <div>
+            <span class="price">Rs. ${product.price}</span>
+            <span class="unit">${escape(product.unit || '')}</span>
+          </div>
+          ${product.deal ? `<div class="deal"><i class="fas fa-tag"></i> ${escape(product.deal)}</div>` : ''}
+          <div class="product-buttons">
+            <button class="btn-details" onclick="showProductDetails('${product.id}')">
+              <i class="fas fa-eye"></i> Details
+            </button>
+            <button class="btn-cart" onclick="quickAdd('${product.id}')">
+              <i class="fas fa-cart-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderProducts(list = products){
+  const fruits = list.filter(p => p.category === "Fruit");
+  const vegetables = list.filter(p => p.category === "Vegetable");
+
+  document.getElementById("fruitGrid").innerHTML = fruits.map(createProductCard).join("");
+  document.getElementById("vegetableGrid").innerHTML = vegetables.map(createProductCard).join("");
+
+  document.getElementById("fruitCount").textContent = `${fruits.length} products`;
+  document.getElementById("vegetableCount").textContent = `${vegetables.length} products`;
+
+  document.getElementById("fruitSection").style.display = fruits.length ? "block" : "none";
+  document.getElementById("vegetableSection").style.display = vegetables.length ? "block" : "none";
+  document.getElementById("noResults").style.display = list.length ? "none" : "block";
+}
+
+function setFilter(filter, button){
+  currentFilter = filter;
+  document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+  if(button) button.classList.add("active");
+  applyFilters();
+}
+
+function applyFilters(){
+  const search = (document.getElementById("searchInput").value || '').trim().toLowerCase();
+  let filtered = [...products];
+
+  if(currentFilter !== "all") filtered = filtered.filter(p => p.category === currentFilter);
+
+  if(search){
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(search) ||
+      p.category.toLowerCase().includes(search) ||
+      (p.season || '').toLowerCase().includes(search) ||
+      (p.uses || '').toLowerCase().includes(search)
+    );
+  }
+
+  renderProducts(filtered);
+}
+
+function clearSearch(){
+  document.getElementById("searchInput").value = "";
+  currentFilter = "all";
+  document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+  document.querySelector(".filter-btn").classList.add("active");
+  renderProducts(products);
+}
+
+function findProduct(id){
+  return getAllProducts().find(p => String(p.id) === String(id));
+}
+
+/* ============================================================
+   ✅ QUICK ADD
+   ============================================================ */
+function quickAdd(id){
+  const product = findProduct(id);
+  if(!product){ toast("Product not found.", 'error', 'fa-circle-exclamation'); return; }
+
+  const shared = ALL_PRODUCTS.find(p =>
+    p.name.toLowerCase() === product.name.toLowerCase() ||
+    (p.name.toLowerCase().includes(product.name.toLowerCase()) && product.name.length > 3)
+  );
+
+  if(shared){
+    addToCartById(shared.id, 1);
+  } else {
+    const customId = 'produce-' + product.id + '-' + product.name.toLowerCase().replace(/\s+/g,'-');
+    refreshCartFromStorage();
+    const existing = appState.cart.find(item => String(item.id) === String(customId));
+    if(existing){
+      existing.qty += 1;
+    } else {
+      appState.cart.push({
+        id: customId,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        unit: product.unit || '',
+        qty: 1
+      });
+    }
+    store.set('cart', appState.cart);
+    updateCartBadge();
+    toast(`${product.name} added to cart`, 'success', 'fa-cart-plus');
+  }
+}
+
+/* ============================================================
+   PRODUCT DETAILS
+   ============================================================ */
+function showProductDetails(id){
+  const product = findProduct(id);
+  if(!product){ toast("Product details not found.", 'error', 'fa-circle-exclamation'); return; }
+
+  currentProduct = product;
+
+  document.getElementById("modalTitle").textContent = product.name + " Details";
+  document.getElementById("modalProductName").textContent = product.name;
+  document.getElementById("modalCategory").textContent = product.category;
+  document.getElementById("modalPrice").textContent = "Rs. " + product.price;
+  document.getElementById("modalUnit").textContent = " " + (product.unit || "");
+  document.getElementById("modalImage").src = product.image;
+  document.getElementById("modalImage").onerror = function(){ handleImageError(this); };
+  document.getElementById("modalDeal").textContent = product.deal || "";
+  document.getElementById("modalDescription").textContent =
+    product.description || `${product.name} is a fresh and delicious ${product.category.toLowerCase()} product.`;
+  document.getElementById("modalSeason").textContent = product.season || "Year-round";
+  document.getElementById("modalMarkets").textContent = product.markets || "FreshFind local markets";
+  document.getElementById("modalUses").textContent = product.uses || "Fresh eating and cooking";
+  document.getElementById("modalStorage").textContent = product.storage || "Store appropriately for freshness";
+  document.getElementById("modalNutrition").textContent = product.nutrition || "Contains useful nutrients";
+  document.getElementById("modalFreshness").textContent = product.freshness || "Choose fresh and firm produce";
+  document.getElementById("modalFact").textContent = product.fact || "Fresh produce is an important part of a balanced diet.";
+
+  document.getElementById("purchaseQty").value = 1;
+  updatePurchaseTotal();
+
+  $('#productModal').classList.add('open');
+}
+
+function closeModal(id){ $('#'+id).classList.remove('open'); }
+
+/* ============================================================
+   QUANTITY
+   ============================================================ */
+function changePurchaseQty(amount){
+  const input = document.getElementById("purchaseQty");
+  let qty = parseInt(input.value) || 1;
+  qty += amount;
+  if(qty < 1) qty = 1;
+  input.value = qty;
+  updatePurchaseTotal();
+}
+
+document.addEventListener("input", function(e){
+  if(e.target.id === "purchaseQty") updatePurchaseTotal();
+});
+
+function updatePurchaseTotal(){
+  if(!currentProduct) return;
+
+  let qty = parseInt(document.getElementById("purchaseQty").value) || 1;
+  if(qty < 1) qty = 1;
+
+  const subtotal = currentProduct.price * qty;
+  const discountPercent = getDiscountPercent(qty);
+  const saving = subtotal * discountPercent / 100;
+  const total = subtotal - saving;
+
+  document.getElementById("purchaseTotal").textContent = "Rs. " + total.toFixed(0);
+  document.getElementById("purchaseSaving").textContent = discountPercent
+    ? `You save Rs. ${saving.toFixed(0)} (${discountPercent}% discount)`
+    : "Buy 3 or more to unlock a quantity discount.";
+}
+
+/* ============================================================
+   ADD TO CART (from modal)
+   ============================================================ */
+function addCurrentToCart(){
+  if(!currentProduct){ toast("Please select a product first.", 'error', 'fa-circle-exclamation'); return; }
+  let qty = parseInt(document.getElementById("purchaseQty").value) || 1;
+
+  const shared = ALL_PRODUCTS.find(p =>
+    p.name.toLowerCase() === currentProduct.name.toLowerCase()
+  );
+
+  if(shared){
+    addToCartById(shared.id, qty);
+  } else {
+    const customId = 'produce-' + currentProduct.id + '-' + currentProduct.name.toLowerCase().replace(/\s+/g,'-');
+    refreshCartFromStorage();
+    const existing = appState.cart.find(item => String(item.id) === String(customId));
+    if(existing){
+      existing.qty += qty;
+    } else {
+      appState.cart.push({
+        id: customId,
+        name: currentProduct.name,
+        price: currentProduct.price,
+        image: currentProduct.image,
+        unit: currentProduct.unit || '',
+        qty: qty
+      });
+    }
+    store.set('cart', appState.cart);
+    updateCartBadge();
+    toast(`${currentProduct.name} × ${qty} added to cart`, 'success', 'fa-cart-plus');
+  }
+
+  closeModal('productModal');
+}
+
+/* ============================================================
+   SAVE PRODUCT
+   ============================================================ */
+function saveCurrentProduct(){
+  if(!currentProduct) return;
+  if(!appState.user){
+    toast('Please login to save items', 'error', 'fa-lock');
+    setTimeout(() => openAuthModal('login'), 800);
+    return;
+  }
+  const saved = store.get('savedProducts', []);
+  const exists = saved.some(p => String(p.id) === String(currentProduct.id));
+  if(exists){ toast("Product is already saved.", 'error', 'fa-circle-exclamation'); return; }
+  saved.push(currentProduct);
+  store.set('savedProducts', saved);
+  toast(`${currentProduct.name} saved successfully!`);
+}
+
+/* ============================================================
+   CUT FRUITS & VEGETABLES
+   ============================================================ */
+function renderCutFruits(){
+  document.getElementById("cutFruitGrid").innerHTML = cutFruits.map(createProductCard).join("");
+}
+function renderCutVegetables(){
+  document.getElementById("cutVegetableGrid").innerHTML = cutVegetables.map(createProductCard).join("");
+}
+
+/* ============================================================
+   SEASON DETAILS
+   ============================================================ */
+function showSeasonDetails(season){
+  currentSeason = season;
+  const data = seasonalData[season];
+  if(!data) return;
+
+  document.getElementById("seasonModalTitle").textContent = `${season} Products`;
+  document.getElementById("seasonModalDescription").textContent = data.description;
+  document.getElementById("seasonModalTip").textContent = data.tip;
+
+  document.getElementById("seasonProductList").innerHTML = data.products.map(p => `
+    <div class="col-md-6">
+      <div class="season-mini-card">
+        <img src="${p.image}" alt="${escape(p.name)}"
+             onerror="this.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'150\\'><rect width=\\'400\\' height=\\'150\\' fill=\\'%23dcfce7\\'/><text x=\\'50%\\' y=\\'50%\\' font-size=\\'60\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'>🥬</text></svg>')">
+        <div class="season-mini-body">
+          <h6>${escape(p.name)}</h6>
+          <div class="price">Rs. ${p.price} ${escape(p.unit)}</div>
+          <p>${escape(p.description)}</p>
+          <div class="season-mini-actions">
+            <button class="btn-detail" onclick="openSeasonProduct('${p.id}')">
+              <i class="fas fa-eye"></i> Details
+            </button>
+            <button class="btn-add" onclick="addSeasonToCart('${p.id}')">
+              <i class="fas fa-cart-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  $('#seasonModal').classList.add('open');
+}
+
+function openSeasonProduct(id){
+  if(!currentSeason) return;
+  const product = seasonalData[currentSeason].products.find(p => String(p.id) === String(id));
+  if(!product) return;
+  closeModal('seasonModal');
+  currentProduct = product;
+  setTimeout(() => showProductDetails(product.id), 250);
+}
+
+function addSeasonToCart(id){
+  if(!currentSeason) return;
+  const product = seasonalData[currentSeason].products.find(p => String(p.id) === String(id));
+  if(!product) return;
+
+  const shared = ALL_PRODUCTS.find(p =>
+    p.name.toLowerCase() === product.name.toLowerCase()
+  );
+
+  if(shared){
+    addToCartById(shared.id, 1);
+  } else {
+    const customId = 'produce-' + product.id + '-' + product.name.toLowerCase().replace(/\s+/g,'-');
+    refreshCartFromStorage();
+    const existing = appState.cart.find(item => String(item.id) === String(customId));
+    if(existing){
+      existing.qty += 1;
+    } else {
+      appState.cart.push({
+        id: customId,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        unit: product.unit || '',
+        qty: 1
+      });
+    }
+    store.set('cart', appState.cart);
+    updateCartBadge();
+    toast(`${product.name} added to cart`, 'success', 'fa-cart-plus');
+  }
+}
+
+function viewSeasonProducts(){
+  if(!currentSeason) return;
+  const data = seasonalData[currentSeason];
+
+  document.getElementById("seasonResultsTitle").textContent = `${currentSeason} Fresh Products`;
+  document.getElementById("seasonResultsDescription").textContent = data.description;
+  document.getElementById("activeSeasonProducts").innerHTML = data.products.map(createProductCard).join("");
+
+  closeModal('seasonModal');
+
+  const section = document.getElementById("seasonResults");
+  section.style.display = "block";
+  section.scrollIntoView({ behavior:"smooth" });
+}
+
+function closeSeasonResults(){
+  document.getElementById("seasonResults").style.display = "none";
+}
+
+/* ============================================================
+   ✅ CHATBOT — SAME AS index.html (data-driven, professional)
+   ============================================================ */
+function buildProductPriceList(){
+  return ALL_PRODUCTS.map(p => `${p.name} (${p.urdu}) – Rs ${p.price}/${p.unit}`).join(', ');
+}
+function buildCategoryItems(cat){
+  const items = ALL_PRODUCTS.filter(p => p.category === cat);
+  return items.map(p => `${p.name} – Rs ${p.price}/${p.unit}`).join(', ');
+}
+
+const CHAT_RULES = [
+  { keys:["hello","hi","hey","salam","assalam"], reply:"Hi! 👋 I know everything about FreshFind – fruits, veggies, herbs, dairy, prices, and Karachi markets. Ask me anything!" },
+  { keys:["cart","basket","order","checkout"], reply:"Your basket is saved across all pages. Tap the <b>cart icon</b> (top right) to view items, change quantity, or checkout. 🛒" },
+  { keys:["fruit","fruits","apple","mango","banana","orange","strawberry","watermelon","grapes","guava","pomegranate","pineapple"], reply:`Fresh fruits: <b>${buildCategoryItems('fruits')}</b>` },
+  { keys:["vegetable","vegetables","tomato","onion","potato","carrot","lemon","cucumber","spinach","cauliflower","chili","eggplant","broccoli","capsicum"], reply:`Fresh vegetables: <b>${buildCategoryItems('vegetables')}</b>` },
+  { keys:["herb","herbs","mint","coriander","basil","curry","dill","fenugreek","parsley"], reply:`Fresh herbs: <b>${buildCategoryItems('herbs')}</b>` },
+  { keys:["dairy","milk","yogurt","dahi","butter","cream","paneer","cheese","lassi","khoya"], reply:`Fresh dairy: <b>${buildCategoryItems('dairy')}</b>` },
+  { keys:["price","rate","cost","how much"], reply:`Prices: ${buildProductPriceList()}` },
+  { keys:["season","seasonal","winter","spring","summer","autumn"], reply:`This week's seasonal picks: <b>Strawberry (Spring), Mango (Summer), Apple (Autumn), Orange (Winter), Carrot, Spinach, Cauliflower, Mint</b>. Ask me about any season! 🍓🥕` },
+  { keys:["spring"], reply:`Spring produce: <b>Strawberry, Spinach, Carrot</b>. Fresh, colorful and nutritious! 🌸` },
+  { keys:["summer"], reply:`Summer produce: <b>Mango, Blueberry, Tomato, Cucumber, Grapes</b>. Juicy and refreshing! ☀️` },
+  { keys:["autumn"], reply:`Autumn produce: <b>Apple, Potato, Grapes</b>. Crisp and hearty harvest! 🍂` },
+  { keys:["winter"], reply:`Winter produce: <b>Orange, Broccoli, Carrot, Spinach, Guava</b>. Nutritious greens and citrus! ❄️` },
+  { keys:["area","nearest","near","location","market","shop","store"], reply:"We cover these areas in Karachi: <b>Saddar, Clifton, DHA, Korangi, Landhi, Gulshan, PECHS, Bahadurabad, Malir, North Nazimabad, Super Highway, M.A. Jinnah Road</b>. Check the Markets page!" },
+  { keys:["korangi","landhi","clifton","dha","saddar","gulshan","pechs","bahadurabad","malir","north nazimabad","super highway","jinnah road"], reply:`Yes! We have markets in that area. Check the <b>Markets</b> page or use the "Find Markets" button below!` },
+  { keys:["empress","boat basin","sunday market","sabzi mandi","hyderi","jodia"], reply:`Featured markets: <b>Empress Market (Saddar), Boat Basin Sunday Market (Clifton), Korangi No. 2 Fruit Market, Sabzi Mandi (Super Highway)</b>.` },
+  { keys:["cut fruit","cut vegetable","ready to eat"], reply:`We have ready-to-eat: <b>Cut Mango Cup, Mixed Fruit Cup, Cut Pineapple Box, Strawberry Fruit Box, Cut Salad Mix, Cut Carrot Pack, Cut Broccoli Pack, Stir Fry Vegetable Mix</b>.` },
+  { keys:["login","signup","account","register"], reply:"Sign up or login to save your favourite products, sync your cart, and get personalized alerts. It's free! 🌿" },
+  { keys:["contact","help","support","email"], reply:"You can reach us at hello@freshfind.com ✉️ or use the contact page." },
+  { keys:["about","freshfind","what is"], reply:"FreshFind helps you find the nearest fruit, vegetable, herb & dairy shops in Karachi with live prices and timings. Browse produce, seasons, and markets all in one place! 🥬" },
+  { keys:["how many","total","count"], reply:`We have <b>${products.length} products</b> (including 8 fruits and 8 vegetables) + cut fruits + cut vegetables + seasonal items. Explore our produce guide to see them all!` }
+];
+const CHAT_FALLBACK = "I can tell you about <b>fruits, vegetables, herbs, dairy</b>, prices, seasons, or markets. Try: 'What fruits are available?', 'Show me winter produce', or 'Where are markets in Korangi?'.";
+
+let chatOpen = false;
+function toggleChat(){
+  chatOpen = !chatOpen;
+  $('#chatPanel').classList.toggle('open', chatOpen);
+  $('#chatFab').classList.toggle('open', chatOpen);
+  if(chatOpen){
+    const dot = $('#chatDot');
+    if(dot) dot.style.display = 'none';
+    setTimeout(() => $('#chatInput')?.focus(), 300);
+  }
+}
+function sendChat(){
+  const input = $('#chatInput');
+  const txt = input.value.trim();
+  if(!txt) return;
+  appendChat(txt, 'user');
+  input.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  $('#chatBody').appendChild(typing);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    appendChat(getBotReply(txt), 'bot');
+  }, 600 + Math.random()*400);
+}
+function appendChat(text, who){
+  const el = document.createElement('div');
+  el.className = 'chat-msg ' + who;
+  el.innerHTML = text;
+  $('#chatBody').appendChild(el);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+}
+function getBotReply(msg){
+  const lower = ' ' + msg.toLowerCase() + ' ';
+  for(const rule of CHAT_RULES){
+    if(rule.keys.some(k => lower.includes(k))) return rule.reply;
+  }
+  return CHAT_FALLBACK;
+}
+
+/* ============================================================
+   ESC TO CLOSE
+   ============================================================ */
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeModal('productModal');
+    closeModal('seasonModal');
+    closeModal('cartModal');
+    closeAuthModal('login');
+    closeAuthModal('signup');
+    if(chatOpen) toggleChat();
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  refreshCartFromStorage();
+
+  renderNavActions();
+  updateBadge();
+  renderProducts(products);
+  renderCutFruits();
+  renderCutVegetables();
+  renderCartModal();
+
+  const chatInput = document.getElementById('chatInput');
+  if(chatInput){
+    chatInput.addEventListener('keypress', e => {
+      if(e.key === 'Enter') sendChat();
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded', init);
+
+/* ============================================================
+   EXPOSE GLOBALLY
+   ============================================================ */
+window.toggleNav = toggleNav;
+window.setFilter = setFilter;
+window.applyFilters = applyFilters;
+window.clearSearch = clearSearch;
+window.showProductDetails = showProductDetails;
+window.quickAdd = quickAdd;
+window.changePurchaseQty = changePurchaseQty;
+window.addCurrentToCart = addCurrentToCart;
+window.saveCurrentProduct = saveCurrentProduct;
+window.openCart = openCart;
+window.clearCart = clearCart;
+window.checkout = checkout;
+window.changeQty = changeQty;
+window.removeFromCart = removeFromCart;
+window.showSeasonDetails = showSeasonDetails;
+window.openSeasonProduct = openSeasonProduct;
+window.addSeasonToCart = addSeasonToCart;
+window.viewSeasonProducts = viewSeasonProducts;
+window.closeSeasonResults = closeSeasonResults;
+window.closeModal = closeModal;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
+window.logout = logout;
+window.toggleUserMenu = toggleUserMenu;
+window.toggleChat = toggleChat;
+window.sendChat = sendChat;
+window.handleImageError = handleImageError;
+window.refreshCartFromStorage = refreshCartFromStorage;
+window.addToCartById = addToCartById;
+</script>
+
+</body>
+</html>

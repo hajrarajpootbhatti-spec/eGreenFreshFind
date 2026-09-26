@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FreshFind — Contact & Community. Get in touch, find markets, and share feedback.">
+<title>Contact Us | FreshFind Karachi</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root{
+  --green-50:#f0fdf4; --green-100:#dcfce7; --green-200:#bbf7d0;
+  --green-400:#4ade80; --green-500:#22c55e; --green-600:#16a34a;
+  --green-700:#15803d; --green-800:#166534; --green-900:#14532d;
+  --amber-50:#fffbeb; --amber-100:#fef3c7; --amber-200:#fde68a;
+  --amber-300:#fcd34d; --amber-400:#fbbf24; --amber-500:#f59e0b;
+  --amber-600:#d97706; --amber-700:#b45309;
+  --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd;
+  --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1;
+  --rose-500:#f43f5e;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b;
+  --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --slate-900:#0f172a;
+
+  --bg:#fbfdf9; --text:#0f172a; --text-muted:#64748b;
+  --border:#e6ecdf; --border-strong:#d3ddc9;
+
+  --radius:14px; --radius-lg:20px; --radius-xl:28px;
+  --shadow-xs:0 1px 2px rgba(15,23,42,0.04);
+  --shadow-sm:0 2px 8px rgba(15,23,42,0.06);
+  --shadow:0 4px 20px rgba(15,23,42,0.08);
+  --shadow-lg:0 20px 50px -12px rgba(15,23,42,0.18);
+
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.15;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;}
+button{cursor:pointer;border:none;background:none;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+::selection{background:var(--amber-200);color:var(--green-900);}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--slate-100);}
+::-webkit-scrollbar-thumb{background:var(--slate-300);border-radius:10px;border:2px solid var(--slate-100);}
+::-webkit-scrollbar-thumb:hover{background:var(--amber-400);}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* ============================================================
+   HEADER — SAME AS index.html
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-xs);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.logo-img{height:52px;width:auto;transition:transform 0.4s var(--ease-spring);}
+.logo:hover .logo-img{transform:scale(1.05) rotate(-3deg);}
+
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{
+  padding:9px 18px;border-radius:10px;font-size:0.88rem;font-weight:500;
+  color:var(--slate-600);transition:all 0.2s var(--ease);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-links a:hover{color:var(--green-800);background:var(--green-50);}
+.nav-links a.active{color:var(--green-900);background:var(--amber-100);font-weight:600;}
+.nav-badge{
+  background:var(--amber-500);color:white;font-size:0.65rem;padding:2px 8px;
+  border-radius:10px;font-weight:700;min-width:20px;text-align:center;
+}
+.nav-actions{display:flex;gap:8px;align-items:center;}
+.btn-ghost{
+  padding:9px 18px;border-radius:10px;font-size:0.85rem;font-weight:600;
+  color:var(--green-800);border:1.5px solid var(--border-strong);background:white;
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+}
+.btn-ghost:hover{border-color:var(--green-600);background:var(--green-50);}
+.btn-solid{
+  padding:9px 20px;border-radius:10px;font-size:0.85rem;font-weight:700;
+  color:var(--green-900);background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  transition:all 0.2s var(--ease);display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 4px 12px rgba(245,158,11,0.3);
+}
+.btn-solid:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,0.45);}
+
+/* ✅ CART ICON — SAME AS index.html */
+.cart-icon-btn{
+  position:relative;
+  width:44px;height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;font-size:1rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 4px 12px rgba(22,163,74,0.25);
+  flex-shrink:0;
+  border:none;cursor:pointer;
+}
+.cart-icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(22,163,74,0.4);}
+.cart-icon-btn .cart-count{
+  position:absolute;top:-5px;right:-5px;
+  background:var(--amber-500);color:white;
+  font-size:0.65rem;font-weight:800;
+  min-width:20px;height:20px;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 5px;
+  border:2px solid white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:transform 0.3s var(--ease-spring);
+}
+.cart-icon-btn .cart-count.bump{transform:scale(1.3);}
+
+/* User pill */
+.user-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 10px;border-radius:999px;
+  background:linear-gradient(135deg,var(--green-50),var(--amber-50));
+  border:1.5px solid var(--green-200);
+  color:var(--green-800);font-size:0.85rem;font-weight:600;
+  cursor:pointer;position:relative;
+  transition:all 0.2s var(--ease);
+}
+.user-pill:hover{border-color:var(--green-400);box-shadow:0 4px 12px rgba(22,163,74,0.15);}
+.user-pill .avatar{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:800;text-transform:uppercase;
+}
+.user-pill .user-name{max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.user-menu{
+  position:absolute;top:calc(100% + 10px);right:0;
+  min-width:220px;background:white;border-radius:14px;
+  box-shadow:0 20px 50px -12px rgba(15,23,42,0.25),0 0 0 1px var(--border);
+  padding:8px;display:none;z-index:100;
+}
+.user-menu.open{display:block;}
+.user-menu-header{padding:12px 14px;border-bottom:1px solid var(--border);margin-bottom:6px;}
+.user-menu-header strong{display:block;color:var(--green-900);font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+.user-menu-header span{color:var(--slate-500);font-size:0.75rem;word-break:break-all;}
+.user-menu a{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9px;
+  color:var(--slate-700);font-size:0.85rem;font-weight:500;cursor:pointer;
+}
+.user-menu a:hover{background:var(--green-50);color:var(--green-800);}
+.user-menu a i{width:16px;color:var(--slate-400);font-size:0.9rem;}
+.user-menu a.danger{color:var(--rose-500);}
+.user-menu a.danger:hover{background:#fef2f2;color:#dc2626;}
+
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;border-radius:8px;}
+.hamburger span{width:22px;height:2px;background:var(--slate-700);border-radius:2px;transition:all 0.3s var(--ease);}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.contact-hero{
+  padding:90px 0 120px;text-align:center;position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(20,83,45,0.88), rgba(22,101,52,0.75)),
+    url('images/market-hero.png') center/cover no-repeat;
+  color:white;
+}
+.contact-hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(800px 400px at 10% 0%, rgba(251,191,36,0.18), transparent 60%),
+    radial-gradient(700px 400px at 90% 20%, rgba(34,197,94,0.20), transparent 60%);
+  pointer-events:none;
+}
+.contact-hero .container{position:relative;z-index:2;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  color:white;font-size:0.78rem;font-weight:700;
+  letter-spacing:0.05em;text-transform:uppercase;
+  margin-bottom:20px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.hero-badge i{color:var(--amber-400);}
+.contact-hero h1{
+  color:white;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  margin-bottom:16px;
+  text-shadow:0 2px 16px rgba(0,0,0,0.25);
+}
+.contact-hero h1 span{
+  color:var(--amber-300);
+  font-style:italic;position:relative;
+}
+.contact-hero h1 span::after{
+  content:'';position:absolute;left:0;right:0;bottom:4px;height:14px;
+  background:rgba(251,191,36,0.35);border-radius:4px;z-index:-1;
+}
+.contact-hero p{
+  max-width:660px;margin:auto;
+  color:rgba(255,255,255,0.92);
+  font-size:1.05rem;
+  text-shadow:0 1px 8px rgba(0,0,0,0.2);
+}
+
+.hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+.btn-main{
+  padding:14px 26px;border-radius:12px;
+  background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  color:var(--green-900);font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 18px rgba(245,158,11,0.35);
+}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(245,158,11,0.5);color:var(--green-900);}
+.btn-outline{
+  padding:14px 26px;border-radius:12px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  color:white;
+  font-weight:700;font-size:0.9rem;
+  border:1.5px solid rgba(255,255,255,0.35);
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);
+}
+.btn-outline:hover{
+  background:rgba(255,255,255,0.25);
+  border-color:rgba(255,255,255,0.6);
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+.section{padding:70px 0;}
+.section-light{background:white;}
+.section-heading{margin-bottom:40px;}
+.section-heading .eyebrow{
+  color:var(--amber-600);font-size:0.72rem;
+  text-transform:uppercase;letter-spacing:0.15em;
+  font-weight:800;margin-bottom:10px;
+}
+.section-heading h2{
+  color:var(--green-900);
+  font-size:clamp(1.8rem,3.5vw,2.5rem);
+  margin-bottom:12px;
+}
+.section-heading p{
+  color:var(--slate-600);
+  max-width:650px;line-height:1.7;
+}
+.section-heading.text-center p{margin-left:auto;margin-right:auto;}
+
+/* ============================================================
+   INFO CARDS
+   ============================================================ */
+.info-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:26px;height:100%;
+  transition:all 0.3s var(--ease);
+  box-shadow:var(--shadow-sm);
+}
+.info-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--amber-300);}
+.info-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;margin-bottom:18px;
+}
+.info-green{background:var(--green-100);color:var(--green-700);}
+.info-amber{background:var(--amber-100);color:var(--amber-700);}
+.info-sky{background:var(--sky-100);color:var(--sky-600);}
+.info-rose{background:#ffe4e6;color:var(--rose-500);}
+.info-card h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.05rem;font-weight:700;
+  color:var(--green-900);margin-bottom:8px;
+}
+.info-card p{color:var(--text-muted);font-size:0.87rem;line-height:1.7;margin-bottom:10px;}
+.info-card a{color:var(--green-700);font-weight:700;font-size:0.87rem;}
+.info-card a:hover{color:var(--amber-600);text-decoration:underline;}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+.form-wrapper{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:35px;box-shadow:var(--shadow);
+}
+.form-title h3{
+  font-size:1.8rem;color:var(--green-900);margin-bottom:8px;
+}
+.form-title p{color:var(--text-muted);margin-bottom:25px;font-size:0.9rem;}
+.progress-wrap{margin-bottom:28px;}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:0.75rem;font-weight:700;
+  color:var(--slate-600);margin-bottom:8px;
+}
+.progress{
+  height:8px;background:var(--slate-100);
+  border-radius:20px;overflow:hidden;
+}
+.progress-bar{
+  background:linear-gradient(90deg,var(--green-600),var(--green-400));
+  border-radius:20px;transition:width 0.4s var(--ease);
+}
+.form-label{
+  font-size:0.78rem;font-weight:700;
+  color:var(--slate-700);margin-bottom:8px;
+}
+.form-control,.form-select{
+  background:var(--slate-50);color:var(--text);
+  border:1.5px solid var(--border);
+  border-radius:11px;padding:13px 15px;
+  font-size:0.9rem;min-height:50px;
+  box-shadow:none!important;transition:all 0.2s var(--ease);
+}
+.form-control:focus,.form-select:focus{
+  border-color:var(--amber-400);
+  background:white;
+  box-shadow:0 0 0 4px rgba(251,191,36,0.15)!important;
+}
+textarea.form-control{min-height:150px;resize:vertical;}
+.upload-box{
+  border:2px dashed var(--border-strong);
+  border-radius:15px;padding:22px;
+  text-align:center;background:var(--slate-50);
+  cursor:pointer;transition:all 0.25s var(--ease);
+  display:block;
+}
+.upload-box:hover{border-color:var(--green-500);background:var(--green-50);}
+.upload-box i{color:var(--green-600);font-size:1.6rem;margin-bottom:8px;}
+.upload-box strong{display:block;color:var(--green-900);font-size:0.9rem;margin-bottom:4px;}
+.upload-box span{display:block;color:var(--text-muted);font-size:0.78rem;}
+#imagePreview{
+  display:none;max-width:180px;max-height:120px;
+  object-fit:cover;border-radius:12px;
+  margin:12px auto 0;box-shadow:var(--shadow);
+}
+.rating-box{
+  background:var(--amber-50);
+  border:1px solid var(--amber-200);
+  border-radius:15px;padding:18px;
+}
+.rating-box p{margin:0 0 10px;font-size:0.82rem;font-weight:700;color:var(--amber-800);}
+.stars{display:flex;gap:6px;}
+.star{
+  border:0;background:transparent;padding:0;
+  font-size:1.6rem;color:var(--slate-300);
+  cursor:pointer;transition:all 0.2s var(--ease);
+}
+.star:hover,.star.active{color:var(--amber-500);transform:scale(1.12);}
+
+/* ============================================================
+   HELP CARDS
+   ============================================================ */
+.help-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:22px;height:100%;
+  cursor:pointer;transition:all 0.3s var(--ease);
+  box-shadow:var(--shadow-sm);
+}
+.help-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--amber-300);}
+.help-card.selected{
+  border-color:var(--green-500);
+  background:linear-gradient(135deg,var(--green-50),white);
+  box-shadow:0 8px 25px rgba(22,163,74,0.15);
+}
+.help-icon{
+  width:50px;height:50px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;margin-bottom:16px;
+}
+.help-card h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1rem;font-weight:700;
+  color:var(--green-900);margin-bottom:6px;
+}
+.help-card p{color:var(--text-muted);font-size:0.82rem;line-height:1.6;margin-bottom:12px;}
+.choose{color:var(--green-700);font-size:0.78rem;font-weight:800;display:inline-flex;align-items:center;gap:4px;}
+.help-green .help-icon{background:var(--green-100);color:var(--green-700);}
+.help-amber .help-icon{background:var(--amber-100);color:var(--amber-700);}
+.help-sky .help-icon{background:var(--sky-100);color:var(--sky-600);}
+.help-purple .help-icon{background:#ede9fe;color:#7c3aed;}
+
+/* ============================================================
+   MAGIC SECTION
+   ============================================================ */
+.magic-section{
+  background:
+    radial-gradient(800px 400px at 10% 20%,#e8f5e9,transparent 60%),
+    radial-gradient(700px 400px at 90% 80%,#fff8e1,transparent 60%),
+    var(--bg);
+}
+.magic-box{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:45px;box-shadow:var(--shadow);
+}
+.magic-option{
+  border:1.5px solid var(--border);
+  background:white;color:var(--green-900);
+  border-radius:14px;padding:18px 15px;
+  width:100%;font-weight:700;font-size:0.9rem;
+  transition:all 0.25s var(--ease);
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+}
+.magic-option i{font-size:1.05rem;}
+.magic-option:hover,.magic-option.selected{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-color:var(--green-700);
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(22,163,74,0.3);
+}
+.magic-option:hover i,.magic-option.selected i{color:var(--amber-300);}
+.magic-result{
+  display:none;margin-top:25px;padding:22px;
+  border-radius:16px;background:var(--green-50);
+  border-left:5px solid var(--green-500);
+}
+.magic-result.show{display:block;animation:fadeUp 0.5s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+.magic-result h5{color:var(--green-900);margin-bottom:8px;font-size:1.1rem;display:flex;align-items:center;gap:10px;}
+.magic-result h5 i{color:var(--green-600);}
+.magic-result p{color:var(--slate-600);font-size:0.9rem;margin:0;}
+
+/* ============================================================
+   MARKET FINDER
+   ============================================================ */
+.market-section{background:#eef6f1;}
+.search-box{position:relative;margin-bottom:18px;}
+.search-box i{
+  position:absolute;left:18px;top:50%;
+  transform:translateY(-50%);color:var(--slate-400);
+  pointer-events:none;
+}
+.search-box input{
+  width:100%;padding:14px 16px 14px 48px;
+  border:1.5px solid var(--border);border-radius:12px;
+  background:white;font-size:0.9rem;outline:none;
+  transition:all 0.2s var(--ease);
+}
+.search-box input:focus{border-color:var(--amber-400);box-shadow:0 0 0 4px rgba(251,191,36,0.15);}
+
+.city-btn{
+  border:1.5px solid var(--border);background:white;
+  color:var(--slate-700);border-radius:10px;
+  padding:9px 16px;font-size:0.82rem;font-weight:700;
+  transition:all 0.2s var(--ease);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.city-btn:hover,.city-btn.active{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-color:var(--green-700);
+  box-shadow:0 4px 12px rgba(22,163,74,0.25);
+}
+
+.market-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:22px;
+  transition:all 0.3s var(--ease);height:100%;
+  box-shadow:var(--shadow-sm);
+}
+.market-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--amber-300);}
+.market-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.market-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--green-100);color:var(--green-700);
+  font-size:1rem;
+}
+.market-rating{color:var(--amber-500);font-size:0.82rem;font-weight:800;}
+.market-card h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1rem;font-weight:700;
+  color:var(--green-900);margin-bottom:8px;
+}
+.market-card p{color:var(--text-muted);font-size:0.82rem;margin-bottom:12px;line-height:1.6;}
+.market-status{color:var(--green-600);font-size:0.78rem;font-weight:800;}
+
+/* ============================================================
+   FEEDBACK
+   ============================================================ */
+.feedback-box{
+  background:linear-gradient(135deg,var(--green-800),var(--green-700));
+  color:white;border-radius:var(--radius-xl);
+  padding:55px 35px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.feedback-box::before{
+  content:'';position:absolute;top:-50%;right:-10%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(251,191,36,0.15),transparent 70%);
+  border-radius:50%;
+}
+.feedback-box h2{font-size:2.2rem;color:white;position:relative;margin-bottom:12px;}
+.feedback-box p{color:rgba(255,255,255,0.85);position:relative;}
+.big-stars{display:flex;justify-content:center;gap:10px;margin:25px 0;position:relative;}
+.big-star{
+  border:0;background:transparent;
+  color:rgba(255,255,255,0.35);
+  font-size:2.2rem;cursor:pointer;
+  transition:all 0.2s var(--ease);
+}
+.big-star:hover,.big-star.active{color:var(--amber-400);transform:translateY(-3px) scale(1.1);}
+.feedback-tags{
+  display:flex;justify-content:center;gap:8px;
+  flex-wrap:wrap;margin-bottom:25px;position:relative;
+}
+.feedback-tag{
+  border:1px solid rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.08);
+  color:white;padding:9px 14px;border-radius:30px;
+  font-size:0.78rem;cursor:pointer;transition:all 0.2s var(--ease);
+}
+.feedback-tag:hover{background:rgba(255,255,255,0.15);}
+.feedback-tag.active{background:var(--amber-400);color:var(--green-900);border-color:var(--amber-400);font-weight:700;}
+.btn-white{
+  padding:13px 24px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.2s var(--ease);position:relative;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--slate-900);color:var(--slate-300);
+  padding:60px 0 24px;position:relative;
+}
+.footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-500),var(--amber-400),var(--green-500));
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-img{height:52px;margin-bottom:16px;filter:brightness(0) invert(1);}
+.footer-brand p{font-size:0.88rem;color:var(--slate-400);margin:0 0 20px;max-width:320px;}
+.footer-col h4{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;color:white;margin-bottom:18px;
+}
+.footer-col a{display:block;padding:6px 0;font-size:0.88rem;color:var(--slate-400);cursor:pointer;}
+.footer-col a:hover{color:var(--amber-400);}
+.social-row{display:flex;gap:10px;}
+.social-row a{
+  width:40px;height:40px;background:rgba(255,255,255,0.06);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--slate-300);transition:all 0.25s var(--ease);
+}
+.social-row a:hover{background:var(--amber-500);color:var(--green-900);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;
+  text-align:center;font-size:0.82rem;color:var(--slate-500);
+}
+
+/* ============================================================
+   MODALS
+   ============================================================ */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(6px);z-index:2000;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-bg.open{display:flex;animation:fadeBg 0.2s ease-out;}
+@keyframes fadeBg{from{opacity:0}to{opacity:1}}
+
+.auth-modal{
+  background:white;border-radius:var(--radius-lg);
+  padding:32px;width:100%;max-width:440px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;overflow-y:auto;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.auth-modal .modal-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--green-100),var(--amber-100));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--green-700);
+  margin-bottom:18px;
+}
+.auth-modal h2{font-size:1.5rem;color:var(--green-900);margin-bottom:6px;}
+.auth-modal .hint{font-size:0.82rem;color:var(--text-muted);margin-bottom:22px;}
+.auth-modal form{display:flex;flex-direction:column;gap:14px;}
+.auth-modal .field{display:flex;flex-direction:column;gap:6px;}
+.auth-modal label{font-size:0.78rem;font-weight:700;color:var(--slate-600);}
+.auth-modal .field-input-wrap{position:relative;display:flex;align-items:center;}
+.auth-modal .field-input-wrap i{position:absolute;left:14px;color:var(--slate-400);pointer-events:none;}
+.auth-modal input{
+  width:100%;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.9rem;outline:none;background:var(--slate-50);
+  transition:all 0.2s;
+}
+.auth-modal input:focus{border-color:var(--amber-400);background:white;box-shadow:0 0 0 4px rgba(251,191,36,0.12);}
+.auth-modal .submit-btn{
+  padding:14px;background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;font-weight:700;font-size:0.92rem;
+  margin-top:6px;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.auth-modal .submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,163,74,0.3);}
+.auth-modal .footer-text{
+  text-align:center;margin-top:18px;font-size:0.82rem;color:var(--text-muted);
+}
+.auth-modal .footer-text a{color:var(--green-700);font-weight:700;cursor:pointer;}
+.auth-modal .footer-text a:hover{text-decoration:underline;}
+
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:10;
+  width:36px;height:36px;border-radius:10px;
+  background:var(--slate-100);color:var(--slate-700);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover{background:var(--rose-500);color:white;}
+
+/* Success modal */
+.success-icon{
+  width:85px;height:85px;border-radius:50%;
+  background:var(--green-100);color:var(--green-700);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.2rem;margin:0 auto 20px;
+  animation:successPop 0.5s var(--ease-spring);
+}
+@keyframes successPop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1)}}
+.reference{
+  display:inline-block;background:var(--green-100);
+  color:var(--green-800);padding:9px 16px;
+  border-radius:10px;font-size:0.82rem;font-weight:800;
+}
+
+/* ============================================================
+   CART MODAL
+   ============================================================ */
+.cart-modal{
+  background:white;border-radius:var(--radius-lg);
+  width:100%;max-width:520px;position:relative;
+  box-shadow:var(--shadow-lg);
+  animation:modalIn 0.3s var(--ease-spring);
+  max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.cart-head{
+  padding:20px 24px;
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;display:flex;align-items:center;gap:14px;
+}
+.cart-head-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.cart-head-text{flex:1;}
+.cart-head-text h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;margin-bottom:2px;}
+.cart-head-text span{font-size:0.75rem;opacity:0.9;}
+.cart-close{
+  width:34px;height:34px;border-radius:10px;
+  background:rgba(255,255,255,0.15);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.cart-close:hover{background:rgba(255,255,255,0.25);}
+
+.cart-body{flex:1;overflow-y:auto;padding:20px;}
+.cart-empty{
+  text-align:center;padding:50px 20px;color:var(--slate-400);
+}
+.cart-empty i{font-size:3rem;color:var(--amber-300);margin-bottom:14px;display:block;}
+.cart-empty h4{color:var(--slate-700);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;margin-bottom:6px;}
+.cart-empty p{font-size:0.85rem;}
+
+.cart-item{
+  display:flex;gap:12px;padding:14px;
+  background:var(--slate-50);border-radius:12px;
+  border:1px solid var(--border);margin-bottom:10px;
+  align-items:center;
+}
+.cart-item-img{
+  width:56px;height:56px;border-radius:10px;
+  background:white;padding:6px;flex-shrink:0;
+  border:1px solid var(--border);
+  object-fit:contain;
+}
+.cart-item-info{flex:1;min-width:0;}
+.cart-item-info h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.88rem;font-weight:700;color:var(--green-900);
+  margin-bottom:2px;
+}
+.cart-item-info .cart-item-price{font-size:0.78rem;color:var(--slate-500);}
+.cart-item-info .cart-item-price strong{
+  color:var(--amber-700);font-weight:700;
+  font-family:'Fraunces',serif;font-size:0.9rem;
+}
+.cart-qty{
+  display:flex;align-items:center;gap:6px;
+  background:white;border-radius:8px;padding:3px;
+  border:1px solid var(--border);
+}
+.cart-qty button{
+  width:26px;height:26px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--green-700);font-size:0.75rem;
+  transition:background 0.15s;
+}
+.cart-qty button:hover{background:var(--green-50);}
+.cart-qty span{
+  min-width:20px;text-align:center;
+  font-weight:700;font-size:0.85rem;color:var(--green-900);
+}
+.cart-item-remove{
+  width:30px;height:30px;border-radius:8px;
+  background:white;border:1px solid var(--border);
+  color:var(--rose-500);font-size:0.75rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.cart-item-remove:hover{background:#fef2f2;border-color:var(--rose-500);}
+
+.cart-foot{
+  padding:18px 24px;background:white;
+  border-top:1px solid var(--border);
+}
+.cart-total{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:14px;padding:12px 16px;border-radius:12px;
+  background:var(--amber-50);border:1px solid var(--amber-200);
+}
+.cart-total .label{
+  font-size:0.82rem;color:var(--amber-700);font-weight:700;
+  text-transform:uppercase;letter-spacing:0.05em;
+}
+.cart-total .amount{
+  font-family:'Fraunces',serif;
+  font-size:1.6rem;font-weight:800;color:var(--green-900);
+  letter-spacing:-0.02em;
+}
+.checkout-btn{
+  width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-radius:11px;
+  font-size:0.92rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all 0.2s var(--ease);
+  box-shadow:0 6px 16px rgba(22,163,74,0.3);
+}
+.checkout-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(22,163,74,0.4);}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast-stack{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:3000;display:flex;flex-direction:column;gap:10px;align-items:center;
+}
+.toast{
+  background:var(--slate-900);color:white;padding:13px 22px;
+  border-radius:12px;font-size:0.87rem;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:var(--shadow-lg);animation:toastIn 0.4s var(--ease-spring);
+  max-width:90vw;
+}
+.toast.success{background:linear-gradient(135deg,var(--green-700),var(--green-800));}
+.toast.error{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+@keyframes toastIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============================================================
+   CHATBOT
+   ============================================================ */
+.chat-fab{
+  position:fixed;bottom:28px;right:28px;
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700),var(--green-900));
+  color:white;font-size:1.5rem;
+  box-shadow:0 10px 30px rgba(22,101,52,0.45);
+  z-index:1500;
+  transition:all 0.3s var(--ease-spring);
+  animation:fabPulse 2.5s infinite;
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid var(--amber-400);
+}
+@keyframes fabPulse{
+  0%,100%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 0 rgba(251,191,36,0.5);}
+  50%{box-shadow:0 10px 30px rgba(22,101,52,0.45),0 0 0 14px rgba(251,191,36,0);}
+}
+.chat-fab:hover{transform:scale(1.08);}
+.chat-fab .fab-close{display:none;}
+.chat-fab.open .fab-icon{display:none;}
+.chat-fab.open .fab-close{display:inline;}
+.chat-fab .notif-dot{
+  position:absolute;top:4px;right:4px;
+  width:14px;height:14px;background:var(--amber-400);
+  border-radius:50%;border:2px solid white;
+}
+
+.chat-panel{
+  position:fixed;bottom:100px;right:28px;
+  width:380px;max-width:calc(100vw - 40px);
+  height:560px;max-height:calc(100vh - 130px);
+  background:white;border-radius:var(--radius-lg);
+  box-shadow:0 30px 60px -12px rgba(15,23,42,0.35);
+  display:flex;flex-direction:column;z-index:1500;
+  overflow:hidden;border:1px solid var(--border);
+  transform:translateY(20px) scale(0.95);
+  opacity:0;pointer-events:none;
+  transition:all 0.3s var(--ease-spring);
+}
+.chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto;}
+
+.chat-head{
+  background:linear-gradient(135deg,var(--green-800),var(--green-900));
+  color:white;padding:16px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:42px;height:42px;border-radius:12px;
+  background:var(--amber-400);color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.chat-head-text{flex:1;}
+.chat-head-text h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.92rem;font-weight:700;
+}
+.chat-head-text span{
+  font-size:0.72rem;opacity:0.9;
+  display:flex;align-items:center;gap:5px;
+}
+.chat-head-text span::before{
+  content:'';width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(251,191,36,0.3);
+}
+.chat-head-close{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,0.12);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.chat-head-close:hover{background:rgba(255,255,255,0.25);}
+
+.chat-body{
+  flex:1;overflow-y:auto;padding:20px;
+  background:linear-gradient(180deg,#fbfdf9,#fffbeb);
+  display:flex;flex-direction:column;gap:12px;
+}
+.chat-msg{
+  max-width:82%;padding:11px 15px;border-radius:16px;
+  font-size:0.86rem;line-height:1.5;
+  animation:msgIn 0.3s var(--ease-out);
+  word-wrap:break-word;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{
+  background:white;color:var(--slate-700);
+  border:1px solid var(--border);
+  border-bottom-left-radius:4px;align-self:flex-start;
+  box-shadow:var(--shadow-xs);
+}
+.chat-msg.user{
+  background:linear-gradient(135deg,var(--green-700),var(--green-800));
+  color:white;border-bottom-right-radius:4px;align-self:flex-end;
+}
+
+.chat-input-wrap{
+  padding:12px 16px 16px;background:white;
+  border-top:1px solid var(--border);
+  display:flex;gap:8px;
+}
+.chat-input-wrap input{
+  flex:1;padding:11px 15px;
+  border:1.5px solid var(--border);border-radius:11px;
+  font-size:0.85rem;outline:none;
+}
+.chat-input-wrap input:focus{
+  border-color:var(--amber-400);
+  box-shadow:0 0 0 3px rgba(251,191,36,0.15);
+}
+.chat-send{
+  width:44px;height:44px;border-radius:11px;
+  background:linear-gradient(135deg,var(--amber-400),var(--amber-500));
+  color:var(--green-900);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s var(--ease);flex-shrink:0;
+}
+.chat-send:hover{transform:translateY(-1px);}
+
+.chat-typing{
+  display:flex;gap:4px;padding:12px 16px;
+  background:white;border-radius:16px 16px 16px 4px;
+  align-self:flex-start;border:1px solid var(--border);
+}
+.chat-typing span{
+  width:7px;height:7px;background:var(--amber-400);
+  border-radius:50%;animation:typing 1.2s infinite;
+}
+.chat-typing span:nth-child(2){animation-delay:0.15s;}
+.chat-typing span:nth-child(3){animation-delay:0.3s;}
+@keyframes typing{
+  0%,60%,100%{transform:translateY(0);opacity:0.4}
+  30%{transform:translateY(-4px);opacity:1}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none;}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:white;padding:16px;
+    box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
+    align-items:stretch;gap:4px;
+  }
+  .hamburger{display:flex;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .container{padding:0 18px;}
+  .contact-hero{padding:60px 0 100px;}
+  .section{padding:50px 0;}
+  .contact-hero h1{font-size:2rem;}
+  .section-heading h2{font-size:1.6rem;}
+  .form-wrapper{padding:22px;}
+  .magic-box{padding:25px;}
+  .feedback-box{padding:40px 20px;}
+  .feedback-box h2{font-size:1.6rem;}
+  .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .nav-actions .btn-ghost,
+  .nav-actions .btn-solid{display:none;}
+  .auth-modal{padding:24px;}
+  .hero-buttons{flex-direction:column;}
+  .hero-buttons a{text-align:center;justify-content:center;}
+  .chat-panel{right:12px;left:12px;width:auto;bottom:90px;}
+  .chat-fab{bottom:20px;right:20px;width:56px;height:56px;font-size:1.3rem;}
+  .user-pill .user-name{max-width:70px;}
+  .cart-icon-btn{width:40px;height:40px;font-size:0.95rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ HEADER ============================================================ -->
+<header class="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="market.html">Markets</a></li>
+      <li><a href="produce.html">Produce</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="saved.html">Saved <span class="nav-badge" id="navBadge">0</span></a></li>
+    </ul>
+    <div class="nav-actions" id="navActions"></div>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ HERO ============================================================ -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-headset"></i> We're here to help
+    </div>
+    <h1>Let's Grow Something <span>Fresh</span> Together.</h1>
+    <p>Have a question, market idea, product suggestion or feedback? FreshFind connects you with the people and places that make fresh food easier to discover.</p>
+    <div class="hero-buttons">
+      <a href="#contact-form" class="btn-main">
+        <i class="fas fa-paper-plane"></i> Send a Message
+      </a>
+      <a href="#marketFinder" class="btn-outline">
+        <i class="fas fa-location-dot"></i> Find a Market
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT INFO ============================================================ -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-heading text-center">
+      <div class="eyebrow">Contact FreshFind</div>
+      <h2>We're Only a Message Away</h2>
+      <p class="mx-auto">Choose the easiest way to reach us. Our FreshFind community is always happy to hear from you.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="info-card">
+          <div class="info-icon info-green"><i class="fas fa-envelope"></i></div>
+          <h5>Email Us</h5>
+          <p>Send your questions, suggestions or feedback.</p>
+          <a href="mailto:hajrarajpootbhatti@gmail.com">hajrarajpootbhatti@gmail.com</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="info-card">
+          <div class="info-icon info-amber"><i class="fas fa-phone"></i></div>
+          <h5>Call Us</h5>
+          <p>Need quick assistance? Give our team a call.</p>
+          <a href="tel:+923001234567">+92 300 1234567</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="info-card">
+          <div class="info-icon info-sky"><i class="fas fa-location-dot"></i></div>
+          <h5>Visit Us</h5>
+          <p>Find FreshFind activity around local markets.</p>
+          <a href="#marketFinder">Karachi, Pakistan</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="info-card">
+          <div class="info-icon info-rose"><i class="fas fa-clock"></i></div>
+          <h5>Support Hours</h5>
+          <p>Monday – Saturday<br>9:00 AM – 7:00 PM</p>
+          <strong style="color:var(--green-600);font-size:0.82rem;">
+            <i class="fas fa-circle-check me-1"></i> Currently available
+          </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT FORM ============================================================ -->
+<section class="section" id="contact-form">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7">
+        <div class="form-wrapper">
+          <div class="form-title">
+            <h3>Send Us a Message</h3>
+            <p>Tell us what's on your mind. We'll make sure your message reaches the right place.</p>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-label">
+              <span id="progressText">Step 1 of 4</span>
+              <span id="progressPercent">25%</span>
+            </div>
+            <div class="progress">
+              <div id="formProgress" class="progress-bar" style="width:25%"></div>
+            </div>
+          </div>
+
+          <form id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control form-watch" id="fullName" placeholder="Your full name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control form-watch" id="email" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control form-watch" id="phone" placeholder="+92 300 1234567">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Topic *</label>
+                <select class="form-select form-watch" id="topic" required>
+                  <option value="">Select a topic</option>
+                  <option>General Question</option>
+                  <option>Market Suggestion</option>
+                  <option>Produce Suggestion</option>
+                  <option>Report an Issue</option>
+                  <option>Partnership</option>
+                  <option>Feedback</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control form-watch" id="subject" placeholder="What would you like to tell us?">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message *</label>
+                <textarea class="form-control form-watch" id="message" placeholder="Tell us more about your question or idea..." required></textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Add an Image</label>
+                <label class="upload-box w-100">
+                  <input type="file" id="imageUpload" accept="image/*" hidden>
+                  <i class="fas fa-cloud-arrow-up"></i>
+                  <strong>Click to upload an image</strong>
+                  <span>Helpful when reporting an issue or sharing produce</span>
+                  <div id="fileName"></div>
+                  <img id="imagePreview" alt="Uploaded preview">
+                </label>
+              </div>
+              <div class="col-12">
+                <div class="rating-box">
+                  <p>How was your FreshFind experience?</p>
+                  <div class="stars" id="formStars">
+                    <button type="button" class="star" data-rating="1">★</button>
+                    <button type="button" class="star" data-rating="2">★</button>
+                    <button type="button" class="star" data-rating="3">★</button>
+                    <button type="button" class="star" data-rating="4">★</button>
+                    <button type="button" class="star" data-rating="5">★</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-main w-100" style="justify-content:center;">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="section-heading mb-4">
+          <div class="eyebrow">Need something else?</div>
+          <h2>Tell Us What You Need</h2>
+          <p>Choose a category and FreshFind will automatically prepare the contact form.</p>
+        </div>
+
+        <div class="row g-3">
+          <!-- ✅ Suggest a Market — Font Awesome icons -->
+          <div class="col-sm-6 col-lg-12">
+            <div class="help-card help-green" data-topic="Market Suggestion" onclick="chooseTopic('Market Suggestion', this)">
+              <div class="help-icon"><i class="fas fa-store"></i></div>
+              <h5>Suggest a Market</h5>
+              <p>Know a great local farmers market? Tell us about it.</p>
+              <span class="choose"><i class="fas fa-arrow-right"></i> Choose this</span>
+            </div>
+          </div>
+          <!-- ✅ Suggest Produce — Font Awesome icons -->
+          <div class="col-sm-6 col-lg-12">
+            <div class="help-card help-amber" data-topic="Produce Suggestion" onclick="chooseTopic('Produce Suggestion', this)">
+              <div class="help-icon"><i class="fas fa-carrot"></i></div>
+              <h5>Suggest Produce</h5>
+              <p>Help us discover more seasonal fruits, vegetables and local products.</p>
+              <span class="choose"><i class="fas fa-arrow-right"></i> Choose this</span>
+            </div>
+          </div>
+          <!-- ✅ Report an Issue — Font Awesome icons -->
+          <div class="col-sm-6 col-lg-12">
+            <div class="help-card help-sky" data-topic="Report an Issue" onclick="chooseTopic('Report an Issue', this)">
+              <div class="help-icon"><i class="fas fa-circle-exclamation"></i></div>
+              <h5>Report an Issue</h5>
+              <p>Found incorrect information or something that needs fixing?</p>
+              <span class="choose"><i class="fas fa-arrow-right"></i> Choose this</span>
+            </div>
+          </div>
+          <!-- ✅ Share Feedback — Font Awesome icons -->
+          <div class="col-sm-6 col-lg-12">
+            <div class="help-card help-purple" data-topic="Feedback" onclick="chooseTopic('Feedback', this)">
+              <div class="help-icon"><i class="fas fa-heart"></i></div>
+              <h5>Share Feedback</h5>
+              <p>Tell us what you like or what you would love to see next.</p>
+              <span class="choose"><i class="fas fa-arrow-right"></i> Choose this</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MAGIC SECTION ============================================================ -->
+<section class="section magic-section">
+  <div class="container">
+    <div class="magic-box">
+      <div class="section-heading text-center mb-4">
+        <div class="eyebrow">FreshFind Magic</div>
+        <h2>What Are You Looking For Today?</h2>
+        <p class="mx-auto">Choose an option and FreshFind will prepare a quick recommendation.</p>
+      </div>
+
+      <div class="row g-3">
+        <!-- ✅ Font Awesome icons in magic options -->
+        <div class="col-6 col-lg-3">
+          <button class="magic-option" onclick="magicChoice('fruits',this)">
+            <i class="fas fa-apple-whole"></i> Fresh Fruits
+          </button>
+        </div>
+        <div class="col-6 col-lg-3">
+          <button class="magic-option" onclick="magicChoice('vegetables',this)">
+            <i class="fas fa-carrot"></i> Vegetables
+          </button>
+        </div>
+        <div class="col-6 col-lg-3">
+          <button class="magic-option" onclick="magicChoice('market',this)">
+            <i class="fas fa-cart-shopping"></i> Farmers Market
+          </button>
+        </div>
+        <div class="col-6 col-lg-3">
+          <button class="magic-option" onclick="magicChoice('seasonal',this)">
+            <i class="fas fa-seedling"></i> Seasonal Produce
+          </button>
+        </div>
+      </div>
+
+      <div class="magic-result" id="magicResult">
+        <h5 id="magicTitle"></h5>
+        <p id="magicText"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MARKET FINDER ============================================================ -->
+<section class="section market-section" id="marketFinder">
+  <div class="container">
+    <div class="section-heading text-center">
+      <div class="eyebrow">Interactive Market Finder</div>
+      <h2>Find a Fresh Market</h2>
+      <p class="mx-auto">Search a city or choose a popular location to explore FreshFind market listings.</p>
+    </div>
+
+    <div class="search-box">
+      <i class="fas fa-magnifying-glass"></i>
+      <input type="text" id="marketSearch" placeholder="Search market, city or area...">
+    </div>
+
+    <div class="d-flex gap-2 flex-wrap mb-4 justify-content-center">
+      <button class="city-btn active" onclick="filterCity('All',this)"><i class="fas fa-globe"></i> All</button>
+      <button class="city-btn" onclick="filterCity('Karachi',this)"><i class="fas fa-city"></i> Karachi</button>
+      <button class="city-btn" onclick="filterCity('Lahore',this)"><i class="fas fa-city"></i> Lahore</button>
+      <button class="city-btn" onclick="filterCity('Islamabad',this)"><i class="fas fa-city"></i> Islamabad</button>
+      <button class="city-btn" onclick="filterCity('Rawalpindi',this)"><i class="fas fa-city"></i> Rawalpindi</button>
+    </div>
+
+    <div class="row g-4" id="marketResults"></div>
+  </div>
+</section>
+
+<!-- ============================================================ FEEDBACK ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="feedback-box">
+      <h2>How Are We Doing?</h2>
+      <p>Your feedback helps make FreshFind better for everyone.</p>
+      <div class="big-stars" id="bigStars">
+        <button class="big-star" data-rating="1">★</button>
+        <button class="big-star" data-rating="2">★</button>
+        <button class="big-star" data-rating="3">★</button>
+        <button class="big-star" data-rating="4">★</button>
+        <button class="big-star" data-rating="5">★</button>
+      </div>
+      <div class="feedback-tags">
+        <button class="feedback-tag"><i class="fas fa-hand-pointer"></i> Easy to Use</button>
+        <button class="feedback-tag"><i class="fas fa-palette"></i> Beautiful Design</button>
+        <button class="feedback-tag"><i class="fas fa-thumbs-up"></i> Useful</button>
+        <button class="feedback-tag"><i class="fas fa-star"></i> Great Experience</button>
+      </div>
+      <button class="btn-white" onclick="submitFeedback()">
+        <i class="fas fa-paper-plane"></i> Submit My Rating
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="FreshFind" class="logo-img" onerror="this.style.display='none'">
+        <p>Find the nearest fruits, vegetables, herbs & dairy shops and markets in Karachi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="market.html">All Markets</a>
+        <a href="produce.html">Produce Guide</a>
+        <a href="saved.html">Saved Markets</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a onclick="openAuthModal('login')">Login</a>
+        <a onclick="openAuthModal('signup')">Create Account</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Along</h4>
+        <div class="social-row">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="yr"></span> FreshFind. All rights reserved. · © Aptech Limited
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ SUCCESS MODAL ============================================================ -->
+<div class="modal-bg" id="successModal" onclick="if(event.target===this)closeSuccessModal()">
+  <div class="auth-modal text-center">
+    <button class="modal-close" onclick="closeSuccessModal()"><i class="fas fa-xmark"></i></button>
+    <div class="success-icon"><i class="fas fa-check"></i></div>
+    <h2>Message Sent!</h2>
+    <p class="hint">Thanks for helping FreshFind grow. Your submission has been saved successfully.</p>
+    <div class="reference" id="referenceId">FF-2026-0000</div>
+    <br><br>
+    <button class="btn-main" onclick="closeSuccessModal()" style="justify-content:center;">
+      Continue Exploring
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================ CART MODAL ============================================================ -->
+<div class="modal-bg" id="cartModal" onclick="if(event.target===this)closeCartModal()">
+  <div class="cart-modal">
+    <div class="cart-head">
+      <div class="cart-head-icon"><i class="fas fa-shopping-cart"></i></div>
+      <div class="cart-head-text">
+        <h3>Your Basket</h3>
+        <span id="cartItemsCount">0 items</span>
+      </div>
+      <button class="cart-close" onclick="closeCartModal()"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot" id="cartFoot" style="display:none;">
+      <div class="cart-total">
+        <span class="label">Total</span>
+        <span class="amount" id="cartTotalAmount">Rs 0</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">
+        <i class="fas fa-check-circle"></i> Proceed to Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ AUTH MODALS ============================================================ -->
+<div class="modal-bg" id="loginModal" onclick="if(event.target===this)closeAuthModal('login')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('login')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-leaf"></i></div>
+    <h2>Welcome back</h2>
+    <p class="hint">Sign in to save your favourite markets.</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <div class="footer-text">Don't have an account? <a onclick="closeAuthModal('login');openAuthModal('signup')">Sign up free</a></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="signupModal" onclick="if(event.target===this)closeAuthModal('signup')">
+  <div class="auth-modal">
+    <button class="modal-close" onclick="closeAuthModal('signup')"><i class="fas fa-xmark"></i></button>
+    <div class="modal-icon"><i class="fas fa-seedling"></i></div>
+    <h2>Create your account</h2>
+    <p class="hint">Join FreshFind to save markets near you.</p>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label>Full Name</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" required placeholder="Your name" minlength="2">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="field-input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" required placeholder="Create a password" minlength="4">
+        </div>
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+    </form>
+    <div class="footer-text">Already have an account? <a onclick="closeAuthModal('signup');openAuthModal('login')">Sign in</a></div>
+  </div>
+</div>
+
+<!-- ============================================================ CHATBOT ============================================================ -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" aria-label="Open chat">
+  <i class="fas fa-comment-dots fab-icon"></i>
+  <i class="fas fa-xmark fab-close"></i>
+  <span class="notif-dot" id="chatDot"></span>
+</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+    <div class="chat-head-text">
+      <h4>FreshFind Assistant</h4>
+      <span>Online now</span>
+    </div>
+    <button class="chat-head-close" onclick="toggleChat()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi! 👋 I know all about our <b>fruits, vegetables, herbs, dairy</b>, prices, and markets in Karachi. Ask me anything!</div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+    <button class="chat-send" id="chatSend" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- ============================================================ TOASTS ============================================================ -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ============================================================
+   STATE & HELPERS
+   ============================================================ */
+const store = {
+  get(k,d){ try { return JSON.parse(localStorage.getItem('ff_'+k)) ?? d; } catch { return d; } },
+  set(k,v){ localStorage.setItem('ff_'+k, JSON.stringify(v)); }
+};
+
+let appState = {
+  bookmarks: store.get('bookmarks', { markets:[] }),
+  user: store.get('user', null)
+};
+
+// ✅ Shared cart (ff_cart)
+let cart = store.get('cart', []);
+
+const $ = (s,r=document) => r.querySelector(s);
+const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+
+function escape(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function getInitials(name){
+  if(!name) return '?';
+  const parts = name.trim().split(' ');
+  if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  return name.slice(0,2).toUpperCase();
+}
+function getFirstName(name){ return name ? name.trim().split(' ')[0] : 'Friend'; }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function toast(msg, type='success', icon='fa-circle-check'){
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.innerHTML = `<i class="fas ${icon}"></i><span>${escape(msg)}</span>`;
+  $('#toastStack').appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(20px)'; }, 2200);
+  setTimeout(() => el.remove(), 2600);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+function toggleNav(){
+  $('#navLinks').classList.toggle('open');
+  $('#hamburger').classList.toggle('open');
+}
+
+/* ============================================================
+   CART SYSTEM — uses ff_cart
+   ============================================================ */
+function getCartCount(){ return cart.reduce((sum, i) => sum + (i.qty || 1), 0); }
+function getCartTotal(){ return cart.reduce((sum, i) => sum + (i.price * (i.qty || 1)), 0); }
+
+function refreshCartFromStorage(){
+  try {
+    const raw = localStorage.getItem('ff_cart');
+    const parsed = raw ? JSON.parse(raw) : [];
+    const newCart = Array.isArray(parsed) ? parsed : [];
+    if(JSON.stringify(newCart) !== JSON.stringify(cart)){
+      cart = newCart;
+      updateCartCount();
+      const cartModal = document.getElementById('cartModal');
+      if(cartModal && cartModal.classList.contains('open')){
+        renderCartModal();
+      }
+    } else {
+      updateCartCount();
+    }
+  } catch (e) {
+    console.warn('Could not refresh cart:', e);
+  }
+}
+
+function updateCartCount(){
+  const el = document.getElementById('cartCount');
+  if(!el) return;
+  el.textContent = getCartCount();
+  el.classList.add('bump');
+  setTimeout(() => el.classList.remove('bump'), 350);
+}
+function openCartModal(){
+  refreshCartFromStorage();
+  renderCartModal();
+  $('#cartModal').classList.add('open');
+}
+function closeCartModal(){ $('#cartModal').classList.remove('open'); }
+function removeFromCart(index){
+  if(!cart[index]) return;
+  const name = cart[index].name;
+  cart.splice(index, 1);
+  store.set('cart', cart);
+  updateCartCount();
+  renderCartModal();
+  toast(`${name} removed from cart.`);
+}
+function changeQty(index, delta){
+  if(!cart[index]) return;
+  cart[index].qty = (cart[index].qty || 1) + delta;
+  if(cart[index].qty <= 0) cart.splice(index, 1);
+  store.set('cart', cart);
+  updateCartCount();
+  renderCartModal();
+}
+function renderCartModal(){
+  const body = document.getElementById('cartBody');
+  const foot = document.getElementById('cartFoot');
+  const countLabel = document.getElementById('cartItemsCount');
+  if(!body) return;
+
+  countLabel.textContent = cart.length === 0
+    ? 'No items yet'
+    : `${getCartCount()} item${getCartCount() > 1 ? 's' : ''}`;
+
+  if(cart.length === 0){
+    body.innerHTML = `
+      <div class="cart-empty">
+        <i class="fas fa-shopping-cart"></i>
+        <h4>Your basket is empty</h4>
+        <p>Add fresh products to get started!</p>
+      </div>
+    `;
+    foot.style.display = 'none';
+    return;
+  }
+
+  body.innerHTML = cart.map((item, i) => `
+    <div class="cart-item">
+      <img class="cart-item-img" src="${item.image}" alt="${escape(item.name)}" onerror="this.style.display='none'">
+      <div class="cart-item-info">
+        <h5>${escape(item.name)}</h5>
+        <div class="cart-item-price">
+          <strong>Rs ${item.price}</strong> · per ${escape(item.unit || 'unit')}
+        </div>
+      </div>
+      <div class="cart-qty">
+        <button onclick="changeQty(${i}, -1)"><i class="fas fa-minus"></i></button>
+        <span>${item.qty || 1}</span>
+        <button onclick="changeQty(${i}, 1)"><i class="fas fa-plus"></i></button>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${i})" title="Remove">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  `).join('');
+
+  document.getElementById('cartTotalAmount').textContent = 'Rs ' + getCartTotal().toLocaleString('en-PK');
+  foot.style.display = 'block';
+}
+function checkout(){
+  if(cart.length === 0){
+    toast('Your cart is empty', 'error', 'fa-circle-exclamation');
+    return;
+  }
+  if(!appState.user){
+    toast('Please login to place an order', 'error', 'fa-lock');
+    closeCartModal();
+    setTimeout(() => openAuthModal('login'), 500);
+    return;
+  }
+  toast(`Order placed! Total: Rs ${getCartTotal().toLocaleString('en-PK')} 🎉`, 'success', 'fa-check-circle');
+  cart = [];
+  store.set('cart', []);
+  updateCartCount();
+  closeCartModal();
+}
+
+/* ============================================================
+   CART SYNC LISTENERS
+   ============================================================ */
+window.addEventListener('storage', (e) => {
+  if(e.key === 'ff_cart') refreshCartFromStorage();
+});
+document.addEventListener('visibilitychange', () => {
+  if(!document.hidden) refreshCartFromStorage();
+});
+window.addEventListener('focus', refreshCartFromStorage);
+window.addEventListener('pageshow', refreshCartFromStorage);
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function renderNavActions(){
+  const container = document.getElementById('navActions');
+  if(!container) return;
+
+  const cartHTML = `
+    <button class="cart-icon-btn" onclick="openCartModal()" title="My Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">${getCartCount()}</span>
+    </button>
+  `;
+
+  if(appState.user){
+    const initials = getInitials(appState.user.name);
+    const firstName = getFirstName(appState.user.name);
+    container.innerHTML = cartHTML + `
+      <div class="user-pill" onclick="toggleUserMenu(event)">
+        <div class="avatar">${initials}</div>
+        <span class="user-name">Hi, ${escape(firstName)}</span>
+        <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.6;"></i>
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-header">
+            <strong>${escape(appState.user.name)}</strong>
+            <span>${escape(appState.user.email)}</span>
+          </div>
+          <a href="saved.html"><i class="fas fa-bookmark"></i> My Saved Markets</a>
+          <a onclick="openCartModal()"><i class="fas fa-shopping-cart"></i> My Cart</a>
+          <a href="index.html"><i class="fas fa-home"></i> Go Home</a>
+          <a class="danger" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = cartHTML + `
+      <button class="btn-ghost" onclick="openAuthModal('login')"><i class="fas fa-sign-in-alt"></i> Login</button>
+      <button class="btn-solid" onclick="openAuthModal('signup')"><i class="fas fa-user-plus"></i> Sign Up</button>
+    `;
+  }
+  updateCartCount();
+}
+function toggleUserMenu(e){
+  if(e) e.stopPropagation();
+  const menu = document.getElementById('userMenu');
+  if(menu) menu.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('userMenu');
+  const pill = document.querySelector('.user-pill');
+  if(menu && pill && !pill.contains(e.target)) menu.classList.remove('open');
+});
+
+function openAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.add('open');
+}
+function closeAuthModal(type){
+  const id = type === 'login' ? 'loginModal' : 'signupModal';
+  $('#'+id).classList.remove('open');
+}
+function handleSignup(e){
+  e.preventDefault();
+  const name = $('#signupName').value.trim();
+  const email = $('#signupEmail').value.trim().toLowerCase();
+  const password = $('#signupPassword').value;
+
+  if(!name || name.length < 2){ toast('Enter valid name','error','fa-circle-exclamation'); return; }
+  if(!email || !email.includes('@')){ toast('Enter valid email','error','fa-circle-exclamation'); return; }
+  if(password.length < 4){ toast('Password min 4 chars','error','fa-circle-exclamation'); return; }
+
+  const users = store.get('users', {});
+  if(users[email]){ toast('Email already registered','error','fa-circle-exclamation'); return; }
+
+  users[email] = { name, email, joinedAt:new Date().toISOString(), passwordHash:btoa(password) };
+  store.set('users', users);
+  appState.user = { name, email, joinedAt: users[email].joinedAt };
+  store.set('user', appState.user);
+
+  closeAuthModal('signup');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome, ${getFirstName(name)}! 🌿`, 'success', 'fa-seedling');
+}
+function handleLogin(e){
+  e.preventDefault();
+  const email = $('#loginEmail').value.trim().toLowerCase();
+  const password = $('#loginPassword').value;
+  const users = store.get('users', {});
+  const user = users[email];
+  if(!user){ toast('No account found','error','fa-circle-exclamation'); return; }
+  if(user.passwordHash !== btoa(password)){ toast('Incorrect password','error','fa-circle-exclamation'); return; }
+
+  appState.user = { name:user.name, email:user.email, joinedAt:user.joinedAt };
+  store.set('user', appState.user);
+  closeAuthModal('login');
+  renderNavActions();
+  updateBadge();
+  toast(`Welcome back, ${getFirstName(user.name)}! 🌿`, 'success', 'fa-leaf');
+}
+function logout(){
+  if(!confirm('Logout now?')) return;
+  appState.user = null;
+  store.set('user', null);
+  renderNavActions();
+  updateBadge();
+  toast('Logged out', 'success', 'fa-check-circle');
+}
+function updateBadge(){
+  const el = $('#navBadge');
+  if(el) el.textContent = appState.bookmarks.markets.length;
+}
+
+/* ============================================================
+   FORM PROGRESS
+   ============================================================ */
+const formFields = document.querySelectorAll('.form-watch');
+function updateProgress(){
+  let filled = 0;
+  formFields.forEach(field => {
+    if(field.value.trim() !== '') filled++;
+  });
+  let percent = Math.min(100, Math.max(25, Math.round((filled/formFields.length)*100)));
+  let step = 1;
+  if(percent >= 75) step = 3;
+  else if(percent >= 50) step = 2;
+  if(percent >= 90) step = 4;
+
+  const bar = document.getElementById('formProgress');
+  const pct = document.getElementById('progressPercent');
+  const txt = document.getElementById('progressText');
+  if(bar) bar.style.width = percent + '%';
+  if(pct) pct.textContent = percent + '%';
+  if(txt) txt.textContent = 'Step ' + step + ' of 4';
+}
+formFields.forEach(field => {
+  field.addEventListener('input', updateProgress);
+  field.addEventListener('change', updateProgress);
+});
+
+/* ============================================================
+   IMAGE PREVIEW
+   ============================================================ */
+const imageUpload = document.getElementById('imageUpload');
+if(imageUpload){
+  imageUpload.addEventListener('change', function(){
+    const file = this.files[0];
+    const preview = document.getElementById('imagePreview');
+    const fileName = document.getElementById('fileName');
+
+    if(file){
+      fileName.innerHTML = '<i class="fas fa-paperclip me-1"></i>' + file.name;
+      const reader = new FileReader();
+      reader.onload = function(e){
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      fileName.textContent = '';
+      preview.style.display = 'none';
+    }
+  });
+}
+
+/* ============================================================
+   FORM STAR RATING
+   ============================================================ */
+let formRating = 0;
+document.querySelectorAll('#formStars .star').forEach(star => {
+  star.addEventListener('click', function(){
+    formRating = Number(this.dataset.rating);
+    document.querySelectorAll('#formStars .star').forEach(s => {
+      s.classList.toggle('active', Number(s.dataset.rating) <= formRating);
+    });
+  });
+});
+
+/* ============================================================
+   TOPIC SELECTOR
+   ============================================================ */
+function chooseTopic(topic, cardEl){
+  const topicSelect = document.getElementById('topic');
+  if(topicSelect){
+    let found = false;
+    [...topicSelect.options].forEach(opt => {
+      if(opt.textContent.trim().toLowerCase() === topic.toLowerCase() ||
+         opt.value.toLowerCase() === topic.toLowerCase()){
+        topicSelect.value = opt.value || opt.textContent;
+        found = true;
+      }
+    });
+    if(!found){
+      const newOpt = document.createElement('option');
+      newOpt.textContent = topic;
+      newOpt.value = topic;
+      topicSelect.appendChild(newOpt);
+      topicSelect.value = topic;
+    }
+    topicSelect.dispatchEvent(new Event('change'));
+  }
+
+  document.querySelectorAll('.help-card').forEach(c => c.classList.remove('selected'));
+  if(cardEl) cardEl.classList.add('selected');
+
+  const formSection = document.getElementById('contact-form');
+  if(formSection){
+    formSection.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  setTimeout(() => {
+    const msgField = document.getElementById('message');
+    if(msgField) msgField.focus({ preventScroll:true });
+  }, 800);
+
+  toast(topic + ' selected — please complete the form.', 'success', 'fa-circle-check');
+}
+
+/* ============================================================
+   CONTACT FORM SUBMIT
+   ============================================================ */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const topic = document.getElementById('topic').value;
+  const message = document.getElementById('message').value.trim();
+
+  if(!name || !email || !topic || !message){
+    toast('Please complete all required fields.', 'error', 'fa-circle-exclamation');
+    return;
+  }
+
+  const reference = 'FF-2026-' + Math.floor(1000 + Math.random()*9000);
+
+  const contactData = {
+    name, email,
+    phone: document.getElementById('phone').value,
+    topic,
+    subject: document.getElementById('subject').value,
+    message,
+    rating: formRating,
+    reference,
+    submittedAt: new Date().toISOString()
+  };
+
+  store.set('lastMessage', contactData);
+
+  this.reset();
+  formRating = 0;
+  document.querySelectorAll('#formStars .star').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.help-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('fileName').textContent = '';
+  document.getElementById('imagePreview').style.display = 'none';
+
+  document.getElementById('referenceId').textContent = reference;
+  updateProgress();
+
+  $('#successModal').classList.add('open');
+});
+
+function closeSuccessModal(){ $('#successModal').classList.remove('open'); }
+
+/* ============================================================
+   MAGIC — with Font Awesome icons in result
+   ============================================================ */
+function magicChoice(type, button){
+  document.querySelectorAll('.magic-option').forEach(btn => btn.classList.remove('selected'));
+  button.classList.add('selected');
+
+  const data = {
+    fruits:{
+      title:'<i class="fas fa-apple-whole"></i> Fresh Fruits',
+      text:'Explore juicy seasonal fruits and discover local produce available through FreshFind.'
+    },
+    vegetables:{
+      title:'<i class="fas fa-carrot"></i> Fresh Vegetables',
+      text:'From leafy greens to colourful vegetables, discover fresh choices from local markets.'
+    },
+    market:{
+      title:'<i class="fas fa-cart-shopping"></i> Farmers Markets',
+      text:'Use the interactive Market Finder below to explore FreshFind markets by city.'
+    },
+    seasonal:{
+      title:'<i class="fas fa-seedling"></i> Seasonal Produce',
+      text:"Seasonal produce can help you discover what's fresh and locally available throughout the year."
+    }
+  };
+
+  document.getElementById('magicTitle').innerHTML = data[type].title;
+  document.getElementById('magicText').textContent = data[type].text;
+  document.getElementById('magicResult').classList.add('show');
+}
+
+/* ============================================================
+   MARKET FINDER DATA
+   ============================================================ */
+const MARKETS = [
+  { name:"Empress Market", city:"Karachi", area:"Saddar", rating:"4.8", products:"Fruits • Vegetables • Herbs • Dairy" },
+  { name:"Boat Basin Sunday Market", city:"Karachi", area:"Clifton", rating:"4.9", products:"Organic Produce • Fruits • Dairy" },
+  { name:"DHA Phase 5 Fruit Market", city:"Karachi", area:"DHA", rating:"4.8", products:"Fruits • Vegetables • Herbs" },
+  { name:"Gulshan Chowrangi Fruit Market", city:"Karachi", area:"Gulshan", rating:"4.6", products:"Fruits • Vegetables" },
+  { name:"Tariq Road Fruit Market", city:"Karachi", area:"PECHS", rating:"4.7", products:"Fruits" },
+  { name:"Bahadurabad Market", city:"Karachi", area:"Bahadurabad", rating:"4.8", products:"Fruits • Vegetables • Herbs • Dairy" },
+  { name:"Hyderi Market", city:"Karachi", area:"North Nazimabad", rating:"4.6", products:"Fruits • Vegetables • Herbs • Dairy" },
+  { name:"Sabzi Mandi (Wholesale)", city:"Karachi", area:"Super Highway", rating:"4.6", products:"Fruits • Vegetables" },
+  { name:"Jodia Bazaar (Wholesale)", city:"Karachi", area:"M.A. Jinnah Road", rating:"4.5", products:"Herbs • Dry Fruits" },
+  { name:"Korangi No. 2 Fruit Market", city:"Karachi", area:"Korangi", rating:"4.6", products:"Fruits • Vegetables" },
+  { name:"Landhi No. 6 Fruit Market", city:"Karachi", area:"Landhi", rating:"4.5", products:"Fruits • Vegetables • Herbs" },
+  { name:"Malir Cantt Market", city:"Karachi", area:"Malir", rating:"4.5", products:"Fruits • Vegetables • Herbs" }
+];
+
+let selectedCity = 'All';
+
+function renderMarkets(){
+  const search = (document.getElementById('marketSearch').value || '').toLowerCase().trim();
+  const container = document.getElementById('marketResults');
+
+  const filtered = MARKETS.filter(m => {
+    const cityMatch = selectedCity === 'All' || m.city === selectedCity;
+    const searchMatch = !search ||
+      m.name.toLowerCase().includes(search) ||
+      m.city.toLowerCase().includes(search) ||
+      m.area.toLowerCase().includes(search) ||
+      m.products.toLowerCase().includes(search);
+    return cityMatch && searchMatch;
+  });
+
+  if(filtered.length === 0){
+    container.innerHTML = `
+      <div class="col-12 text-center py-5">
+        <div style="font-size:50px;margin-bottom:12px;">🥬</div>
+        <h5 style="color:var(--green-900);">No markets found</h5>
+        <p style="color:var(--text-muted);">Try another city, market or area.</p>
+        <button class="btn-main" onclick="resetMarkets()" style="justify-content:center;">
+          <i class="fas fa-rotate-left"></i> Show All Markets
+        </button>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(m => `
+    <div class="col-md-6 col-lg-4">
+      <div class="market-card">
+        <div class="market-top">
+          <div class="market-icon"><i class="fas fa-store"></i></div>
+          <span class="market-rating"><i class="fas fa-star"></i> ${m.rating}</span>
+        </div>
+        <h5>${escape(m.name)}</h5>
+        <p>
+          <i class="fas fa-location-dot me-1"></i> ${escape(m.area)}, ${escape(m.city)}
+          <br><br>
+          <i class="fas fa-basket-shopping me-1"></i> ${escape(m.products)}
+        </p>
+        <span class="market-status"><i class="fas fa-circle-check me-1"></i> Open Today</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCity(city, button){
+  selectedCity = city;
+  document.querySelectorAll('.city-btn').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+  renderMarkets();
+}
+
+function resetMarkets(){
+  selectedCity = 'All';
+  document.querySelectorAll('.city-btn').forEach(btn => btn.classList.remove('active'));
+  const allBtn = document.querySelector('.city-btn');
+  if(allBtn) allBtn.classList.add('active');
+  document.getElementById('marketSearch').value = '';
+  renderMarkets();
+}
+
+/* ============================================================
+   FEEDBACK — with Font Awesome icons
+   ============================================================ */
+let bigRating = 0;
+
+document.querySelectorAll('#bigStars .big-star').forEach(star => {
+  star.addEventListener('click', function(e){
+    e.preventDefault();
+    bigRating = Number(this.dataset.rating);
+    document.querySelectorAll('#bigStars .big-star').forEach(s => {
+      s.classList.toggle('active', Number(s.dataset.rating) <= bigRating);
+    });
+  });
+});
+
+document.querySelectorAll('.feedback-tag').forEach(tag => {
+  tag.addEventListener('click', function(e){
+    e.preventDefault();
+    this.classList.toggle('active');
+  });
+});
+
+function submitFeedback(){
+  if(bigRating === 0){
+    toast('Please select a star rating first.', 'error', 'fa-circle-exclamation');
+    return;
+  }
+  const tags = [...document.querySelectorAll('.feedback-tag.active')].map(t => t.textContent.trim());
+  store.set('rating', { rating: bigRating, tags, submittedAt: new Date().toISOString() });
+
+  const stars = '★'.repeat(bigRating) + '☆'.repeat(5 - bigRating);
+  const tagText = tags.length ? `<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">${tags.map(t => `<span style="background:var(--green-100);color:var(--green-800);padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;">${escape(t)}</span>`).join('')}</div>` : '';
+
+  const popup = document.createElement('div');
+  popup.className = 'modal-bg open';
+  popup.style.zIndex = '3200';
+  popup.innerHTML = `
+    <div class="auth-modal text-center" style="max-width:420px;">
+      <button class="modal-close" onclick="this.closest('.modal-bg').remove()"><i class="fas fa-xmark"></i></button>
+      <div class="success-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);color:var(--amber-600);">
+        <i class="fas fa-heart"></i>
+      </div>
+      <h2 style="color:var(--green-900);">Thank You! <i class="fas fa-seedling" style="color:var(--green-600);"></i></h2>
+      <p class="hint" style="margin-bottom:14px;">Your feedback helps make FreshFind better for everyone.</p>
+      <div style="font-size:1.8rem;color:var(--amber-500);letter-spacing:4px;margin:10px 0;">${stars}</div>
+      <div style="color:var(--green-800);font-weight:700;font-size:0.9rem;">You rated us ${bigRating} star${bigRating>1?'s':''}</div>
+      ${tagText}
+      <br><br>
+      <button class="btn-main" onclick="this.closest('.modal-bg').remove()" style="justify-content:center;">
+        <i class="fas fa-check"></i> Close
+      </button>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  bigRating = 0;
+  document.querySelectorAll('#bigStars .big-star').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.feedback-tag').forEach(t => t.classList.remove('active'));
+}
+
+/* ============================================================
+   CHATBOT
+   ============================================================ */
+const CHAT_RULES = [
+  { keys:["hello","hi","hey"], reply:"Hi! 👋 I can help you find nearest shops for <b>fruits, vegetables, herbs & dairy</b> in Karachi." },
+  { keys:["cart","basket","order"], reply:"Tap the <b>cart icon</b> in the header to view your basket. Add products with the green <b>Add</b> button! 🛒" },
+  { keys:["herb","herbs","podina","dhania","mint"], reply:"Fresh herbs available: <b>Mint, Coriander, Basil, Curry Leaves, Green Onion, Dill, Fenugreek, Parsley</b>. 🌿" },
+  { keys:["dairy","doodh","milk","yogurt","dahi","cheese","butter"], reply:"Fresh dairy available: <b>Milk, Yogurt, Butter, Cream, Paneer, Cheese, Lassi, Khoya</b>. 🥛" },
+  { keys:["login","signup","account"], reply:"Sign up to save your favourite markets and get personalized price alerts. It's free! 🌿" },
+  { keys:["contact","help","support","email","phone"], reply:"Reach us at <b>hajrarajpootbhatti@gmail.com</b> ✉️ or call <b>+92 300 1234567</b> 📞" },
+  { keys:["near","nearest","close"], reply:"Use the search filters on the Markets page — pick your area, day, or category to find the closest markets! 📍" },
+  { keys:["season","seasonal"], reply:"Winter season mein fresh: <b>Strawberry, Orange, Guava, Pomegranate, Carrot, Spinach, Cauliflower, Mint</b>. 🍓🥕" },
+  { keys:["price","rate","cost"], reply:"Prices: Apple Rs. 350/kg, Tomato Rs. 200/kg, Mint Rs. 40/bunch, Milk Rs. 220/L. 💰" },
+  { keys:["fruit"], reply:"Apple Rs. 350/kg, Mango Rs. 280/kg, Banana Rs. 220/dozen. 🍎" },
+  { keys:["vegetable"], reply:"Tomato Rs. 200/kg, Potato Rs. 170/kg, Onion Rs. 200/kg. 🥕" },
+  { keys:["feedback","rating","review"], reply:"We'd love to hear your feedback! Scroll down and rate us ⭐ — it means the world to us." },
+  { keys:["suggest","market idea","add market"], reply:"Great idea! Use the <b>Suggest a Market</b> card in the contact section to tell us about a market you'd like us to add. 🏪" }
+];
+const CHAT_FALLBACK = "Try asking about <b>fruits, vegetables, herbs, dairy</b>, prices, seasons, or contact info. Type <b>help</b> for support.";
+
+let chatOpen = false;
+function toggleChat(){
+  chatOpen = !chatOpen;
+  $('#chatPanel').classList.toggle('open', chatOpen);
+  $('#chatFab').classList.toggle('open', chatOpen);
+  if(chatOpen){
+    const dot = $('#chatDot');
+    if(dot) dot.style.display = 'none';
+    setTimeout(() => $('#chatInput')?.focus(), 300);
+  }
+}
+function sendChat(){
+  const input = $('#chatInput');
+  const txt = input.value.trim();
+  if(!txt) return;
+  appendChat(txt, 'user');
+  input.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  $('#chatBody').appendChild(typing);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    appendChat(getBotReply(txt), 'bot');
+  }, 600 + Math.random()*400);
+}
+function appendChat(text, who){
+  const el = document.createElement('div');
+  el.className = 'chat-msg ' + who;
+  el.innerHTML = text;
+  $('#chatBody').appendChild(el);
+  $('#chatBody').scrollTop = $('#chatBody').scrollHeight;
+}
+function getBotReply(msg){
+  const lower = ' ' + msg.toLowerCase() + ' ';
+  for(const rule of CHAT_RULES){
+    if(rule.keys.some(k => lower.includes(k))) return rule.reply;
+  }
+  return CHAT_FALLBACK;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold:0.12 });
+
+document.querySelectorAll('.info-card,.help-card,.form-wrapper,.market-card,.magic-box,.feedback-box').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .6s ease, transform .6s ease';
+  observer.observe(el);
+});
+
+/* ============================================================
+   ESC TO CLOSE MODALS
+   ============================================================ */
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeAuthModal('login');
+    closeAuthModal('signup');
+    closeSuccessModal();
+    closeCartModal();
+    if(chatOpen) toggleChat();
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  refreshCartFromStorage();
+  renderNavActions();
+  updateBadge();
+  renderMarkets();
+  updateProgress();
+
+  const chatInput = document.getElementById('chatInput');
+  if(chatInput){
+    chatInput.addEventListener('keypress', e => {
+      if(e.key === 'Enter') sendChat();
+    });
+  }
+
+  const searchEl = document.getElementById('marketSearch');
+  if(searchEl) searchEl.addEventListener('input', renderMarkets);
+}
+document.addEventListener('DOMContentLoaded', init);
+
+window.toggleNav = toggleNav;
+window.chooseTopic = chooseTopic;
+window.magicChoice = magicChoice;
+window.filterCity = filterCity;
+window.resetMarkets = resetMarkets;
+window.submitFeedback = submitFeedback;
+window.closeSuccessModal = closeSuccessModal;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
+window.logout = logout;
+window.toggleUserMenu = toggleUserMenu;
+window.toggleChat = toggleChat;
+window.sendChat = sendChat;
+window.openCartModal = openCartModal;
+window.closeCartModal = closeCartModal;
+window.changeQty = changeQty;
+window.removeFromCart = removeFromCart;
+window.checkout = checkout;
+window.refreshCartFromStorage = refreshCartFromStorage;
+</script>
+
+</body>
+</html>
